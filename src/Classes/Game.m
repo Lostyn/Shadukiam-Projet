@@ -75,16 +75,19 @@ static int stageHeight;
     [self addChild:[PageManager getInstance]];
     [PageManager getInstance].x = xOrigin;
     [PageManager getInstance].y = yOrigin;
-    [[PageManager getInstance] changePage:@"PagePlay"];
+    //[[PageManager getInstance] changePage:@"PagePlay"];
     // test TDB
-    //[InfosJoueur setMyPerso:3];
-    //[[PageManager getInstance] changePage:@"PageMove"];
+    [InfosJoueur setMyPerso:3];
+    [[PageManager getInstance] changePage:@"PageMove"];
     
     // menu
     [self addChild:[Menu getInstance]];
     [Menu getInstance].x = xOrigin;
     [Menu getInstance].y = yOrigin;
-    [[Menu getInstance] initMenu];                                 
+    [[Menu getInstance] initMenu]; 
+    
+    // init epawn
+    [[EpawnData getInstance] start:self.stage.nativeView];
     
     
     //kill the timer

@@ -9,12 +9,16 @@
 #import "Page.h"
 #import "Titre.h"
 #import "Plateau.h"
+#import "EpawnData.h"
 
 @interface PageMove : Page {
     
     Titre *titre;
     NSDictionary *currentCase;
     NSMutableArray *casesAccessibles;
+    NSTimer *updateTimer;
+    
+    SPTextField *debug;
     
 }
 

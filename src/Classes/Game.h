@@ -8,6 +8,7 @@
 #import "PageManager.h"
 #import "Menu.h"
 #import "InfosJoueur.h"
+#import "EpawnData.h"
 
 @interface Game : SPSprite
 {

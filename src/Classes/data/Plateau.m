@@ -12,7 +12,8 @@
 
 static Plateau *instance = nil;
 
-static int NB_CASES_LINE = 10;
+static int NB_CASES_LINE = 22;
+static int NB_CASES_COL = 28;
 static int CASE_WIDTH = 20;
     
 + (Plateau*)getInstance
@@ -39,15 +40,19 @@ static int CASE_WIDTH = 20;
 
 // retourne une case a partir de sa position x et y
 - (NSDictionary*) getCaseByPos:(int)posX andY:(int)posY {
-    int caseID = posY * NB_CASES_LINE + posX;
-    return [self getCaseByID:caseID];
+    if(posX >= 0 && posX < NB_CASES_COL && posY >= 0 && posY < NB_CASES_LINE) {
+        int caseID = posX * NB_CASES_LINE + posY;
+        return [self getCaseByID:caseID];
+    } else {
+        return nil;
+    }
 }
 
 // retourne une case a partir des coordonnées du pion
 - (NSDictionary*) getCaseByCoord: (int) coordX andY: (int) coordY {
-    int posY = floor(coordY / CASE_WIDTH);
-    if(posY % 2 == 1) coordX += CASE_WIDTH / 2;
-    int posX = floor(coordX / CASE_WIDTH);
+    int posX = floor(coordY / CASE_WIDTH);
+    if(posX % 2 == 1) coordX += CASE_WIDTH / 2;
+    int posY = floor(coordX / CASE_WIDTH);
     
     return [self getCaseByPos:posX andY:posY];
     
