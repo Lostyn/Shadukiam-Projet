@@ -13,10 +13,10 @@
 -(void) show {
     [super show];
     
-    titre = [[Titre alloc] initWithText:@"Djinn"];
-    titre.x = 120;
-    titre.y = 3;
-    [self addChild:titre];
+    Class djinn = NSClassFromString( @"Djinn001" );
+    carte = [[djinn alloc] init];
+    [self addChild:carte];
+    [carte execute];
     
     [self addEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }

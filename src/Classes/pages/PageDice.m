@@ -15,6 +15,7 @@
     
     velocity = 0.0;
     velocity2 = 0.0;
+    [InfosTour setMouvement:2];
     
     titre = [[Titre alloc] initWithText:@"Lancer" ];
     [self addChild:titre ];
