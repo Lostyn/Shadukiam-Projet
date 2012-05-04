@@ -44,7 +44,9 @@
     btnEnigme = [[TDBBtn alloc] initWithText:@"ENIGMES"];
     btnEnigme.x = 80;
     btnEnigme.y = 195;
+    btnEnigme.name = @"PageEnigme";
     [buttons addChild:btnEnigme];
+    [btnEnigme addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     btnMessagerie = [[TDBBtn alloc] initWithText:@"MESSAGERIE"];
     btnMessagerie.x = 340;

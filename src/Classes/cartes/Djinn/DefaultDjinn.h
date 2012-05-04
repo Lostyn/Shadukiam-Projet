@@ -9,6 +9,8 @@
 #import "SPSprite.h"
 #import "Game.h"
 #import "Constante.h"
+#import "Dialog.h"
+#import "EpawnData.h"
 
 @interface DefaultDjinn : SPSprite {
     

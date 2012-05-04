@@ -16,4 +16,9 @@
     
 }
 
+-(void) enigmeResult:(NSString *)key{
+}
+-(void) enigmeSuccess:(NSString *)key{
+}
+
 @end

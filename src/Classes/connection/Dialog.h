@@ -21,6 +21,8 @@
 - (void) gameLaunched;
 - (void) persoSelected:(int)numPerso fromID:(int)playerID;
 - (void) gameStart;
+- (void) enigmeResult:(NSString*) key;
+- (void) enigmeSuccess:(NSString*) key;
 
 @end
 
