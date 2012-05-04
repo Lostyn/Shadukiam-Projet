@@ -75,22 +75,12 @@ static int stageHeight;
     [self addChild:[PageManager getInstance]];
     [PageManager getInstance].x = xOrigin;
     [PageManager getInstance].y = yOrigin;
-<<<<<<< HEAD
+
     [[PageManager getInstance] changePage:@"PagePlay"];
     // test TDB
     //[InfosJoueur setMyPerso:3];
     //[[PageManager getInstance] changePage:@"PageMove"];
-=======
-<<<<<<< HEAD
-    //[[PageManager getInstance] changePage:@"PagePlay"];
-    // test TDB
-    [InfosJoueur setMyPerso:3];
-    [[PageManager getInstance] changePage:@"PageMove"];
-=======
-    [[PageManager getInstance] changePage:@"PagePlay"];
-    //[[PageManager getInstance] changePage:@"PageDjinn"];
->>>>>>> Page Djinn
->>>>>>> Page Djinn
+
     
     // menu
     [self addChild:[Menu getInstance]];
