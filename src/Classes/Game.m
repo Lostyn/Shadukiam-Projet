@@ -79,7 +79,7 @@ static int stageHeight;
     [[PageManager getInstance] changePage:@"PagePlay"];
     // test TDB
     //[InfosJoueur setMyPerso:3];
-    //[[PageManager getInstance] changePage:@"PageMove"];
+    //[[PageManager getInstance] changePage:@"PageObtentionObjet"];
 
     
     // menu

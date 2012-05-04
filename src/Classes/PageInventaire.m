@@ -14,15 +14,10 @@
     
     [super show];
     
-    // test, a enlever
-    [InfosJoueur addObjet:1];
-    [InfosJoueur addObjet:2];
-    [InfosJoueur addObjet:2];
-    
     titre = [[Titre alloc] initWithText:@"INVENTAIRE"];
     [self addChild:titre];
     titre.x = 120;
-    titre.y = 3;
+    titre.y = 0;
     
     NSMutableArray *objets = [InfosJoueur getObjets];
     int nbCols = [objets count] / 2;
@@ -33,7 +28,7 @@
     
     backBtn = [SPImage imageWithContentsOfFile:@"retourne.png"];
     [self addChild:backBtn];
-    backBtn.x = 420;
+    backBtn.x = 42;
     backBtn.y = 5;
     
     [backBtn addEventListener:@selector(onTouchBack:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -88,7 +83,7 @@
     [self.stage.juggler addObject:tweenBack];
     
     objetsIcones.alpha = 0;
-    objetsIcones.y = 5;
+    objetsIcones.y = 0;
     SPTween* tweenIcones = [SPTween tweenWithTarget:objetsIcones time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenIcones setDelay:0.75f];
     [tweenIcones animateProperty:@"alpha" targetValue:1];

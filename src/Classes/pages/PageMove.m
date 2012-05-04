@@ -124,7 +124,7 @@
         if (touch.tapCount == 1)
         {
             [InfosJoueur setCurrentCase:[[currentCase objectForKey:@"zone"] intValue]];
-            [[PageManager getInstance] changePage:@"PageTDB"];
+            [[PageManager getInstance] changePage:@"PageObtentionObjet"];
         }
     }
     
