@@ -12,9 +12,10 @@
 
 @synthesize numPerso;
 
-- (void) initWithPerso:(int)pnumPerso {
+- (void) initWithPerso:(int)pnumPerso andXML:(NSDictionary*) persoXML {
     
     numPerso = pnumPerso;
+    infosXML = persoXML;
     
     isFront = YES;
     
@@ -60,6 +61,15 @@
     [back addChild:nomBack];
     nomBack.x = (background.width - nomBack.width) / 2;
     nomBack.y = 30;
+    
+    description = [SPTextField textFieldWithWidth:220 height:150 
+                                             text:[NSString stringWithFormat:@"HISTOIRE : %@\nCAPACITE : %@", [infosXML objectForKey:@"histoire"], [infosXML objectForKey:@"capacite"]]];
+    description.x = (background.width - description.width) / 2;
+    description.y = 70;
+    description.fontName = [Constante getFontDescription];
+    description.fontSize = 14;
+    description.color = 0xFFFFFF;
+    [back addChild:description];
     
     // listeners
     [retourneBtn addEventListener:@selector(onTouchRetourne:) atObject:self forType:SP_EVENT_TYPE_TOUCH];

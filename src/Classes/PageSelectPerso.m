@@ -25,7 +25,7 @@
     titre.x = 120;
     
     // init slider
-    sliderPersos = [[Slider alloc] initWithWidth:3 * 210 height:[Game stageHeight]];
+    sliderPersos = [[Slider alloc] initWithWidth:7 * 210 height:[Game stageHeight]];
     [self addChild:sliderPersos];
     sliderPersos.y = 40;
     
@@ -42,15 +42,10 @@
     backgroundMask = [[SPQuad alloc] initWithWidth:[Game stageWidth] height:[Game stageHeight] color:0x000000];
     backgroundMask.alpha = 0;
     
-    // test XML
-    /*
+    // xml
     NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"persos" ofType:@"xml"]];
     NSError *error = nil;
-    NSDictionary *dico = [XMLReader dictionaryForXMLData:xmlData error:&error];
-    
-    NSDictionary *perso = [dico retrieveForPath:@"persos.perso.0"];
-    NSLog(@"name : %@", [perso objectForKey:@"name"]);
-     */
+    infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
 }
 
 - (void) onTouchPerso:(SPTouchEvent*)event {
@@ -77,7 +72,7 @@
     
     // init fiche
     persoActive = [[FichePerso alloc] init ];
-    [persoActive initWithPerso:numPerso];
+    [persoActive initWithPerso:numPerso andXML:[infosXML retrieveForPath:[NSString stringWithFormat:@"persos.perso.%d", numPerso]]];
     
     persoActive.x = ([Game stageWidth] - persoActive.width) / 2 + 17;
     persoActive.y = ([Game stageHeight] - persoActive.height) / 2 + 45;

@@ -1,13 +1,47 @@
 <persos>
-
-<perso>
-    <name>Médecin</name>
-    <description>description médecin</description>
-</perso>
     
-<perso>
-    <name>Artificier</name>
-    <description>description artificier</description>
-</perso>
+    <perso>null</perso>
+
+    <perso>
+        <name>Médecin</name>
+        <histoire>on ne sait pas</histoire>
+        <capacite>il soigne des gens</capacite>
+    </perso>
+    
+    <perso>
+        <name>Artificier</name>
+        <histoire>il s'est retrouvé la par hasard</histoire>
+        <capacite>fait tout peter</capacite>
+    </perso>
+    
+    <perso>
+        <name>Artificier</name>
+        <histoire>il s'est retrouvé la par hasard</histoire>
+        <capacite>fait tout peter</capacite>
+    </perso>
+    
+    <perso>
+        <name>Artificier</name>
+        <histoire>il s'est retrouvé la par hasard</histoire>
+        <capacite>fait tout peter</capacite>
+    </perso>
+    
+    <perso>
+        <name>Artificier</name>
+        <histoire>il s'est retrouvé la par hasard</histoire>
+        <capacite>fait tout peter</capacite>
+    </perso>
+    
+    <perso>
+        <name>Artificier</name>
+        <histoire>il s'est retrouvé la par hasard</histoire>
+        <capacite>fait tout peter</capacite>
+    </perso>
+    
+    <perso>
+        <name>Artificier</name>
+        <histoire>il s'est retrouvé la par hasard</histoire>
+        <capacite>fait tout peter</capacite>
+    </perso>
 
 </persos>

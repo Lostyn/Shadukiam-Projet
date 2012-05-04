@@ -8,6 +8,7 @@
 
 #import "SPSprite.h"
 #import "Game.h"
+#import "Constante.h"
 
 @interface FichePerso : SPSprite {
     
@@ -20,6 +21,8 @@
     SPImage *retourneBtn;
     SPImage *nomBack;
     SPImage *okBtn;
+    NSDictionary *infosXML;
+    SPTextField *description;
     
     bool isFront;
     int numPerso;
@@ -28,7 +31,7 @@
 
 @property int numPerso;
 
-- (void) initWithPerso:(int)numPerso;
+- (void) initWithPerso:(int)numPerso andXML:(NSDictionary*) persoXML;
 -(void) removeOK;
 
 @end

@@ -623,6 +623,9 @@
 	<zone>
 		<id>0</id>
 		<salle>0</salle>
+        <porte>0</porte>
+        <posx>548</posx>
+        <posy>1198</posy>
 		<voisins>
 			<voisin>1</voisin>
 			<voisin>2</voisin>
@@ -632,6 +635,9 @@
 	<zone>
 		<id>1</id>
 		<salle>0</salle>
+        <porte>0</porte>
+        <posx>685</posx>
+        <posy>1150</posy>
 		<voisins>
 			<voisin>0</voisin>
 			<voisin>2</voisin>
@@ -641,6 +647,9 @@
 	<zone>
 		<id>2</id>
 		<salle>0</salle>
+        <porte>0</porte>
+        <posx>630</posx>
+        <posy>1006</posy>
 		<voisins>
 			<voisin>8</voisin>
 			<voisin>1</voisin>
@@ -652,6 +661,9 @@
 	<zone>
 		<id>3</id>
 		<salle>0</salle>
+        <porte>0</porte>
+        <posx>521</posx>
+        <posy>1006</posy>
 		<voisins>
 			<voisin>4</voisin>
 			<voisin>2</voisin>
@@ -661,6 +673,9 @@
 	<zone>
 		<id>4</id>
 		<salle>0</salle>
+        <porte>0</porte>
+        <posx>521</posx>
+        <posy>1006</posy>
 		<voisins>
 			<voisin>3</voisin>
 			<voisin>3</voisin>
@@ -669,6 +684,9 @@
 	<zone>
 		<id>5</id>
 		<salle>0</salle>
+        <porte>0</porte>
+        <posx>493</posx>
+        <posy>1150</posy>
 		<voisins>
 			<voisin>0</voisin>
 			<voisin>6</voisin>
@@ -679,6 +697,9 @@
 	<zone>
 		<id>6</id>
 		<salle>0</salle>
+        <porte>0</porte>
+        <posx>411</posx>
+        <posy>1198</posy>
 		<voisins>
 			<voisin>5</voisin>
 			<voisin>9</voisin>
@@ -686,7 +707,10 @@
 	</zone>
 	<zone>
 		<id>7</id>
-		<salle>-1</salle>
+		<salle>1</salle>
+        <porte>1</porte>
+        <posx>795</posx>
+        <posy>1198</posy>
 		<voisins>
 			<voisin>1</voisin>
 			<voisin>10</voisin>
@@ -694,7 +718,10 @@
 	</zone>
 	<zone>
 		<id>8</id>
-		<salle>-1</salle>
+		<salle>2</salle>
+        <porte>1</porte>
+        <posx>768</posx>
+        <posy>1006</posy>
 		<voisins>
 			<voisin>2</voisin>
 			<voisin>13</voisin>
@@ -702,7 +729,10 @@
 	</zone>
 	<zone>
 		<id>9</id>
-		<salle>-1</salle>
+		<salle>3</salle>
+        <porte>1</porte>
+        <posx>357</posx>
+        <posy>1150</posy>
 		<voisins>
 			<voisin>6</voisin>
 			<voisin>17</voisin>
@@ -711,6 +741,9 @@
 	<zone>
 		<id>10</id>
 		<salle>1</salle>
+        <porte>0</porte>
+        <posx>850</posx>
+        <posy>1198</posy>
 		<voisins>
 			<voisin>7</voisin>
 			<voisin>11</voisin>
@@ -720,6 +753,9 @@
 	<zone>
 		<id>11</id>
 		<salle>1</salle>
+        <porte>0</porte>
+        <posx>960</posx>
+        <posy>1198</posy>
 		<voisins>
 			<voisin>10</voisin>
 			<voisin>12</voisin>
@@ -728,6 +764,9 @@
 	<zone>
 		<id>12</id>
 		<salle>1</salle>
+        <porte>0</porte>
+        <posx>932</posx>
+        <posy>1150</posy>
 		<voisins>
 			<voisin>10</voisin>
 			<voisin>11</voisin>
@@ -736,6 +775,9 @@
 	<zone>
 		<id>13</id>
 		<salle>2</salle>
+        <porte>0</porte>
+        <posx>851</posx>
+        <posy>911</posy>
 		<voisins>
 			<voisin>14</voisin>
 			<voisin>15</voisin>
@@ -746,6 +788,9 @@
 	<zone>
 		<id>14</id>
 		<salle>2</salle>
+        <porte>0</porte>
+        <posx>988</posx>
+        <posy>959</posy>
 		<voisins>
 			<voisin>13</voisin>
 			<voisin>15</voisin>
@@ -754,6 +799,9 @@
 	<zone>
 		<id>15</id>
 		<salle>2</salle>
+        <porte>0</porte>
+        <posx>960</posx>
+        <posy>863</posy>
 		<voisins>
 			<voisin>14</voisin>
 			<voisin>13</voisin>
@@ -763,6 +811,9 @@
 	<zone>
 		<id>16</id>
 		<salle>2</salle>
+        <porte>0</porte>
+        <posx>851</posx>
+        <posy>863</posy>
 		<voisins>
 			<voisin>15</voisin>
 			<voisin>13</voisin>
@@ -771,6 +822,9 @@
 	<zone>
 		<id>17</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>274</posx>
+        <posy>1102</posy>
 		<voisins>
 			<voisin>9</voisin>
 			<voisin>18</voisin>
@@ -781,6 +835,9 @@
 	<zone>
 		<id>18</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>356</posx>
+        <posy>959</posy>
 		<voisins>
 			<voisin>17</voisin>
 			<voisin>19</voisin>
@@ -790,6 +847,9 @@
 	<zone>
 		<id>19</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>247</posx>
+        <posy>1054</posy>
 		<voisins>
 			<voisin>17</voisin>
 			<voisin>18</voisin>
@@ -801,6 +861,9 @@
 	<zone>
 		<id>20</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>247</posx>
+        <posy>911</posy>
 		<voisins>
 			<voisin>19</voisin>
 			<voisin>18</voisin>
@@ -811,6 +874,9 @@
 	<zone>
 		<id>21</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>137</posx>
+        <posy>1054</posy>
 		<voisins>
 			<voisin>19</voisin>
 			<voisin>20</voisin>
@@ -824,6 +890,9 @@
 	<zone>
 		<id>22</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>164</posx>
+        <posy>1150</posy>
 		<voisins>
 			<voisin>17</voisin>
 			<voisin>19</voisin>
@@ -834,6 +903,9 @@
 	<zone>
 		<id>23</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>82</posx>
+        <posy>1102</posy>
 		<voisins>
 			<voisin>24</voisin>
 			<voisin>22</voisin>
@@ -844,6 +916,9 @@
 	<zone>
 		<id>24</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>27</posx>
+        <posy>1150</posy>
 		<voisins>
 			<voisin>23</voisin>
 			<voisin>23</voisin>
@@ -852,6 +927,9 @@
 	<zone>
 		<id>25</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>137</posx>
+        <posy>911</posy>
 		<voisins>
 			<voisin>20</voisin>
 			<voisin>21</voisin>
@@ -863,6 +941,9 @@
 	<zone>
 		<id>26</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>82</posx>
+        <posy>911</posy>
 		<voisins>
 			<voisin>21</voisin>
 			<voisin>25</voisin>
@@ -873,6 +954,9 @@
 	<zone>
 		<id>27</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>0</posx>
+        <posy>959</posy>
 		<voisins>
 			<voisin>21</voisin>
 			<voisin>23</voisin>
@@ -882,6 +966,9 @@
 	<zone>
 		<id>28</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>164</posx>
+        <posy>815</posy>
 		<voisins>
 			<voisin>25</voisin>
 			<voisin>29</voisin>
@@ -891,6 +978,9 @@
 	<zone>
 		<id>29</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>82</posx>
+        <posy>767</posy>
 		<voisins>
 			<voisin>25</voisin>
 			<voisin>26</voisin>
@@ -902,6 +992,9 @@
 	<zone>
 		<id>30</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>137</posx>
+        <posy>719</posy>
 		<voisins>
 			<voisin>28</voisin>
 			<voisin>29</voisin>
@@ -912,6 +1005,9 @@
 	<zone>
 		<id>31</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>137</posx>
+        <posy>623</posy>
 		<voisins>
 			<voisin>30</voisin>
 			<voisin>32</voisin>
@@ -921,6 +1017,9 @@
 	<zone>
 		<id>32</id>
 		<salle>3</salle>
+        <porte>0</porte>
+        <posx>27</posx>
+        <posy>623</posy>
 		<voisins>
 			<voisin>29</voisin>
 			<voisin>30</voisin>
@@ -929,7 +1028,10 @@
 	</zone>
 	<zone>
 		<id>33</id>
-		<salle>-1</salle>
+		<salle>4</salle>
+        <porte>1</porte>
+        <posx>246</posx>
+        <posy>528</posy>
 		<voisins>
 			<voisin>31</voisin>
 			<voisin>34</voisin>
@@ -938,6 +1040,9 @@
 	<zone>
 		<id>34</id>
 		<salle>4</salle>
+        <porte>0</porte>
+        <posx>330</posx>
+        <posy>432</posy>
 		<voisins>
 			<voisin>33</voisin>
 			<voisin>35</voisin>
@@ -947,6 +1052,9 @@
 	<zone>
 		<id>35</id>
 		<salle>4</salle>
+        <porte>0</porte>
+        <posx>439</posx>
+        <posy>432</posy>
 		<voisins>
 			<voisin>34</voisin>
 			<voisin>36</voisin>
@@ -957,6 +1065,9 @@
 	<zone>
 		<id>36</id>
 		<salle>4</salle>
+        <porte>0</porte>
+        <posx>466</posx>
+        <posy>480</posy>
 		<voisins>
 			<voisin>34</voisin>
 			<voisin>35</voisin>
@@ -967,6 +1078,9 @@
 	<zone>
 		<id>37</id>
 		<salle>4</salle>
+        <porte>0</porte>
+        <posx>603</posx>
+        <posy>432</posy>
 		<voisins>
 			<voisin>35</voisin>
 			<voisin>36</voisin>
@@ -977,6 +1091,9 @@
 	<zone>
 		<id>38</id>
 		<salle>4</salle>
+        <porte>0</porte>
+        <posx>631</posx>
+        <posy>480</posy>
 		<voisins>
 			<voisin>36</voisin>
 			<voisin>37</voisin>
@@ -988,6 +1105,9 @@
 	<zone>
 		<id>39</id>
 		<salle>4</salle>
+        <porte>0</porte>
+        <posx>768</posx>
+        <posy>432</posy>
 		<voisins>
 			<voisin>37</voisin>
 			<voisin>38</voisin>
@@ -999,6 +1119,9 @@
 	<zone>
 		<id>40</id>
 		<salle>4</salle>
+        <porte>0</porte>
+        <posx>850</posx>
+        <posy>480</posy>
 		<voisins>
 			<voisin>38</voisin>
 			<voisin>39</voisin>
@@ -1010,6 +1133,9 @@
 	<zone>
 		<id>41</id>
 		<salle>4</salle>
+        <porte>0</porte>
+        <posx>960</posx>
+        <posy>432</posy>
 		<voisins>
 			<voisin>39</voisin>
 			<voisin>40</voisin>
@@ -1018,6 +1144,9 @@
 	<zone>
 		<id>42</id>
 		<salle>4</salle>
+        <porte>0</porte>
+        <posx>1015</posx>
+        <posy>480</posy>
 		<voisins>
 			<voisin>40</voisin>
 			<voisin>40</voisin>
@@ -1025,7 +1154,10 @@
 	</zone>
 	<zone>
 		<id>43</id>
-		<salle>-1</salle>
+		<salle>5</salle>
+        <porte>1</porte>
+        <posx>823</posx>
+        <posy>575</posy>
 		<voisins>
 			<voisin>44</voisin>
 			<voisin>45</voisin>
@@ -1036,6 +1168,9 @@
 	<zone>
 		<id>44</id>
 		<salle>5</salle>
+        <porte>0</porte>
+        <posx>795</posx>
+        <posy>671</posy>
 		<voisins>
 			<voisin>43</voisin>
 			<voisin>45</voisin>
@@ -1044,6 +1179,9 @@
 	<zone>
 		<id>45</id>
 		<salle>5</salle>
+        <porte>0</porte>
+        <posx>877</posx>
+        <posy>671</posy>
 		<voisins>
 			<voisin>43</voisin>
 			<voisin>44</voisin>
@@ -1053,6 +1191,9 @@
 	<zone>
 		<id>46</id>
 		<salle>5</salle>
+        <porte>0</porte>
+        <posx>986</posx>
+        <posy>671</posy>
 		<voisins>
 			<voisin>45</voisin>
 			<voisin>47</voisin>
@@ -1061,6 +1202,9 @@
 	<zone>
 		<id>47</id>
 		<salle>5</salle>
+        <porte>0</porte>
+        <posx>1069</posx>
+        <posy>671</posy>
 		<voisins>
 			<voisin>46</voisin>
 			<voisin>46</voisin>
@@ -1068,7 +1212,10 @@
 	</zone>
 	<zone>
 		<id>48</id>
-		<salle>-1</salle>
+		<salle>6</salle>
+        <porte>1</porte>
+        <posx>521</posx>
+        <posy>575</posy>
 		<voisins>
 			<voisin>36</voisin>
 			<voisin>49</voisin>
@@ -1077,6 +1224,9 @@
 	<zone>
 		<id>49</id>
 		<salle>6</salle>
+        <porte>0</porte>
+        <posx>521</posx>
+        <posy>719</posy>
 		<voisins>
 			<voisin>48</voisin>
 			<voisin>50</voisin>
@@ -1086,6 +1236,9 @@
 	<zone>
 		<id>50</id>
 		<salle>6</salle>
+        <porte>0</porte>
+        <posx>549</posx>
+        <posy>767</posy>
 		<voisins>
 			<voisin>49</voisin>
 			<voisin>52</voisin>
@@ -1096,6 +1249,9 @@
 	<zone>
 		<id>51</id>
 		<salle>6</salle>
+        <porte>0</porte>
+        <posx>603</posx>
+        <posy>815</posy>
 		<voisins>
 			<voisin>50</voisin>
 			<voisin>50</voisin>
@@ -1104,6 +1260,9 @@
 	<zone>
 		<id>52</id>
 		<salle>6</salle>
+        <porte>0</porte>
+        <posx>466</posx>
+        <posy>815</posy>
 		<voisins>
 			<voisin>50</voisin>
 			<voisin>53</voisin>
@@ -1113,6 +1272,9 @@
 	<zone>
 		<id>53</id>
 		<salle>6</salle>
+        <porte>0</porte>
+        <posx>411</posx>
+        <posy>719</posy>
 		<voisins>
 			<voisin>54</voisin>
 			<voisin>52</voisin>
@@ -1123,6 +1285,9 @@
 	<zone>
 		<id>54</id>
 		<salle>6</salle>
+        <porte>0</porte>
+        <posx>330</posx>
+        <posy>719</posy>
 		<voisins>
 			<voisin>52</voisin>
 			<voisin>53</voisin>
@@ -1130,7 +1295,10 @@
 	</zone>
 	<zone>
 		<id>55</id>
-		<salle>-1</salle>
+		<salle>7</salle>
+        <porte>1</porte>
+        <posx>795</posx>
+        <posy>336</posy>
 		<voisins>
 			<voisin>56</voisin>
 			<voisin>57</voisin>
@@ -1140,6 +1308,9 @@
 	<zone>
 		<id>56</id>
 		<salle>7</salle>
+        <porte>0</porte>
+        <posx>769</posx>
+        <posy>240</posy>
 		<voisins>
 			<voisin>55</voisin>
 			<voisin>57</voisin>
@@ -1149,6 +1320,9 @@
 	<zone>
 		<id>57</id>
 		<salle>7</salle>
+        <porte>0</porte>
+        <posx>851</posx>
+        <posy>240</posy>
 		<voisins>
 			<voisin>58</voisin>
 			<voisin>59</voisin>
@@ -1160,6 +1334,9 @@
 	<zone>
 		<id>58</id>
 		<salle>7</salle>
+        <porte>0</porte>
+        <posx>960</posx>
+        <posy>240</posy>
 		<voisins>
 			<voisin>57</voisin>
 			<voisin>59</voisin>
@@ -1169,6 +1346,9 @@
 	<zone>
 		<id>59</id>
 		<salle>7</salle>
+        <porte>0</porte>
+        <posx>878</posx>
+        <posy>144</posy>
 		<voisins>
 			<voisin>57</voisin>
 			<voisin>58</voisin>
@@ -1180,6 +1360,9 @@
 	<zone>
 		<id>60</id>
 		<salle>7</salle>
+        <porte>0</porte>
+        <posx>960</posx>
+        <posy>96</posy>
 		<voisins>
 			<voisin>61</voisin>
 			<voisin>58</voisin>
@@ -1190,6 +1373,9 @@
 	<zone>
 		<id>61</id>
 		<salle>7</salle>
+        <porte>0</porte>
+        <posx>1043</posx>
+        <posy>48</posy>
 		<voisins>
 			<voisin>60</voisin>
 			<voisin>60</voisin>
@@ -1198,6 +1384,9 @@
 	<zone>
 		<id>62</id>
 		<salle>7</salle>
+        <porte>0</porte>
+        <posx>851</posx>
+        <posy>96</posy>
 		<voisins>
 			<voisin>59</voisin>
 			<voisin>60</voisin>
@@ -1208,6 +1397,9 @@
 	<zone>
 		<id>63</id>
 		<salle>7</salle>
+        <porte>0</porte>
+        <posx>796</posx>
+        <posy>0</posy>
 		<voisins>
 			<voisin>62</voisin>
 			<voisin>64</voisin>
@@ -1216,6 +1408,9 @@
 	<zone>
 		<id>64</id>
 		<salle>7</salle>
+        <porte>0</porte>
+        <posx>769</posx>
+        <posy>96</posy>
 		<voisins>
 			<voisin>62</voisin>
 			<voisin>63</voisin>
@@ -1226,7 +1421,10 @@
 	</zone>
 	<zone>
 		<id>65</id>
-		<salle>-1</salle>
+		<salle>8</salle>
+        <porte>1</porte>
+        <posx>467</posx>
+        <posy>336</posy>
 		<voisins>
 			<voisin>35</voisin>
 			<voisin>66</voisin>
@@ -1236,6 +1434,9 @@
 	<zone>
 		<id>66</id>
 		<salle>8</salle>
+        <porte>0</porte>
+        <posx>439</posx>
+        <posy>240</posy>
 		<voisins>
 			<voisin>65</voisin>
 			<voisin>67</voisin>
@@ -1245,6 +1446,9 @@
 	<zone>
 		<id>67</id>
 		<salle>8</salle>
+        <porte>0</porte>
+        <posx>548</posx>
+        <posy>240</posy>
 		<voisins>
 			<voisin>65</voisin>
 			<voisin>66</voisin>
@@ -1254,6 +1458,9 @@
 	<zone>
 		<id>68</id>
 		<salle>8</salle>
+        <porte>0</porte>
+        <posx>493</posx>
+        <posy>192</posy>
 		<voisins>
 			<voisin>66</voisin>
 			<voisin>67</voisin>
@@ -1264,6 +1471,9 @@
 	<zone>
 		<id>69</id>
 		<salle>8</salle>
+        <porte>0</porte>
+        <posx>576</posx>
+        <posy>0</posy>
 		<voisins>
 			<voisin>68</voisin>
 			<voisin>70</voisin>
@@ -1272,6 +1482,9 @@
 	<zone>
 		<id>70</id>
 		<salle>8</salle>
+        <porte>0</porte>
+        <posx>466</posx>
+        <posy>96</posy>
 		<voisins>
 			<voisin>68</voisin>
 			<voisin>69</voisin>
@@ -1282,6 +1495,9 @@
 	<zone>
 		<id>71</id>
 		<salle>8</salle>
+        <porte>0</porte>
+        <posx>411</posx>
+        <posy>0</posy>
 		<voisins>
 			<voisin>70</voisin>
 			<voisin>72</voisin>
@@ -1289,7 +1505,10 @@
 	</zone>
 	<zone>
 		<id>72</id>
-		<salle>-1</salle>
+		<salle>9</salle>
+        <porte>1</porte>
+        <posx>330</posx>
+        <posy>144</posy>
 		<voisins>
 			<voisin>73</voisin>
 			<voisin>74</voisin>
@@ -1300,6 +1519,9 @@
 	<zone>
 		<id>73</id>
 		<salle>9</salle>
+        <porte>0</porte>
+        <posx>274</posx>
+        <posy>239</posy>
 		<voisins>
 			<voisin>72</voisin>
 			<voisin>74</voisin>
@@ -1309,6 +1531,9 @@
 	<zone>
 		<id>74</id>
 		<salle>9</salle>
+        <porte>0</porte>
+        <posx>192</posx>
+        <posy>192</posy>
 		<voisins>
 			<voisin>72</voisin>
 			<voisin>73</voisin>
@@ -1321,6 +1546,9 @@
 	<zone>
 		<id>75</id>
 		<salle>9</salle>
+        <porte>0</porte>
+        <posx>192</posx>
+        <posy>335</posy>
 		<voisins>
 			<voisin>73</voisin>
 			<voisin>74</voisin>
@@ -1331,6 +1559,9 @@
 	<zone>
 		<id>76</id>
 		<salle>9</salle>
+        <porte>0</porte>
+        <posx>137</posx>
+        <posy>383</posy>
 		<voisins>
 			<voisin>75</voisin>
 			<voisin>79</voisin>
@@ -1340,6 +1571,9 @@
 	<zone>
 		<id>77</id>
 		<salle>9</salle>
+        <porte>0</porte>
+        <posx>0</posx>
+        <posy>431</posy>
 		<voisins>
 			<voisin>76</voisin>
 			<voisin>78</voisin>
@@ -1349,6 +1583,9 @@
 	<zone>
 		<id>78</id>
 		<salle>9</salle>
+        <porte>0</porte>
+        <posx>28</posx>
+        <posy>335</posy>
 		<voisins>
 			<voisin>77</voisin>
 			<voisin>79</voisin>
@@ -1358,6 +1595,9 @@
 	<zone>
 		<id>79</id>
 		<salle>9</salle>
+        <porte>0</porte>
+        <posx>110</posx>
+        <posy>287</posy>
 		<voisins>
 			<voisin>78</voisin>
 			<voisin>77</voisin>
@@ -1370,6 +1610,9 @@
 	<zone>
 		<id>80</id>
 		<salle>9</salle>
+        <porte>0</porte>
+        <posx>28</posx>
+        <posy>144</posy>
 		<voisins>
 			<voisin>78</voisin>
 			<voisin>79</voisin>
@@ -1380,6 +1623,9 @@
 	<zone>
 		<id>81</id>
 		<salle>9</salle>
+        <porte>0</porte>
+        <posx>83</posx>
+        <posy>144</posy>
 		<voisins>
 			<voisin>80</voisin>
 			<voisin>74</voisin>

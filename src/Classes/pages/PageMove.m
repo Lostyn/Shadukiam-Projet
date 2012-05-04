@@ -25,6 +25,11 @@
     okBtn.y = 270;
     [okBtn addEventListener:@selector(valideDeplacement:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
+    backgroundZones = [SPImage imageWithContentsOfFile:@"fond_mouvement.png"];
+    [self addChild:backgroundZones];
+    backgroundZones.x = 60;
+    backgroundZones.y = 50;
+    
     // debug
     debug = [SPTextField textFieldWithWidth:400 height:20 text:@""];
     [self addChild:debug];
@@ -50,10 +55,14 @@
     NSLog(@"zone actuelle : %d", [InfosJoueur getCurrentCase]);
     
     currentCase = [[Plateau getInstance] getCaseByID:[InfosJoueur getCurrentCase]];
-    casesAccessibles = [[Plateau getInstance] getZonesAccessible:[InfosJoueur getCurrentCase] nbMoves:2];
-    NSLog(@"accessibles : %@", casesAccessibles);
+    zonesAccessibles = [[Plateau getInstance] getZonesAccessible:[InfosJoueur getCurrentCase] nbMoves:4];
+    NSLog(@"accessibles : %@", zonesAccessibles);
     
-    [[Plateau getInstance] getCaseByCoord:450 andY:5];
+    // affichage
+    affZones = [[VisuPlateau alloc] initWithZones:zonesAccessibles andWidth:330 andHeight:200];
+    affZones.x = 85;
+    affZones.y = 80;
+    [self addChild:affZones];
     
     // init timer update
     updateTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0/10.0) target:self selector:@selector(updatePosPion) userInfo:nil repeats:YES];
@@ -100,7 +109,7 @@
             NSString *canGo = @"NO !";
             
             // si la case est accessible
-            if([casesAccessibles containsObject:[currentCase objectForKey:@"zone"]]) {
+            if([zonesAccessibles containsObject:[currentCase objectForKey:@"zone"]]) {
                 canGo = @" accessible";
                 okBtn.visible = true;
             }

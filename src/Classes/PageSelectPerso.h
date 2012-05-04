@@ -19,6 +19,7 @@
     FichePerso *persoActive;
     SPQuad *backgroundMask;
     Titre *titre;
+    NSDictionary *infosXML;
     
     bool persoSelected;
     bool gameStarted;

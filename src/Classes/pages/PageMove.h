@@ -12,14 +12,17 @@
 #import "EpawnData.h"
 #import "InfosTour.h"
 #import "PageManager.h"
+#import "VisuPlateau.h"
 
 @interface PageMove : Page {
     
     Titre *titre;
     NSDictionary *currentCase;
-    NSMutableArray *casesAccessibles;
+    NSMutableArray *zonesAccessibles;
     NSTimer *updateTimer;
     SPImage *okBtn;
+    VisuPlateau *affZones;
+    SPImage *backgroundZones;
     
     SPTextField *debug;
     

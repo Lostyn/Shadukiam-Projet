@@ -51,9 +51,19 @@
 
 // touch play, lancement partie
 -(void)onTouchPlay: (SPTouchEvent*) event {
-    [playBtn removeEventListener:@selector(onTouchPlay:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    [[Dialog getInstance] sendGameInfoToClients];
+    NSArray *touches = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] allObjects];
+    
+    if(touches.count == 1) {  
+        SPTouch *touch = [touches objectAtIndex:0];
+        if (touch.tapCount == 1)
+        {
+            [playBtn removeEventListener:@selector(onTouchPlay:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+            playBtn.visible = false;
+    
+            [[Dialog getInstance] sendGameInfoToClients];
+        }
+    }
 }
 
 -(void) finalize {

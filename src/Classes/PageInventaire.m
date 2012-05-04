@@ -69,7 +69,7 @@
     SPTween* tweenTitre = [SPTween tweenWithTarget:titre time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenTitre setDelay:0.5f];
     [tweenTitre animateProperty:@"alpha" targetValue:1];
-    [tweenTitre animateProperty:@"y" targetValue:3];
+    [tweenTitre animateProperty:@"y" targetValue:0];
     
     [self.stage.juggler addObject:tweenTitre];
     

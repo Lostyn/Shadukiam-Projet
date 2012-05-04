@@ -12,7 +12,7 @@
 
 static int myPerso = 0;
 static NSMutableArray* objets = nil;
-static int currentCase = 1;
+static int currentCase = 0;
 
 +(void) initialize {
     objets = [NSMutableArray array];
