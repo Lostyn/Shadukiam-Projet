@@ -32,7 +32,7 @@
     
     SPTextField *text = [SPTextField textFieldWithWidth:200 height:100 text:@"Le mécanisme a été activé avec succès."];
     text.x = title.x;
-    text.y = title.y + 50;
+    text.y = title.y + 35;
     text.fontName = [Constante getFontDescription];
     text.fontSize = [Constante getSizeDescription] + 5;
     
