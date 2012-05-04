@@ -663,6 +663,7 @@
 		<salle>0</salle>
 		<voisins>
 			<voisin>3</voisin>
+			<voisin>3</voisin>
 		</voisins>
 	</zone>
 	<zone>
@@ -845,6 +846,7 @@
 		<salle>3</salle>
 		<voisins>
 			<voisin>23</voisin>
+			<voisin>23</voisin>
 		</voisins>
 	</zone>
 	<zone>
@@ -1018,6 +1020,7 @@
 		<salle>4</salle>
 		<voisins>
 			<voisin>40</voisin>
+			<voisin>40</voisin>
 		</voisins>
 	</zone>
 	<zone>
@@ -1060,6 +1063,7 @@
 		<salle>5</salle>
 		<voisins>
 			<voisin>46</voisin>
+			<voisin>46</voisin>
 		</voisins>
 	</zone>
 	<zone>
@@ -1093,6 +1097,7 @@
 		<id>51</id>
 		<salle>6</salle>
 		<voisins>
+			<voisin>50</voisin>
 			<voisin>50</voisin>
 		</voisins>
 	</zone>
@@ -1186,6 +1191,7 @@
 		<id>61</id>
 		<salle>7</salle>
 		<voisins>
+			<voisin>60</voisin>
 			<voisin>60</voisin>
 		</voisins>
 	</zone>

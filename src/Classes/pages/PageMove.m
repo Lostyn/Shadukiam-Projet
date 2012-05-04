@@ -19,6 +19,12 @@
     titre.x = 120;
     titre.y = 0;
     
+    okBtn = [SPImage imageWithContentsOfFile:@"valide.png"];
+    [self addChild:okBtn];
+    okBtn.x = 420;
+    okBtn.y = 270;
+    [okBtn addEventListener:@selector(valideDeplacement:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
     // debug
     debug = [SPTextField textFieldWithWidth:400 height:20 text:@""];
     [self addChild:debug];
@@ -41,8 +47,10 @@
     
     // recuperation des cases accessibles pour le deplacement
     
+    NSLog(@"zone actuelle : %d", [InfosJoueur getCurrentCase]);
+    
     currentCase = [[Plateau getInstance] getCaseByID:[InfosJoueur getCurrentCase]];
-    casesAccessibles = [[Plateau getInstance] getZonesAccessible:[InfosJoueur getCurrentCase] nbMoves:3];
+    casesAccessibles = [[Plateau getInstance] getZonesAccessible:[InfosJoueur getCurrentCase] nbMoves:2];
     NSLog(@"accessibles : %@", casesAccessibles);
     
     [[Plateau getInstance] getCaseByCoord:450 andY:5];
@@ -79,21 +87,47 @@
 -(void) updatePosPion {
     // position du pion du joueur
     PionInfos *pionJoueur = [[EpawnData getInstance] getPionByID:[InfosJoueur getMyPerso]];
+    okBtn.visible = false;
     
     if(pionJoueur == nil) {
         debug.text = @"Pion inexistant";
     } else {
         
+        // recuperation des infos de la case actuelle
         currentCase = [[Plateau getInstance] getCaseByCoord:pionJoueur.posx andY:pionJoueur.posy];
         
         if(currentCase != nil) {
-            debug.text = [NSString stringWithFormat:@"x : %d, y : %d, zone : %@",
-                          pionJoueur.posx, pionJoueur.posy, [currentCase objectForKey:@"zone"]];
+            NSString *canGo = @"NO !";
+            
+            // si la case est accessible
+            if([casesAccessibles containsObject:[currentCase objectForKey:@"zone"]]) {
+                canGo = @" accessible";
+                okBtn.visible = true;
+            }
+            
+            debug.text = [NSString stringWithFormat:@"x : %d, y : %d, zone : %@ %@",
+                          pionJoueur.posx, pionJoueur.posy, [currentCase objectForKey:@"zone"], canGo];
         } else {
             debug.text = @"Aucune case ici";
         }
         
     }
+}
+
+// validation du deplacement, stockage case actuelle et apsse a la page suivante
+-(void) valideDeplacement: (SPTouchEvent*) event {
+    
+    NSArray *touches = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] allObjects];
+    
+    if(touches.count == 1) {  
+        SPTouch *touch = [touches objectAtIndex:0];
+        if (touch.tapCount == 1)
+        {
+            [InfosJoueur setCurrentCase:[[currentCase objectForKey:@"zone"] intValue]];
+            [[PageManager getInstance] changePage:@"PageTDB"];
+        }
+    }
+    
 }
 
 -(void) finalize {
@@ -104,6 +138,10 @@
     titre = nil;
     [self removeChild:debug];
     debug = nil;
+    
+    [okBtn removeEventListener:@selector(valideDeplacement:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self removeChild:okBtn];
+    okBtn = nil;
     
     [updateTimer invalidate];
     updateTimer = nil;

@@ -10,6 +10,8 @@
 #import "Titre.h"
 #import "Plateau.h"
 #import "EpawnData.h"
+#import "InfosTour.h"
+#import "PageManager.h"
 
 @interface PageMove : Page {
     
@@ -17,6 +19,7 @@
     NSDictionary *currentCase;
     NSMutableArray *casesAccessibles;
     NSTimer *updateTimer;
+    SPImage *okBtn;
     
     SPTextField *debug;
     

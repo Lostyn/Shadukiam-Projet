@@ -32,7 +32,7 @@
     connected = NO;
     [[Dialog getInstance] connect];
     
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkConnection:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(checkConnection:) userInfo:nil repeats:NO];
     
 }
 
