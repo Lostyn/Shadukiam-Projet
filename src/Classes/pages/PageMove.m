@@ -14,21 +14,43 @@
     
     [super show];
     
+    contenu = [SPSprite sprite];
+    [self addChild:contenu];
+    
     titre = [[Titre alloc] initWithText:@"DEPLACEMENT"];
-    [self addChild:titre];
-    titre.x = 120;
+    titre.x = 100;
     titre.y = 0;
+    [self addChild:titre];
+    
+    compteur = [SPSprite sprite];
+    compteur.x = 370;
+    compteur.y = 5;
+    [self addChild:compteur];
+    
     
     okBtn = [SPImage imageWithContentsOfFile:@"valide.png"];
-    [self addChild:okBtn];
-    okBtn.x = 420;
-    okBtn.y = 270;
+    okBtn.x = 380;
+    okBtn.y = 235;
     [okBtn addEventListener:@selector(valideDeplacement:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     backgroundZones = [SPImage imageWithContentsOfFile:@"fond_mouvement.png"];
-    [self addChild:backgroundZones];
-    backgroundZones.x = 60;
-    backgroundZones.y = 50;
+    [contenu addChild:backgroundZones];
+    backgroundZones.x = 40;
+    backgroundZones.y = 30;
+    
+    
+    
+    
+    SPImage *compteurBkg = [SPImage imageWithContentsOfFile:@"compteur_mvt.png"];
+    [compteur addChild:compteurBkg];
+    
+    SPTextField *compteurTxt = [SPTextField textFieldWithText:[NSString stringWithFormat:@"%d", [InfosTour getMouvement]]];
+    compteurTxt.width = compteur.width;
+    compteurTxt.height = compteur.height;
+    compteurTxt.fontName = [Constante getFontDescription];
+    compteurTxt.fontSize = 16;
+    compteurTxt.color = 0xFFFFFF;
+    [compteur addChild:compteurTxt];
     
     // debug
     debug = [SPTextField textFieldWithWidth:400 height:20 text:@""];
@@ -40,29 +62,53 @@
     
     [self addEventListener:@selector(touchForDebug:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
+    // recuperation des cases accessibles pour le deplacement
+    
+    //NSLog(@"zone actuelle : %d", [InfosJoueur getCurrentCase]);
+    
+    currentCase = [[Plateau getInstance] getCaseByID:[InfosJoueur getCurrentCase]];
+    currentZoneID = [[currentCase objectForKey:@"zone"] intValue];
+    zonesAccessibles = [[Plateau getInstance] getZonesAccessible:[InfosJoueur getCurrentCase] nbMoves:[InfosTour getMouvement]];
+    //NSLog(@"accessibles : %@", zonesAccessibles);
+    
+    // affichage
+    affZones = [[VisuPlateau alloc] initWithZones:zonesAccessibles andWidth:310 andHeight:200];
+    affZones.x = 95;
+    affZones.y = 80;
+    [contenu addChild:affZones];
+    [affZones setZoneActive:currentZoneID];
+    
+    
+    [contenu addChild:okBtn];
+    
+    
     // anims
     titre.alpha = 0;
     titre.y = -20;
     SPTween* tweenTitre = [SPTween tweenWithTarget:titre time:0.5f transition:SP_TRANSITION_EASE_OUT];
-    [tweenTitre setDelay:0.5f];
+    [tweenTitre setDelay:1.25];
     [tweenTitre animateProperty:@"alpha" targetValue:1];
     [tweenTitre animateProperty:@"y" targetValue:0];
     
     [self.stage.juggler addObject:tweenTitre];
     
-    // recuperation des cases accessibles pour le deplacement
+    compteur.alpha = 0;
+    compteur.y = -20;
+    SPTween* tweenConpteur = [SPTween tweenWithTarget:compteur time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tweenConpteur setDelay:1.25];
+    [tweenConpteur animateProperty:@"alpha" targetValue:1];
+    [tweenConpteur animateProperty:@"y" targetValue:5];
     
-    NSLog(@"zone actuelle : %d", [InfosJoueur getCurrentCase]);
+    [self.stage.juggler addObject:tweenConpteur];
     
-    currentCase = [[Plateau getInstance] getCaseByID:[InfosJoueur getCurrentCase]];
-    zonesAccessibles = [[Plateau getInstance] getZonesAccessible:[InfosJoueur getCurrentCase] nbMoves:4];
-    NSLog(@"accessibles : %@", zonesAccessibles);
+    contenu.alpha = 0;
+    contenu.y = 10;
+    SPTween* tweenContenu = [SPTween tweenWithTarget:contenu time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tweenContenu setDelay:1.5];
+    [tweenContenu animateProperty:@"alpha" targetValue:1];
+    [tweenContenu animateProperty:@"y" targetValue:0];
     
-    // affichage
-    affZones = [[VisuPlateau alloc] initWithZones:zonesAccessibles andWidth:330 andHeight:200];
-    affZones.x = 85;
-    affZones.y = 80;
-    [self addChild:affZones];
+    [self.stage.juggler addObject:tweenContenu];
     
     // init timer update
     updateTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0/10.0) target:self selector:@selector(updatePosPion) userInfo:nil repeats:YES];
@@ -96,7 +142,6 @@
 -(void) updatePosPion {
     // position du pion du joueur
     PionInfos *pionJoueur = [[EpawnData getInstance] getPionByID:[InfosJoueur getMyPerso]];
-    okBtn.visible = false;
     
     if(pionJoueur == nil) {
         debug.text = @"Pion inexistant";
@@ -108,16 +153,29 @@
         if(currentCase != nil) {
             NSString *canGo = @"NO !";
             
-            // si la case est accessible
-            if([zonesAccessibles containsObject:[currentCase objectForKey:@"zone"]]) {
-                canGo = @" accessible";
-                okBtn.visible = true;
-            }
+            int zoneNum = [[currentCase objectForKey:@"zone"] intValue];
             
-            debug.text = [NSString stringWithFormat:@"x : %d, y : %d, zone : %@ %@",
+            // si on a changé de zone, sinon pas la peine de changer
+            if(zoneNum != currentZoneID) {
+                currentZoneID = zoneNum;
+                
+                // si la case est accessible
+                if([zonesAccessibles containsObject:[currentCase objectForKey:@"zone"]]) {
+                    canGo = @" accessible";
+                    okBtn.visible = true;
+                    [affZones setZoneActive:zoneNum];
+                } else {
+                    okBtn.visible = false;
+                    [affZones setZoneActive:-1];
+                }
+            
+                debug.text = [NSString stringWithFormat:@"x : %d, y : %d, zone : %@ %@",
                           pionJoueur.posx, pionJoueur.posy, [currentCase objectForKey:@"zone"], canGo];
+            }
         } else {
             debug.text = @"Aucune case ici";
+            okBtn.visible = false;
+            [affZones setZoneActive:-1];
         }
         
     }
@@ -133,10 +191,40 @@
         if (touch.tapCount == 1)
         {
             [InfosJoueur setCurrentCase:[[currentCase objectForKey:@"zone"] intValue]];
-            [[PageManager getInstance] changePage:@"PageObtentionObjet"];
+            [self animQuit];
         }
     }
     
+}
+
+-(void) animQuit {
+    
+    SPTween* tweenTitre = [SPTween tweenWithTarget:titre time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tweenTitre animateProperty:@"alpha" targetValue:0];
+    [tweenTitre animateProperty:@"y" targetValue:-20];
+    [self.stage.juggler addObject:tweenTitre];
+    
+    SPTween* tweenConpteur = [SPTween tweenWithTarget:compteur time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tweenConpteur animateProperty:@"alpha" targetValue:0];
+    [tweenConpteur animateProperty:@"y" targetValue:-20];
+    [self.stage.juggler addObject:tweenConpteur];
+    
+    SPTween* tweenContenu = [SPTween tweenWithTarget:contenu time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tweenContenu animateProperty:@"alpha" targetValue:0];
+    [tweenContenu animateProperty:@"y" targetValue:10];
+    [self.stage.juggler addObject:tweenContenu];
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(goNextPage:) userInfo:nil repeats:NO];
+    
+}
+
+-(void) goNextPage:(NSTimer*) timer {
+    
+    [[PageManager getInstance] changePage:@"PageObtentionObjet"];
+    
+    //kill the timer
+    [timer invalidate];
+    timer = nil;
 }
 
 -(void) finalize {
