@@ -11,14 +11,10 @@
 @implementation InfosPartie
 
 static NSMutableDictionary *joueurs = nil;
-<<<<<<< HEAD
-static int phase = 2;
-=======
 static int phase = 1;
 static int currentPlayer = 0;
 static int currentPlayerIndex = 0;
 static NSMutableArray* playersOrder;
->>>>>>> tour a tour
 
 +(void) initialize {
     joueurs = [NSMutableDictionary dictionary];
@@ -40,10 +36,10 @@ static NSMutableArray* playersOrder;
     return joueurs.count;
 }
 
-<<<<<<< HEAD
 +(int) getPhase{
     return phase;
-=======
+}
+
 +(int) getCurrentPlayer {
     return currentPlayer;
 }
@@ -61,7 +57,6 @@ static NSMutableArray* playersOrder;
     }
     
     currentPlayer = [[playersOrder objectAtIndex:currentPlayerIndex] intValue];
->>>>>>> tour a tour
 }
 
 @end
