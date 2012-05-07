@@ -157,7 +157,7 @@
     }
     
     if(gameStarted) {
-        [[PageManager getInstance] changePage:@"PageTDB"];
+        [[PageManager getInstance] changePage:targetPage];
     }
     
 }
@@ -171,15 +171,46 @@
     // si on est le serveur on verifie si tout le monde a select son perso
     if([Dialog getInstance].isServer) {
         if([InfosPartie getNbPlayers] == [Dialog getInstance].clientsID.count + 1) {
-            [[Dialog getInstance] sendMessage:@"gamestart" sendTo:-1 data:@"data"];
             
-            if(persoActive == nil) {
-                [[PageManager getInstance] changePage:@"PageTDB"];
-            } else {
-                gameStarted = YES;
-            }
+            [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(dispatchGameStart:) userInfo:nil repeats:NO];
+            
         }
     }
+}
+
+// serveur dispatch le lancement de la partie
+-(void) dispatchGameStart:(NSTimer*) timer {
+    
+    [timer invalidate];
+    timer = nil;
+    
+    
+    // definition de l'ordre de jeu
+    NSMutableArray *ordre = [Dialog getInstance].clientsID;
+    [ordre addObject:[NSNumber numberWithInt:1]];
+    
+    srandom(time(NULL));
+    NSUInteger count = [ordre count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        int nElements = count - i;
+        int n = (random() % nElements) + i;
+        [ordre exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+    
+    [InfosPartie setPlayersOrder:ordre];
+    if([InfosPartie getCurrentPlayer] == [Dialog getInstance].myID) targetPage = @"PageDice";
+    else targetPage = @"PageTDB";
+    
+    [[Menu getInstance] reorderPersos:ordre];
+    
+    [[Dialog getInstance] sendMessage:@"gamestart" sendTo:-1 data:ordre];
+    
+    if(persoActive == nil) {
+        [[PageManager getInstance] changePage:targetPage];
+    } else {
+        gameStarted = YES;
+    }
+    
 }
 
 #pragma mark dialog delegate
@@ -200,9 +231,17 @@
 }
 
 // lancement de la partie
-- (void) gameStart {
+- (void) gameStart:(NSMutableArray*) playersOrder {
+    
+    // enregistrement ordre
+    [InfosPartie setPlayersOrder:playersOrder];
+    if([InfosPartie getCurrentPlayer] == [Dialog getInstance].myID) targetPage = @"PageDice";
+    else targetPage = @"PageTDB";
+    
+    [[Menu getInstance] reorderPersos:playersOrder];
+    
     if(persoActive == nil) {
-        [[PageManager getInstance] changePage:@"PageTDB"];
+        [[PageManager getInstance] changePage:targetPage];
     } else {
         gameStarted = YES;
     }

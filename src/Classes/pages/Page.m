@@ -7,6 +7,7 @@
 //
 
 #import "Page.h"
+#import "PageManager.h"
 
 @implementation Page
 
@@ -19,6 +20,14 @@
 -(void) enigmeResult:(NSString *)key{
 }
 -(void) enigmeSuccess:(NSString *)key{
+}
+
+-(void) nextPlayer {
+    
+    [InfosPartie goNextPlayer];
+    
+    if([InfosPartie getCurrentPlayer] == [Dialog getInstance].myID) [[PageManager getInstance] changePage:@"PageDice"];
+    
 }
 
 @end

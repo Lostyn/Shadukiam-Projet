@@ -37,4 +37,20 @@ static Menu *instance = nil;
     persoIcon.y = -([persos numChildren] - 1) * (persoIcon.height + 10);
 }
 
+-(void) reorderPersos:(NSMutableArray *)order {
+    
+    [persos removeAllChildren];
+    
+    for(int i = [order count] - 1; i >= 0; i--) {
+        
+        NSString *joueurIDStr = [NSString stringWithFormat:@"%@", [order objectAtIndex:i]];
+        NSLog(@"joueur id : %@, joueurs : %@", joueurIDStr, [InfosPartie getJoueurs]);
+        int numPersoOrder = [[[InfosPartie getJoueurs] objectForKey:joueurIDStr] intValue];
+        
+        [self addPerso:numPersoOrder];
+        
+    }
+    
+}
+
 @end

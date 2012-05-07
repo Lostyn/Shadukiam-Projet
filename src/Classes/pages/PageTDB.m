@@ -67,6 +67,13 @@
     btnLancer.name = @"PageDice";
     [btnLancer addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
+    finTour = [SPImage imageWithContentsOfFile:@"btn_tdb_fintour.png"];
+    [buttons addChild:finTour];
+    finTour.x = 170;
+    finTour.y = 275;
+    [finTour addEventListener:@selector(onFinTour:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    if([InfosPartie getCurrentPlayer] != [Dialog getInstance].myID) finTour.visible = false;
+    
     // anim
     titre.alpha = 0;
     titre.y = -20;
@@ -116,6 +123,18 @@
             [self animQuit];
         }
     }
+    
+}
+
+// fin de mon tour
+-(void) onFinTour:(SPTouchEvent*) event {
+    
+    [finTour removeEventListener:@selector(onFinTour:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+    finTour.visible = false;
+    
+    [[Dialog getInstance] sendMessage:@"nextplayer" sendTo:-1 data:@"data"];
+    [self nextPlayer];
     
 }
 

@@ -21,6 +21,7 @@
     TDBBtn *btnEnigme;
     TDBBtn *btnMessagerie;
     TDBBtn *btnIntuition;
+    SPImage *finTour;
     
     TDBBtn *btnLancer;
     SPSprite *buttons;

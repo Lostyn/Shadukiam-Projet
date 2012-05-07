@@ -11,6 +11,7 @@
 // the EAGL surface has an alpha channel.
 @interface EAGLView : AR_EAGLView
 {
+    NSMutableArray* objectsPos;
 }
 
 @end

@@ -213,11 +213,16 @@ static Dialog *instance = nil;
         }
         // tout le monde a selectionné son perso lancement de la partie
         else if([commande isEqualToString:@"gamestart"]) {
-            [delegate gameStart];
-        }else if( [commande isEqualToString:@"enigmeResult"]){
+            [delegate gameStart:[packet objectForKey:@"data"]];
+        } 
+        else if( [commande isEqualToString:@"enigmeResult"]){
             [delegate enigmeResult:[packet objectForKey:@"data"]];
-        }else if( [commande isEqualToString:@"enigmeSuccess"]){
+        } 
+        else if( [commande isEqualToString:@"enigmeSuccess"]){
             [delegate enigmeSuccess:[packet objectForKey:@"data"]];
+        } 
+        else if( [commande isEqualToString:@"nextplayer"]){
+            [delegate nextPlayer];
         }
         
     }

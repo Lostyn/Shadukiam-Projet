@@ -7,6 +7,7 @@
 //
 
 #import "SPSprite.h"
+#import "InfosPartie.h"
 
 @interface Menu : SPSprite {
     SPSprite *persos;
@@ -16,5 +17,6 @@
 +(Menu *)getInstance;
 -(void) addPerso:(int)numPerso;
 -(void) initMenu;
+-(void) reorderPersos:(NSMutableArray*) order;
 
 @end

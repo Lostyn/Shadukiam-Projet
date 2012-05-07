@@ -145,6 +145,7 @@
     
     if(pionJoueur == nil) {
         debug.text = @"Pion inexistant";
+        okBtn.visible = false;
     } else {
         
         // recuperation des infos de la case actuelle
@@ -190,8 +191,14 @@
         SPTouch *touch = [touches objectAtIndex:0];
         if (touch.tapCount == 1)
         {
-            [InfosJoueur setCurrentCase:[[currentCase objectForKey:@"zone"] intValue]];
-            [self animQuit];
+            if(currentCase != nil) {
+                
+                if([zonesAccessibles containsObject:[currentCase objectForKey:@"zone"]]) {
+                    [InfosJoueur setCurrentCase:[[currentCase objectForKey:@"zone"] intValue]];
+                    [self animQuit];
+                }
+                
+            }
         }
     }
     

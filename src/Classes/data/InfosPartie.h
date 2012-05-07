@@ -11,7 +11,14 @@
 @interface InfosPartie : NSObject
 
 +(void)addPlayer:(int)numPerso forPlayer:(int)playerID;
++(NSDictionary*) getJoueurs;
 +(int)getNbPlayers;
+<<<<<<< HEAD
 + (int) getPhase;
+=======
++(int) getCurrentPlayer;
++(void) setPlayersOrder:(NSMutableArray*) order;
++(void) goNextPlayer;
+>>>>>>> tour a tour
 
 @end

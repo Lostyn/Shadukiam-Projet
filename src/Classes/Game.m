@@ -88,13 +88,8 @@ static SPImage *logoBlack;
 
     [[PageManager getInstance] changePage:@"PagePlay"];
     // test TDB
-<<<<<<< HEAD
-   // [InfosJoueur setMyPerso:3];
-   // [[PageManager getInstance] changePage:@"PageDjinn"];
-=======
     //[InfosJoueur setMyPerso:3];
     //[[PageManager getInstance] changePage:@"PageTDB"];
->>>>>>> -
 
     
     // menu

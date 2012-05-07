@@ -20,9 +20,10 @@
 - (void) receiveMessage:(NSString*)message;
 - (void) gameLaunched;
 - (void) persoSelected:(int)numPerso fromID:(int)playerID;
-- (void) gameStart;
+- (void) gameStart:(NSMutableArray*) playersOrder;
 - (void) enigmeResult:(NSString*) key;
 - (void) enigmeSuccess:(NSString*) key;
+- (void) nextPlayer;
 
 @end
 

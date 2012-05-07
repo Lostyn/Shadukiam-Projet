@@ -26,7 +26,7 @@ namespace {
     };
 
     // Model scale factor
-    const float kObjectScale = 3.0f;
+    const float kObjectScale = 1.0f;
 }
 
 
@@ -68,6 +68,12 @@ namespace {
         obj3D.texture = [textures objectAtIndex:i];
 
         [objects3D addObject:obj3D];
+    }
+    
+    objectsPos = [NSMutableArray array];
+    for (int i = 0; i < 3; i++) {
+        SPPoint *point = [SPPoint pointWithX:arc4random() % 50 y:arc4random() % 50];
+        [objectsPos addObject:point];
     }
 }
 
@@ -122,14 +128,11 @@ namespace {
         const QCAR::Trackable* trackable = state.getActiveTrackable(i);
         QCAR::Matrix44F modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackable->getPose());
         
-        // Choose the texture based on the target name
-        int targetIndex = 0; // "stones"
-        if (!strcmp(trackable->getName(), "chips"))
-            targetIndex = 1;
-        else if (!strcmp(trackable->getName(), "tarmac"))
-            targetIndex = 2;
+        Object3D *obj3D = [objects3D objectAtIndex:0];
         
-        Object3D *obj3D = [objects3D objectAtIndex:targetIndex];
+        for(int i = 0; i < 3; i++) {
+            
+            SPPoint *pos = [objectsPos objectAtIndex:i];
         
         // Render using the appropriate version of OpenGL
         if (QCAR::GL_11 & qUtils.QCARFlags) {
@@ -140,7 +143,7 @@ namespace {
             // Load the model-view matrix
             glMatrixMode(GL_MODELVIEW);
             glLoadMatrixf(modelViewMatrix.data);
-            glTranslatef(0.0f, 0.0f, -kObjectScale);
+            glTranslatef(pos.x, pos.y, -kObjectScale);
             glScalef(kObjectScale, kObjectScale, kObjectScale);
             
             // Draw object
@@ -155,7 +158,7 @@ namespace {
             // OpenGL 2
             QCAR::Matrix44F modelViewProjection;
             
-            ShaderUtils::translatePoseMatrix(0.0f, 0.0f, kObjectScale, &modelViewMatrix.data[0]);
+            ShaderUtils::translatePoseMatrix(pos.x, pos.y, kObjectScale, &modelViewMatrix.data[0]);
             ShaderUtils::scalePoseMatrix(kObjectScale, kObjectScale, kObjectScale, &modelViewMatrix.data[0]);
             ShaderUtils::multiplyMatrix(&qUtils.projectionMatrix.data[0], &modelViewMatrix.data[0], &modelViewProjection.data[0]);
             
@@ -175,8 +178,11 @@ namespace {
             glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, (const GLvoid*)obj3D.indices);
             
             ShaderUtils::checkGlError("EAGLView renderFrameQCAR");
+            
+            ShaderUtils::translatePoseMatrix(-pos.x, -pos.y, kObjectScale, &modelViewMatrix.data[0]);
         }
 #endif
+        }
     }
     
     glDisable(GL_DEPTH_TEST);

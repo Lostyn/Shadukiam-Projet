@@ -11,7 +11,14 @@
 @implementation InfosPartie
 
 static NSMutableDictionary *joueurs = nil;
+<<<<<<< HEAD
 static int phase = 2;
+=======
+static int phase = 1;
+static int currentPlayer = 0;
+static int currentPlayerIndex = 0;
+static NSMutableArray* playersOrder;
+>>>>>>> tour a tour
 
 +(void) initialize {
     joueurs = [NSMutableDictionary dictionary];
@@ -25,12 +32,36 @@ static int phase = 2;
     
 }
 
++(NSDictionary*) getJoueurs {
+    return joueurs;
+}
+
 +(int)getNbPlayers {
     return joueurs.count;
 }
 
+<<<<<<< HEAD
 +(int) getPhase{
     return phase;
+=======
++(int) getCurrentPlayer {
+    return currentPlayer;
+}
+
++(void) setPlayersOrder:(NSMutableArray*) order {
+    playersOrder = order;
+    currentPlayer = [[order objectAtIndex:0] intValue];
+}
+
+// passage au joueur suivant
++(void) goNextPlayer {
+    currentPlayerIndex++;
+    if(currentPlayerIndex > [playersOrder count] - 1) {
+        currentPlayerIndex = 0;
+    }
+    
+    currentPlayer = [[playersOrder objectAtIndex:currentPlayerIndex] intValue];
+>>>>>>> tour a tour
 }
 
 @end

@@ -20,6 +20,7 @@
     SPQuad *backgroundMask;
     Titre *titre;
     NSDictionary *infosXML;
+    NSString *targetPage;
     
     bool persoSelected;
     bool gameStarted;
