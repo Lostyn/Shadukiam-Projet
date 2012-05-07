@@ -7,7 +7,15 @@
 //
 
 #import "DefaultDjinn.h"
+#import "VisuPlateau.h"
+#import "InfosJoueur.h"
+#import "EpawnData.h"
 
-@interface Djinn001 : DefaultDjinn
+@interface Djinn001 : DefaultDjinn {
+    
+    NSArray *zoneCase;
+    int targetCase;
+    PionInfos *myPion;
+}
 
 @end

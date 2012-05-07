@@ -15,13 +15,14 @@
 @interface DefaultDjinn : SPSprite {
     
     SPImage *carte;
+    SPImage *bg_desc;
+    SPTextField *title;
     SPTextField *description;
-    SPImage *disableOk;
     SPImage *ok;
 }
 
 -(void)execute;
--(void)displayDescription:(NSString*) sDescription;
+-(void) displayDescription:(NSString*) sTitle withDesc:(NSString*)sDescription;
     
 
 

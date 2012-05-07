@@ -13,10 +13,16 @@
 -(id) init{
     self = [super init];
     
-    carte = [SPImage imageWithContentsOfFile:@"ficheperso_bkg_7.png"];
-    carte.x = [Game stageWidth]/2 - carte.width/2;
+    carte = [SPImage imageWithContentsOfFile:@"fond_popup.png"];
+    carte.x = [Game stageWidth]/2 - carte.width/2 + 19;
     carte.y = [Game stageHeight]/2 -carte.height/2;
     [self addChild:carte];
+    
+    ok = [SPImage imageWithContentsOfFile:@"valide.png"];
+    ok.x = 360;
+    ok.y = 245;
+    ok.alpha = 0.5f;
+    [self addChild:ok];
     
     return self;
 }
@@ -24,14 +30,25 @@
 -(void) execute {
 }
 
--(void) displayDescription:(NSString *)sDescription {
+-(void) displayDescription:(NSString*) sTitle withDesc:(NSString*)sDescription {
+    bg_desc = [SPImage imageWithContentsOfFile:@"fond_popup_txt2.png"];
+    bg_desc.x = 215;
+    bg_desc.y = 55;
+    [self addChild:bg_desc];
     
-    description = [SPTextField textFieldWithWidth:220 height:150 text:sDescription];
-    description.x = carte.x + 100;
-    description.y = carte.y + 50;
+    title = [SPTextField textFieldWithWidth:200 height:50 text:sTitle];
+    title.x = 235;
+    title.y = 90;
+    title.fontName = [Constante getFontDescription];
+    title.fontSize = [Constante getSizeDescription] + 4;
+    [self addChild:title];
+    
+    description = [SPTextField textFieldWithWidth:200 height:150 text:sDescription];
+    description.x = 235;
+    description.y = 125;
+    description.vAlign = SPVAlignTop;
     description.fontName = [Constante getFontDescription];
     description.fontSize = [Constante getSizeDescription];
-    description.color = [Constante getColorDescription];
     [self addChild:description];
 }
 
