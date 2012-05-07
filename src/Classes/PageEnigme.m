@@ -63,7 +63,21 @@
     [tweenTitre animateProperty:@"alpha" targetValue:0];
     [tweenTitre animateProperty:@"y" targetValue:-20];
     
-    [self.stage.juggler addObject:tweenTitre];
+    SPTween* tweenEnigme = [SPTween tweenWithTarget:enigme time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tweenEnigme animateProperty:@"alpha" targetValue:0];
+    [tweenEnigme animateProperty:@"y" targetValue:40];
+    
+    [self.stage.juggler addObject:tweenEnigme];
+    [self.stage.juggler addObject:tweenTitre];[NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(goNextPage:) userInfo:nil repeats:NO];
+}
+
+-(void) goNextPage:(NSTimer*) timer {
+    
+    [[PageManager getInstance] changePage:targetBack];
+    
+    //kill the timer
+    [timer invalidate];
+    timer = nil;
 }
 
 -(void)enigmeResult:(NSString *)key{

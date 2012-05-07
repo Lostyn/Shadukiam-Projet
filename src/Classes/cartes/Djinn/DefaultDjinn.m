@@ -18,16 +18,16 @@
     carte.y = [Game stageHeight]/2 -carte.height/2;
     [self addChild:carte];
     
-    ok = [SPImage imageWithContentsOfFile:@"valide.png"];
-    ok.x = 360;
-    ok.y = 245;
-    ok.alpha = 0.5f;
-    [self addChild:ok];
-    
     return self;
 }
 
 -(void) execute {
+    self.alpha = 0;
+    SPTween* tween = [SPTween tweenWithTarget:self time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tween setDelay:0.5f];
+    [tween animateProperty:@"alpha" targetValue:1.0f];
+    
+    [self.stage.juggler addObject:tween];
 }
 
 -(void) displayDescription:(NSString*) sTitle withDesc:(NSString*)sDescription {
@@ -39,13 +39,14 @@
     title = [SPTextField textFieldWithWidth:200 height:50 text:sTitle];
     title.x = 235;
     title.y = 90;
+    title.vAlign = SPVAlignTop;
     title.fontName = [Constante getFontDescription];
     title.fontSize = [Constante getSizeDescription] + 4;
     [self addChild:title];
     
     description = [SPTextField textFieldWithWidth:200 height:150 text:sDescription];
     description.x = 235;
-    description.y = 125;
+    description.y = 113;
     description.vAlign = SPVAlignTop;
     description.fontName = [Constante getFontDescription];
     description.fontSize = [Constante getSizeDescription];

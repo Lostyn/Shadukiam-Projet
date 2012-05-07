@@ -11,9 +11,10 @@
 
 @interface PagePlay : Page {
     
-    SPQuad *playBtn;
+    SPImage *playBtn;
     bool connected;
     SPTextField *textInfos;
+    SPImage *logoBlack;
     
 }
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:747834eca3461d082b4d77fef9636041$ -->
+<TextureAtlas imagePath="waterDjinn_debut.png">
+    <SubTexture name="debut/00004" x="442" y="1162" width="218" height="288"/>
+    <SubTexture name="debut/00005" x="442" y="872" width="218" height="288"/>
+    <SubTexture name="debut/00006" x="442" y="582" width="218" height="288"/>
+    <SubTexture name="debut/00007" x="1762" y="292" width="218" height="288"/>
+    <SubTexture name="debut/00008" x="1542" y="292" width="218" height="288"/>
+    <SubTexture name="debut/00009" x="1322" y="292" width="218" height="288"/>
+    <SubTexture name="debut/00010" x="1102" y="292" width="218" height="288"/>
+    <SubTexture name="debut/00011" x="882" y="292" width="218" height="288"/>
+    <SubTexture name="debut/00012" x="662" y="292" width="218" height="288"/>
+    <SubTexture name="debut/00013" x="442" y="292" width="218" height="288"/>
+    <SubTexture name="debut/00014" x="222" y="1742" width="218" height="288"/>
+    <SubTexture name="debut/00015" x="222" y="1452" width="218" height="288"/>
+    <SubTexture name="debut/00016" x="222" y="1162" width="218" height="288"/>
+    <SubTexture name="debut/00017" x="222" y="872" width="218" height="288"/>
+    <SubTexture name="debut/00018" x="222" y="582" width="218" height="288"/>
+    <SubTexture name="debut/00019" x="222" y="292" width="218" height="288"/>
+    <SubTexture name="debut/00020" x="1762" y="2" width="218" height="288"/>
+    <SubTexture name="debut/00021" x="1542" y="2" width="218" height="288"/>
+    <SubTexture name="debut/00022" x="1322" y="2" width="218" height="288"/>
+    <SubTexture name="debut/00023" x="1102" y="2" width="218" height="288"/>
+    <SubTexture name="debut/00024" x="882" y="2" width="218" height="288"/>
+    <SubTexture name="debut/00025" x="662" y="2" width="218" height="288"/>
+    <SubTexture name="debut/00026" x="442" y="2" width="218" height="288"/>
+    <SubTexture name="debut/00027" x="222" y="2" width="218" height="288"/>
+    <SubTexture name="debut/00028" x="2" y="1742" width="218" height="288"/>
+    <SubTexture name="debut/00029" x="2" y="1452" width="218" height="288"/>
+    <SubTexture name="debut/00030" x="2" y="1162" width="218" height="288"/>
+    <SubTexture name="debut/00031" x="2" y="872" width="218" height="288"/>
+    <SubTexture name="debut/00032" x="2" y="582" width="218" height="288"/>
+    <SubTexture name="debut/00033" x="2" y="292" width="218" height="288"/>
+    <SubTexture name="debut/00034" x="2" y="2" width="218" height="288"/>
+</TextureAtlas>

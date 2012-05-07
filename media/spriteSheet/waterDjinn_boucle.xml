@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:70a5efcbfad34ae8905330605304c985$ -->
+<TextureAtlas imagePath="waterDjinn_boucle.png">
+    <SubTexture name="boucle/00000" x="1542" y="1452" width="218" height="288"/>
+    <SubTexture name="boucle/00001" x="1322" y="1742" width="218" height="288"/>
+    <SubTexture name="boucle/00002" x="1322" y="1452" width="218" height="288"/>
+    <SubTexture name="boucle/00003" x="1762" y="1162" width="218" height="288"/>
+    <SubTexture name="boucle/00004" x="1542" y="1162" width="218" height="288"/>
+    <SubTexture name="boucle/00005" x="1322" y="1162" width="218" height="288"/>
+    <SubTexture name="boucle/00006" x="1102" y="1742" width="218" height="288"/>
+    <SubTexture name="boucle/00007" x="1102" y="1452" width="218" height="288"/>
+    <SubTexture name="boucle/00008" x="1102" y="1162" width="218" height="288"/>
+    <SubTexture name="boucle/00009" x="1762" y="872" width="218" height="288"/>
+    <SubTexture name="boucle/00010" x="1542" y="872" width="218" height="288"/>
+    <SubTexture name="boucle/00011" x="1322" y="872" width="218" height="288"/>
+    <SubTexture name="boucle/00012" x="1102" y="872" width="218" height="288"/>
+    <SubTexture name="boucle/00013" x="882" y="1742" width="218" height="288"/>
+    <SubTexture name="boucle/00014" x="882" y="1452" width="218" height="288"/>
+    <SubTexture name="boucle/00015" x="882" y="1162" width="218" height="288"/>
+    <SubTexture name="boucle/00016" x="882" y="872" width="218" height="288"/>
+    <SubTexture name="boucle/00017" x="1762" y="582" width="218" height="288"/>
+    <SubTexture name="boucle/00018" x="1542" y="582" width="218" height="288"/>
+    <SubTexture name="boucle/00019" x="1322" y="582" width="218" height="288"/>
+    <SubTexture name="boucle/00020" x="1102" y="582" width="218" height="288"/>
+    <SubTexture name="boucle/00021" x="882" y="582" width="218" height="288"/>
+    <SubTexture name="boucle/00022" x="662" y="1742" width="218" height="288"/>
+    <SubTexture name="boucle/00023" x="662" y="1452" width="218" height="288"/>
+    <SubTexture name="boucle/00024" x="662" y="1162" width="218" height="288"/>
+    <SubTexture name="boucle/00025" x="662" y="872" width="218" height="288"/>
+    <SubTexture name="boucle/00026" x="662" y="582" width="218" height="288"/>
+    <SubTexture name="boucle/00027" x="442" y="1742" width="218" height="288"/>
+    <SubTexture name="boucle/00028" x="442" y="1452" width="218" height="288"/>
+    <SubTexture name="boucle/00029" x="442" y="1162" width="218" height="288"/>
+    <SubTexture name="boucle/00030" x="442" y="872" width="218" height="288"/>
+    <SubTexture name="boucle/00031" x="442" y="582" width="218" height="288"/>
+    <SubTexture name="boucle/00032" x="1762" y="292" width="218" height="288"/>
+    <SubTexture name="boucle/00033" x="1542" y="292" width="218" height="288"/>
+    <SubTexture name="boucle/00034" x="1322" y="292" width="218" height="288"/>
+    <SubTexture name="boucle/00035" x="1102" y="292" width="218" height="288"/>
+    <SubTexture name="boucle/00036" x="882" y="292" width="218" height="288"/>
+    <SubTexture name="boucle/00037" x="662" y="292" width="218" height="288"/>
+    <SubTexture name="boucle/00038" x="442" y="292" width="218" height="288"/>
+    <SubTexture name="boucle/00039" x="222" y="1742" width="218" height="288"/>
+    <SubTexture name="boucle/00040" x="222" y="1452" width="218" height="288"/>
+    <SubTexture name="boucle/00041" x="222" y="1162" width="218" height="288"/>
+    <SubTexture name="boucle/00042" x="222" y="872" width="218" height="288"/>
+    <SubTexture name="boucle/00043" x="222" y="582" width="218" height="288"/>
+    <SubTexture name="boucle/00044" x="222" y="292" width="218" height="288"/>
+    <SubTexture name="boucle/00045" x="1762" y="2" width="218" height="288"/>
+    <SubTexture name="boucle/00046" x="1542" y="2" width="218" height="288"/>
+    <SubTexture name="boucle/00047" x="1322" y="2" width="218" height="288"/>
+    <SubTexture name="boucle/00048" x="1102" y="2" width="218" height="288"/>
+    <SubTexture name="boucle/00049" x="882" y="2" width="218" height="288"/>
+    <SubTexture name="boucle/00050" x="662" y="2" width="218" height="288"/>
+    <SubTexture name="boucle/00051" x="442" y="2" width="218" height="288"/>
+    <SubTexture name="boucle/00052" x="222" y="2" width="218" height="288"/>
+    <SubTexture name="boucle/00053" x="2" y="1742" width="218" height="288"/>
+    <SubTexture name="boucle/00054" x="2" y="1452" width="218" height="288"/>
+    <SubTexture name="boucle/00055" x="2" y="1162" width="218" height="288"/>
+    <SubTexture name="boucle/00056" x="2" y="872" width="218" height="288"/>
+    <SubTexture name="boucle/00057" x="2" y="582" width="218" height="288"/>
+    <SubTexture name="boucle/00058" x="2" y="292" width="218" height="288"/>
+    <SubTexture name="boucle/00059" x="2" y="2" width="218" height="288"/>
+</TextureAtlas>

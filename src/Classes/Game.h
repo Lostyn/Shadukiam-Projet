@@ -22,8 +22,10 @@
 - (id)initWithWidth:(float)width height:(float)height;
 + (int)stageWidth;
 + (int)stageHeight;
++ (void) hideLogo;
 
 @property (nonatomic, assign) float gameWidth;
 @property (nonatomic, assign) float gameHeight;
+
 
 @end

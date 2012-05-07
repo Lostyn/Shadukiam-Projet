@@ -16,6 +16,11 @@
     NSArray *zoneCase;
     int targetCase;
     PionInfos *myPion;
+    VisuPlateau *visu;
+    SPMovieClip *debut;
+    
+    SPTextureAtlas *atlasBoucle;
+    NSArray *frameBoucle;
 }
 
 @end

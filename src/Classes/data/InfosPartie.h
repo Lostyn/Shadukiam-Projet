@@ -12,5 +12,6 @@
 
 +(void)addPlayer:(int)numPerso forPlayer:(int)playerID;
 +(int)getNbPlayers;
++ (int) getPhase;
 
 @end

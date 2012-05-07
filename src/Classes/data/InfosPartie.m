@@ -11,7 +11,7 @@
 @implementation InfosPartie
 
 static NSMutableDictionary *joueurs = nil;
-static int phase = 1;
+static int phase = 2;
 
 +(void) initialize {
     joueurs = [NSMutableDictionary dictionary];
@@ -27,6 +27,10 @@ static int phase = 1;
 
 +(int)getNbPlayers {
     return joueurs.count;
+}
+
++(int) getPhase{
+    return phase;
 }
 
 @end

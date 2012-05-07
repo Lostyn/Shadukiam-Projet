@@ -20,6 +20,7 @@
 
 static int stageWidth;
 static int stageHeight;
+static SPImage *logoBlack;
 
 @synthesize gameWidth  = mGameWidth;
 @synthesize gameHeight = mGameHeight;
@@ -63,6 +64,12 @@ static int stageHeight;
     background.y = yOrigin;
     [self addChild:background];
     
+    logoBlack = [SPImage imageWithContentsOfFile:@"logo_default.png"];
+    logoBlack.x = 117;
+    logoBlack.y = 20;
+    [self addChild:logoBlack];
+
+    
     
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(initGame:) userInfo:nil repeats:NO];
     
@@ -96,6 +103,10 @@ static int stageHeight;
     [timer invalidate];
     timer = nil;
     
+}
+
++ (void) hideLogo{
+    logoBlack.alpha = 0;
 }
 
 + (int)stageWidth {

@@ -21,12 +21,12 @@
     containerRoue.y = self.height/2;
     [self addChild:containerRoue];
     
-    roue = [SPImage imageWithContentsOfFile:@"roueP1.png"];
+    roue = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"roueP%d.png", [InfosPartie getPhase]]];
     roue.x = -roue.width/2;
     roue.y = -roue.height/2;
     [containerRoue addChild:roue];
     
-    containerRoue.rotation = SP_D2R( -30 );
+    containerRoue.rotation = SP_D2R( arc4random()%360 );
     
     arrow = [SPImage imageWithContentsOfFile:@"roueAiguille.png"];
     [self addChild:arrow];
@@ -48,26 +48,48 @@
     
     NSString *resultLink;
     
-    switch ( (int)rot ) {
-        case 0:
-            resultLink = @"roueResultDjinn.png";
-            [InfosTour setDjinn:true];
-            break;
-        case 1:
-        case 3:
-            resultLink = @"";
-            break;
-        case 2:
-        case 4:
-            resultLink = @"roueResultMvt.png";
-            [InfosTour setMouvement:[InfosTour getMouvement] + 2 ];
-            break;
-        case 5:
-            resultLink = @"roueResultPower.png";
-            [InfosTour setPower:true];
-            break;
-        default:
-            break;
+    if( [InfosPartie getPhase] == 1 ){
+        switch ( (int)rot ) {
+            case 0:
+                resultLink = @"roueResultDjinn.png";
+                [InfosTour setDjinn:true];
+                break;
+            case 1:
+            case 3:
+                resultLink = @"";
+                break;
+            case 2:
+            case 4:
+                resultLink = @"roueResultMvt.png";
+                [InfosTour setMouvement:[InfosTour getMouvement] + 2 ];
+                break;
+            case 5:
+                resultLink = @"roueResultPower.png";
+                [InfosTour setPower:true];
+                break;
+            default:
+                break;
+        }
+    }else{
+        switch ( (int)rot ) {
+            case 0:
+            case 2:
+            case 4:
+                resultLink = @"roueResultDjinn.png";
+                [InfosTour setDjinn:true];
+                break;
+            case 1:
+                resultLink = @"roueResultPower.png";
+                [InfosTour setPower:true];
+                break;
+            case 3:
+            case 5:
+                resultLink = @"roueResultMvt.png";
+                [InfosTour setMouvement:[InfosTour getMouvement] + 3 ];
+                break;
+            default:
+                break;
+        }
     }
     
     fondResult = [SPImage imageWithContentsOfFile:@"roueResultFond.png"];

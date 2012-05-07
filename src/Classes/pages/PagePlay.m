@@ -13,11 +13,20 @@
 - (void) show {
     
     [super show];
+    [Game hideLogo];
+    
+    SPImage *bg = [SPImage imageWithContentsOfFile:@"bg_start.png"];
+    [self addChild:bg];
+    
+    logoBlack = [SPImage imageWithContentsOfFile:@"logo_default.png"];
+    logoBlack.x = 117;
+    logoBlack.y = 20;
+    [self addChild:logoBlack];
     
     // bouton play
-    playBtn = [SPQuad quadWithWidth:200 height:50 color:0x000000];
-    playBtn.x = 140;
-    playBtn.y = 80;
+    playBtn = [SPImage imageWithContentsOfFile:@"btn_start.png"];
+    playBtn.x = 116;
+    playBtn.y = 122;
     
     // texte d'info
     textInfos = [SPTextField textFieldWithWidth:300 height:20 text:@""];
@@ -25,7 +34,7 @@
     textInfos.color = 0x000000;
     textInfos.fontSize = 16;
     textInfos.x = 90;
-    textInfos.y = 140;
+    //textInfos.y = 140;
     [self addChild:textInfos];
     
     // init dialog

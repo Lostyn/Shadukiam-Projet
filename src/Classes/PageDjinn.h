@@ -14,6 +14,7 @@
 @interface PageDjinn : Page {
     
     DefaultDjinn *carte;
+    SPImage *ok;
     
 }
 

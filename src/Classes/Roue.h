@@ -9,6 +9,7 @@
 #import "SPSprite.h"
 #import "InfosJoueur.h"
 #import "InfosTour.h"
+#import "InfosPartie.h"
 
 @interface Roue : SPSprite{
     

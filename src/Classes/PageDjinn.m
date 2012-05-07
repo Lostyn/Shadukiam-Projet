@@ -18,7 +18,13 @@
     [self addChild:carte];
     [carte execute];
     
-    [self addEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    ok = [SPImage imageWithContentsOfFile:@"valide.png"];
+    ok.x = 360;
+    ok.y = 245;
+    ok.alpha = 0.5f;
+    [self addChild:ok];
+    
+    [ok addEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
 
 -(void)onNext:(SPTouchEvent*) event{

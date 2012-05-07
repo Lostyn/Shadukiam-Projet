@@ -18,7 +18,6 @@
     SPImage *bg_desc;
     SPTextField *title;
     SPTextField *description;
-    SPImage *ok;
 }
 
 -(void)execute;
