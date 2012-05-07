@@ -35,13 +35,18 @@
     arParentViewController.arViewRect = screenBounds;
     [window insertSubview:arParentViewController.view atIndex:0];
     [window makeKeyAndVisible];
+    [window setHidden:NO];
     
 }
 -(void) onTouchBack:(SPTouchEvent*) event {
     
     [backBtn removeEventListener:@selector(onTouchBack:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
+    [arParentViewController viewDidDisappear:NO];
+    arParentViewController = nil;
+    [window setHidden:YES];
     [window removeFromSuperview];
+    window = nil;
     
     [[PageManager getInstance] changePage:@"PageTDB"];
     

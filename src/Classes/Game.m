@@ -70,6 +70,9 @@ static int stageHeight;
 
 - (void) initGame:(NSTimer*) timer {
     
+    
+    // init epawn
+    [[EpawnData getInstance] start:self.stage.nativeView];
      
     // pagemanager
     [self addChild:[PageManager getInstance]];
@@ -87,9 +90,6 @@ static int stageHeight;
     [Menu getInstance].x = xOrigin;
     [Menu getInstance].y = yOrigin;
     [[Menu getInstance] initMenu]; 
-    
-    // init epawn
-    [[EpawnData getInstance] start:self.stage.nativeView];
     
     
     //kill the timer

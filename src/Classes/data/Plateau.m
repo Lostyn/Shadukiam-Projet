@@ -94,4 +94,20 @@ static int CASE_WIDTH = 20;
     
 }
 
+-(NSArray*) getZonesForSalle:(int)salleID {
+    
+    NSDictionary *zones = [XMLData retrieveForPath:[NSString stringWithFormat:@"plateau.salles.salle.%d.zones", salleID]];
+    
+    NSEnumerator *zonesEnum = [zones objectEnumerator];
+    NSString *zoneIDStr;
+    NSMutableArray *zonesArray = [NSMutableArray array];
+    
+    while(zoneIDStr = [zonesEnum nextObject]) {
+        [zonesArray addObject:zoneIDStr];
+    }
+    
+    return [zonesArray objectAtIndex:0];
+    
+}
+
 @end

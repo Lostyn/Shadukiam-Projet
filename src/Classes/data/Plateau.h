@@ -25,5 +25,6 @@
 - (NSDictionary*) getZoneByID: (int) zoneID;
 - (NSMutableArray*) getZonesAccessible:(int)zoneID nbMoves: (int)moves;
 -(void) getZonesAccessibleRec:(NSDictionary*) currZone nbMoves: (int) moves currLevel: (int)level withArray:(NSMutableArray*) accessibles;
+- (NSArray*) getZonesForSalle:(int) salleID;
 
 @end
