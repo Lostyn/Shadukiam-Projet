@@ -99,14 +99,12 @@
 
 -(void) affZoneActive:(int)zoneID {
     
-    if(zoneID % 2 == 1) {
     NSDictionary *zoneData = [[Plateau getInstance] getZoneByID:zoneID];
     
     currentZoneActive = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"zone_%d_active.png", zoneID]];
     currentZoneActive.x = [[zoneData objectForKey:@"posx"] intValue] / 2;
     currentZoneActive.y = [[zoneData objectForKey:@"posy"] intValue] / 2;
     [conteneur addChild:currentZoneActive];
-    }
     
 }
 

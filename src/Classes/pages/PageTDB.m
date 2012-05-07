@@ -56,7 +56,9 @@
     btnIntuition = [[TDBBtn alloc] initWithText:@"INTUITION"];
     btnIntuition.x = 340;
     btnIntuition.y = 165;
+    btnIntuition.name = @"PageIntuition";
     [buttons addChild:btnIntuition];
+    [btnIntuition addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     btnLancer = [[TDBBtn alloc] initWithText:@"LANCER"];
     btnLancer.x = 340;
