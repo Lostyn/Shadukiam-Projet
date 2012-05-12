@@ -7,16 +7,19 @@
 //
 
 #import "SPSprite.h"
+#import "InfosJoueur.h"
 
 @interface ObjetMini : SPSprite {
     
     SPImage *background;
     SPImage *icone;
+    SPImage *nomBkg;
+    SPTextField *nomTxt;
     int ID;
     
 }
 
 @property int ID;
--(id) initWithObjetID:(int) objetID;
+-(id) initWithObjetID:(int) objetID andName:(NSString*) name;
 
 @end

@@ -14,6 +14,10 @@
     
     [super show];
     
+    //[InfosJoueur addObjet:1];
+    //[InfosJoueur addObjet:1];
+    //[InfosJoueur addObjet:2];
+    
     titre = [[Titre alloc] initWithText:@"INVENTAIRE"];
     [self addChild:titre];
     titre.x = 120;
@@ -23,7 +27,7 @@
     int nbCols = [objets count] / 2;
     if([objets count] % 2 == 1) nbCols++;
     
-    objetsIcones = [[Slider alloc] initWithWidth:nbCols * 95 + 100 height:[Game stageHeight]];
+    objetsIcones = [[Slider alloc] initWithWidth:nbCols * 130 + 100 height:[Game stageHeight]];
     [self addChild:objetsIcones];
     
     backBtn = [SPImage imageWithContentsOfFile:@"retourne.png"];
@@ -33,6 +37,12 @@
     
     [backBtn addEventListener:@selector(onTouchBack:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
+    // init infos XML
+    
+    NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"objets" ofType:@"xml"]];
+    NSError *error = nil;
+    infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
+    
     // affichage des objets
     NSEnumerator *enumerator = [objets objectEnumerator];
     NSNumber *objetID;
@@ -40,10 +50,12 @@
     
     while(objetID = [enumerator nextObject]) {
         
-        ObjetMini *objetIcone = [[ObjetMini alloc] initWithObjetID:[objetID intValue]];
+        NSDictionary *xmlObjet = [infosXML retrieveForPath:[NSString stringWithFormat:@"objets.objet.%@", objetID]];
+        
+        ObjetMini *objetIcone = [[ObjetMini alloc] initWithObjetID:[objetID intValue] andName:[xmlObjet objectForKey:@"name"]];
         [objetsIcones addChild:objetIcone];
-        objetIcone.x = (i % nbCols) * 95 + 70;
-        objetIcone.y = 70 + floor(i / nbCols) * 100;
+        objetIcone.x = (i % nbCols) * 130 + 70;
+        objetIcone.y = 70 + floor(i / nbCols) * 110;
         
         [objetIcone addEventListener:@selector(onTouchObjet:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         
@@ -54,12 +66,6 @@
     // init masque background
     backgroundMask = [[SPQuad alloc] initWithWidth:[Game stageWidth] height:[Game stageHeight] color:0x000000];
     backgroundMask.alpha = 0;
-    
-    // ini infos XML
-    
-    NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"objets" ofType:@"xml"]];
-    NSError *error = nil;
-    infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
     
     
     

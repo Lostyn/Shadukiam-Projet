@@ -84,7 +84,7 @@ static EpawnData *instance = nil;
     pion.pid = pawn->pid;
     pion.posx = pawn->posx;
     pion.posy = pawn->posy;
-	[pions replaceObjectAtIndex:pawn->pid withObject:pion];
+    [pions insertObject:pion atIndex:pawn->pid];
 }
 
 - (void)pawnEnded:(const CPPawn*)pawn
