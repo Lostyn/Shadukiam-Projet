@@ -19,10 +19,17 @@
     bg.alpha = 0;
     [self addChild:bg];
     
-    Class djinn = NSClassFromString( [aDjinn objectAtIndex: arc4random()%aDjinn.count] );
-    if( [InfosPartie getPhase] == 2 ){
-        djinn =NSClassFromString( @"DjinnP2" );
+    NSString *classDjinn = [aDjinn objectAtIndex: arc4random()%aDjinn.count];
+    if( [[InfosTour getForceDjinn] isEqualToString:@""] ){
+        if( [InfosPartie getPhase] == 2 ){
+            classDjinn = @"DjinnP2";
+        }
+        [[Dialog getInstance] sendMessage:@"showDjinn" sendTo:-1 data:classDjinn];
+    }else{
+        classDjinn = [InfosTour getForceDjinn];
     }
+    
+    Class djinn = NSClassFromString( classDjinn );
     carte = [[djinn alloc] init];
         
     ok = [SPImage imageWithContentsOfFile:@"valide.png"];
@@ -32,6 +39,8 @@
     [self anim];
     [ok addEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
+
+
 
 -(void)anim{
     SPTween* tBg = [SPTween tweenWithTarget:bg time:0.5f transition:SP_TRANSITION_EASE_OUT];

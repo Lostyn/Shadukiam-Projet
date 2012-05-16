@@ -13,7 +13,7 @@
 static bool power = false;
 static bool djinn = false;
 static int mouvement = 0;
-
+static NSString *forceDjinn = @"";
 
 +(void) setDjinn:(bool)bDjinn {
     djinn = bDjinn;
@@ -34,5 +34,13 @@ static int mouvement = 0;
 }
 +(int) getMouvement {
     return mouvement;
+}
+
++(void) setForceDjinn:(NSString*) force{
+    forceDjinn = force;
+}
+
++(NSString*) getForceDjinn{
+    return forceDjinn;
 }
 @end

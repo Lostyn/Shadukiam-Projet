@@ -18,4 +18,7 @@
 
 +(void)setMouvement:(int)iMvt;
 +(int)getMouvement;
+
++(void) setForceDjinn:(NSString*) force;
++(NSString*) getForceDjinn;
 @end
