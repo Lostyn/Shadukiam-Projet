@@ -18,11 +18,17 @@
     SPImage *bg_desc;
     SPTextField *title;
     SPTextField *description;
+    
+    SPMovieClip *debut;
+    
+    SPTextureAtlas *atlasBoucle;
+    NSArray *frameBoucle;
 }
 
 -(void)execute;
 -(void) displayDescription:(NSString*) sTitle withDesc:(NSString*)sDescription;
-    
+- (void) onTimer:(NSTimer*) timer;
+- (void) nextAnim:(SPEvent*) event;
 
 
 @end

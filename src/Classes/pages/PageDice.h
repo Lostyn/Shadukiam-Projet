@@ -27,4 +27,6 @@
 -(CGFloat) DistanceBetweenTwoPoints:(SPPoint*) point1 withPoint2:(SPPoint*) point2;
 
 -(void) result;
+-(void) anim;
+-(void) animQuit;
 @end

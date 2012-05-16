@@ -38,6 +38,10 @@ static int currentCase = 0;
     [objets addObject:[NSNumber numberWithInt:objetID]];
 }
 
++ (void) removeObjet:(int) index {
+    [objets removeObjectAtIndex:index];
+}
+
 +(NSMutableArray*) getObjets {
     return objets;
 }

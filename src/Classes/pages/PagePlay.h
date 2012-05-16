@@ -15,7 +15,12 @@
     bool connected;
     SPTextField *textInfos;
     SPImage *logoBlack;
+    SPImage *logoWhite;
     
 }
+
+-(void)anim:(NSTimer*) timer;
+-(void)animQuit;
+-(void)gotoGame:(NSTimer*) timer;
 
 @end

@@ -13,18 +13,40 @@
 -(void) show {
     [super show];
     
-    Class djinn = NSClassFromString( @"Djinn001" );
-    carte = [[djinn alloc] init];
-    [self addChild:carte];
-    [carte execute];
+    NSArray *aDjinn = [NSArray arrayWithObjects:@"Djinn001", @"Djinn002", nil ];
     
+    bg = [[SPQuad alloc] initWithWidth:[Game stageWidth] height:[Game stageHeight] color:0x000000];
+    bg.alpha = 0;
+    [self addChild:bg];
+    
+    Class djinn = NSClassFromString( [aDjinn objectAtIndex: arc4random()%aDjinn.count] );
+    if( [InfosPartie getPhase] == 2 ){
+        djinn =NSClassFromString( @"DjinnP2" );
+    }
+    carte = [[djinn alloc] init];
+        
     ok = [SPImage imageWithContentsOfFile:@"valide.png"];
     ok.x = 360;
     ok.y = 245;
-    ok.alpha = 0.5f;
-    [self addChild:ok];
     
+    [self anim];
     [ok addEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+}
+
+-(void)anim{
+    SPTween* tBg = [SPTween tweenWithTarget:bg time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tBg setDelay:0.75f];
+    [tBg animateProperty:@"alpha" targetValue:0.5f];
+    
+    [self.stage.juggler addObject: tBg];
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(displayCarte:) userInfo:nil repeats:NO];
+    
+}
+
+-(void)displayCarte:(NSTimer*) timer{
+    [self addChild:carte];
+    [carte execute];
+    [self addChild:ok];
 }
 
 -(void)onNext:(SPTouchEvent*) event{

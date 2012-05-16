@@ -13,9 +13,12 @@
 
 @interface PageDjinn : Page {
     
+    SPQuad *bg;
     DefaultDjinn *carte;
     SPImage *ok;
-    
 }
+
+-(void)anim;
+-(void)displayCarte:(NSTimer*) timer;
 
 @end

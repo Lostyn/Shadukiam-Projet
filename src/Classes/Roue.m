@@ -48,6 +48,8 @@
     
     NSString *resultLink;
     
+    rot = 0;
+    
     if( [InfosPartie getPhase] == 1 ){
         switch ( (int)rot ) {
             case 0:

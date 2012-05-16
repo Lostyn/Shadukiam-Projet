@@ -14,6 +14,13 @@
 @interface PagePower : Page{
 
     Titre *titre;
+    SPQuad *bg;
+    SPSprite *carte;
+    SPImage *nowBtn;
+    SPImage *waitBtn;
 }
+
+- (void) anim;
+- (void) displayCarte;
 
 @end

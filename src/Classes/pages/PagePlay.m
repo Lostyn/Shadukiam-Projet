@@ -23,6 +23,12 @@
     logoBlack.y = 20;
     [self addChild:logoBlack];
     
+    logoWhite = [SPImage imageWithContentsOfFile:@"logo_default_white.png"];
+    logoWhite.x = 117;
+    logoWhite.y = 20;
+    logoWhite.alpha = 0;
+    [self addChild:logoWhite];
+    
     // bouton play
     playBtn = [SPImage imageWithContentsOfFile:@"btn_start.png"];
     playBtn.x = 116;
@@ -42,8 +48,36 @@
     [[Dialog getInstance] connect];
     
     [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(checkConnection:) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(anim:) userInfo:nil repeats:NO];
+}
+
+
+-(void)anim:(NSTimer*) timer{
+    SPTween* tweenBlack = [SPTween tweenWithTarget:logoBlack time:2.0f transition:SP_TRANSITION_EASE_OUT];
+    [tweenBlack setDelay:0.75f];
+    [tweenBlack animateProperty:@"alpha" targetValue:0];
+    
+    SPTween* tweenWhite = [SPTween tweenWithTarget:logoWhite time:2.0f transition:SP_TRANSITION_EASE_OUT];
+    [tweenWhite setDelay:0.75f];
+    [tweenWhite animateProperty:@"alpha" targetValue:1];
+    
+    [self.stage.juggler addObject:tweenBlack];
+    [self.stage.juggler addObject:tweenWhite];
     
 }
+
+-(void)animQuit{
+    [self removeChild:playBtn];
+    [self removeChild:textInfos];
+    
+    SPTween* white = [SPTween tweenWithTarget:logoWhite time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [white animateProperty:@"alpha" targetValue:0];
+    
+    [self.stage.juggler addObject:white];
+}
+
+
+
 
 // si on est pas connecté quelques secondes apres le lancement de l'appli, creation du serveur
 -(void)checkConnection:(NSTimer*)timer {
@@ -103,6 +137,12 @@
 
 // jeu lancé, selection perso
 -(void) gameLaunched {
+    [self animQuit];
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(gotoGame:) userInfo:nil repeats:NO];
+}
+
+-(void)gotoGame:(NSTimer *)timer{
     [[PageManager getInstance] changePage:@"PageSelectPerso"];
 }
 

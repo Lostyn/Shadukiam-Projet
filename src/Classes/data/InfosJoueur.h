@@ -13,6 +13,7 @@
 + (void) setMyPerso:(int)numPerso;
 + (int) getMyPerso;
 + (void) addObjet:(int) objetID;
++ (void) removeObjet:(int) objetID;
 + (NSMutableArray*) getObjets;
 + (void) setCurrentCase:(int)numCase;
 + (int) getCurrentCase;
