@@ -26,7 +26,15 @@
     
     [InfosPartie goNextPlayer];
     
+    [[Menu getInstance] setPersoActive:[InfosPartie getCurrentPlayerIndex]];
+    
     if([InfosPartie getCurrentPlayer] == [Dialog getInstance].myID) [[PageManager getInstance] changePage:@"PageDice"];
+    
+}
+
+-(void) videZone:(int)zoneID {
+    
+    [InfosDisposition videZone:zoneID];
     
 }
 

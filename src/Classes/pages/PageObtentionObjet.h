@@ -11,6 +11,7 @@
 #import "FicheObjet.h"
 #import "XMLReader.h"
 #import "PageManager.h"
+#import "InfosDisposition.h"
 
 @interface PageObtentionObjet : Page {
     

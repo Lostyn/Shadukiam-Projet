@@ -32,10 +32,19 @@
     NSError *error = nil;
     infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
     
-    // init fiche objet
-    numObjet = 1;
+    // recuperation du bon objet en fonction de la case actuelle
+    NSDictionary *currentZoneInfos = [InfosDisposition getElementForZone:[InfosJoueur getCurrentCase]];
+    if(currentZoneInfos != nil) numObjet = [[currentZoneInfos objectForKey:@"objetID"] intValue];
+    else numObjet = 1;
+    
+    // suppression de l'objet de la case pr moi et les autres
+    [InfosDisposition videZone:[InfosJoueur getCurrentCase]];
+    [[Dialog getInstance] sendMessage:@"videzone" sendTo:-1 data:[NSNumber numberWithInt:[InfosJoueur getCurrentCase]]];
+    
+    // ajout dans l'inventaire
     [InfosJoueur addObjet:numObjet];
     
+    // init fiche objet
     ficheObjet = [[FicheObjet alloc] init ];
     [ficheObjet initWithID:numObjet andXML:[infosXML retrieveForPath:[NSString stringWithFormat:@"objets.objet.%d", numObjet]]];
     

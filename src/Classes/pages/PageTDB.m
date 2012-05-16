@@ -83,7 +83,7 @@
     [tweenTitre animateProperty:@"y" targetValue:0];
     
     
-    persoImg.alpha = 0;
+    persoImg.alpha = 0.01;
     persoImg.y = 60;
     persoImg.x += 10;
     persoImg.scaleX = 0.7;
@@ -96,7 +96,7 @@
     [tweenPerso animateProperty:@"scaleX" targetValue:0.8];
     [tweenPerso animateProperty:@"scaleY" targetValue:0.8];
     
-    buttons.alpha = 0;
+    buttons.alpha = 0.01;
     buttons.y = 5;
     SPTween* tweenButtons = [SPTween tweenWithTarget:buttons time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenButtons setDelay:1];

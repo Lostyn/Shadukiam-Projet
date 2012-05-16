@@ -21,7 +21,7 @@
     titre = [[Titre alloc] initWithText:@"INVENTAIRE"];
     [self addChild:titre];
     titre.x = 120;
-    titre.y = 0;
+    titre.y = 0.05;
     
     NSMutableArray *objets = [InfosJoueur getObjets];
     int nbCols = [objets count] / 2;
@@ -70,7 +70,7 @@
     
     
     // anim
-    titre.alpha = 0;
+    titre.alpha = 0.01;
     titre.y = -20;
     SPTween* tweenTitre = [SPTween tweenWithTarget:titre time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenTitre setDelay:0.5f];
@@ -79,7 +79,7 @@
     
     [self.stage.juggler addObject:tweenTitre];
     
-    backBtn.alpha = 0;
+    backBtn.alpha = 0.01;
     backBtn.y = -20;
     SPTween* tweenBack = [SPTween tweenWithTarget:backBtn time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenBack setDelay:0.5f];
@@ -88,7 +88,7 @@
     
     [self.stage.juggler addObject:tweenBack];
     
-    objetsIcones.alpha = 0;
+    objetsIcones.alpha = 0.01;
     objetsIcones.y = 0;
     SPTween* tweenIcones = [SPTween tweenWithTarget:objetsIcones time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenIcones setDelay:0.75f];

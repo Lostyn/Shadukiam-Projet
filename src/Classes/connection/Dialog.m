@@ -224,6 +224,9 @@ static Dialog *instance = nil;
         else if( [commande isEqualToString:@"nextplayer"]){
             [delegate nextPlayer];
         }
+        else if( [commande isEqualToString:@"videzone"]){
+            [delegate videZone:[[packet objectForKey:@"data"] intValue]];
+        } 
         
     }
     

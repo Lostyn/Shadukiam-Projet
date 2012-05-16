@@ -12,11 +12,13 @@
 @interface Menu : SPSprite {
     SPSprite *persos;
     SPImage *background;
+    SPImage *currentImage;
 }
 
 +(Menu *)getInstance;
 -(void) addPerso:(int)numPerso;
 -(void) initMenu;
 -(void) reorderPersos:(NSMutableArray*) order;
+-(void) setPersoActive:(int) playerIndex;
 
 @end

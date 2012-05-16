@@ -80,6 +80,9 @@ static SPImage *logoBlack;
     
     // init epawn
     [[EpawnData getInstance] start:self.stage.nativeView];
+    
+    // init disposition
+    [InfosDisposition genere];
      
     // pagemanager
     [self addChild:[PageManager getInstance]];

@@ -14,6 +14,7 @@
 #import "PageManager.h"
 #import "VisuPlateau.h"
 #import "Constante.h"
+#import "InfosDisposition.h"
 
 @interface PageMove : Page {
     
@@ -27,6 +28,8 @@
     SPImage *backgroundZones;
     SPSprite *compteur;
     SPSprite *contenu;
+    
+    NSString *nextPage;
     
     SPTextField *debug;
     

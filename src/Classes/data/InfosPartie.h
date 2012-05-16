@@ -17,5 +17,6 @@
 +(int) getCurrentPlayer;
 +(void) setPlayersOrder:(NSMutableArray*) order;
 +(void) goNextPlayer;
++(int) getCurrentPlayerIndex;
 
 @end

@@ -23,7 +23,7 @@
     [self addChild:titre];
     
     compteur = [SPSprite sprite];
-    compteur.x = 370;
+    compteur.x = 365;
     compteur.y = 5;
     [self addChild:compteur];
     
@@ -41,7 +41,7 @@
     
     
     
-    SPImage *compteurBkg = [SPImage imageWithContentsOfFile:@"compteur_mvt.png"];
+    SPImage *compteurBkg = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"compteur_mvt_%d.png", [InfosJoueur getMyPerso]]];
     [compteur addChild:compteurBkg];
     
     SPTextField *compteurTxt = [SPTextField textFieldWithText:[NSString stringWithFormat:@"%d", [InfosTour getMouvement]]];
@@ -97,7 +97,7 @@
     SPTween* tweenConpteur = [SPTween tweenWithTarget:compteur time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenConpteur setDelay:1.25];
     [tweenConpteur animateProperty:@"alpha" targetValue:1];
-    [tweenConpteur animateProperty:@"y" targetValue:5];
+    [tweenConpteur animateProperty:@"y" targetValue:1];
     
     [self.stage.juggler addObject:tweenConpteur];
     
@@ -194,7 +194,20 @@
             if(currentCase != nil) {
                 
                 if([zonesAccessibles containsObject:[currentCase objectForKey:@"zone"]]) {
-                    [InfosJoueur setCurrentCase:[[currentCase objectForKey:@"zone"] intValue]];
+                    int zoneID = [[currentCase objectForKey:@"zone"] intValue];
+                    [InfosJoueur setCurrentCase:zoneID];
+                    
+                    // regarde ce qu'il y a sur la zone
+                    NSDictionary *zoneInfos = [InfosDisposition getElementForZone:zoneID];
+                    
+                    if(zoneInfos == nil) {
+                        nextPage = @"PageTDB";
+                    } else {
+                        NSString *type = [zoneInfos objectForKey:@"type"];
+                        if([type isEqualToString:@"objet"]) nextPage = @"PageObtentionObjet";
+                        else if([type isEqualToString:@"enigme"]) nextPage = @"PageEnigme";
+                    }
+                    
                     [self animQuit];
                 }
                 
@@ -227,7 +240,7 @@
 
 -(void) goNextPage:(NSTimer*) timer {
     
-    [[PageManager getInstance] changePage:@"PageObtentionObjet"];
+    [[PageManager getInstance] changePage:nextPage];
     
     //kill the timer
     [timer invalidate];

@@ -36,6 +36,7 @@
         ficheMini.x = (i * 210) - 170;
         ficheMini.name = [NSString stringWithFormat:@"%d", i];
         [ficheMini addEventListener:@selector(onTouchPerso:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        
     }
     
     // init masque background
@@ -46,6 +47,27 @@
     NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"persos" ofType:@"xml"]];
     NSError *error = nil;
     infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
+    
+    
+    // anims
+    
+    titre.alpha = 0;
+    titre.y = -20;
+    SPTween* tweenTitre = [SPTween tweenWithTarget:titre time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tweenTitre setDelay:2];
+    [tweenTitre animateProperty:@"alpha" targetValue:1];
+    [tweenTitre animateProperty:@"y" targetValue:0];
+    [self.stage.juggler addObject:tweenTitre];
+    
+    sliderPersos.alpha = 0.05;
+    sliderPersos.y += 15;
+    SPTween* tweenSlider = [SPTween tweenWithTarget:sliderPersos time:1 transition:SP_TRANSITION_EASE_OUT];
+    [tweenSlider setDelay:2.25];
+    [tweenSlider animateProperty:@"alpha" targetValue:1];
+    [tweenSlider animateProperty:@"y" targetValue:sliderPersos.y - 15];
+    [self.stage.juggler addObject:tweenSlider];
+    
+    
 }
 
 - (void) onTouchPerso:(SPTouchEvent*)event {
@@ -202,6 +224,7 @@
     else targetPage = @"PageTDB";
     
     [[Menu getInstance] reorderPersos:ordre];
+    [[Menu getInstance] setPersoActive:[InfosPartie getCurrentPlayerIndex]];
     
     [[Dialog getInstance] sendMessage:@"gamestart" sendTo:-1 data:ordre];
     
@@ -239,6 +262,7 @@
     else targetPage = @"PageTDB";
     
     [[Menu getInstance] reorderPersos:playersOrder];
+    [[Menu getInstance] setPersoActive:[InfosPartie getCurrentPlayerIndex]];
     
     if(persoActive == nil) {
         [[PageManager getInstance] changePage:targetPage];

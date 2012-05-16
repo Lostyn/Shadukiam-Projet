@@ -24,6 +24,7 @@
 - (void) enigmeResult:(NSString*) key;
 - (void) enigmeSuccess:(NSString*) key;
 - (void) nextPlayer;
+- (void) videZone:(int) zoneID;
 
 @end
 

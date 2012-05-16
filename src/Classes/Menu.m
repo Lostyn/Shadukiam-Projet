@@ -25,6 +25,11 @@ static Menu *instance = nil;
     background = [SPImage imageWithContentsOfFile:@"fond_menu.png"];
     [self addChild:background];
     
+    currentImage = [SPImage imageWithContentsOfFile:@"menu_perso_highlight.png"];
+    [self addChild:currentImage];
+    currentImage.alpha = 0;
+    currentImage.x = -1;
+    
     persos = [SPSprite sprite];
     [self addChild:persos];
     persos.x = 8;
@@ -51,6 +56,12 @@ static Menu *instance = nil;
         
     }
     
+}
+
+-(void) setPersoActive:(int)playerIndex {
+    currentImage.alpha = 1;
+    int imageIndex = [persos numChildren] - playerIndex - 1;
+    currentImage.y = 251 - imageIndex * 45;
 }
 
 @end

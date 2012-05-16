@@ -44,6 +44,10 @@ static NSMutableArray* playersOrder;
     return currentPlayer;
 }
 
++(int) getCurrentPlayerIndex {
+    return currentPlayerIndex;
+}
+
 +(void) setPlayersOrder:(NSMutableArray*) order {
     playersOrder = order;
     currentPlayer = [[order objectAtIndex:0] intValue];
