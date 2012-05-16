@@ -32,9 +32,17 @@
     
 }
 
+// vide une zone de son objet / enigme ...
 -(void) videZone:(int)zoneID {
     
     [InfosDisposition videZone:zoneID];
+    
+}
+
+-(void) showDjinn:(NSString*)djinnID {
+    
+    [InfosTour setForceDjinn:djinnID];
+    [[PageManager getInstance] changePage:@"PageDjinn"];
     
 }
 

@@ -10,6 +10,7 @@
 #import "InfosJoueur.h"
 #import "EpawnData.h"
 #import "InfosDisposition.h"
+#import "InfosTour.h"
 
 @interface Game : SPSprite
 {
