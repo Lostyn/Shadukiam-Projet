@@ -60,6 +60,12 @@
     power.x = bgCarte.x + 51;
     power.y = bgCarte.y + 33;
     [carte addChild:power];
+    
+    [nowBtn addEventListener:@selector(onNow:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+}
+
+- (void) onNow:(SPTouchEvent*) event{
+    [[PageManager getInstance] changePage:@"PageTDB"];
 }
 
 
