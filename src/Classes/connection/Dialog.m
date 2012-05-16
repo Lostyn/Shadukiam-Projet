@@ -243,4 +243,9 @@ static Dialog *instance = nil;
     }
 }
 
+- (void) connectionAttemptFailed:(Connection*)connection {
+    NSLog( @"Connection failed" );
+
+}
+
 @end

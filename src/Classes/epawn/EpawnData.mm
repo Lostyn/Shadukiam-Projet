@@ -30,6 +30,7 @@ static EpawnData *instance = nil;
     // initiliaze the CPPawnManger with default values.
     _epManager = [[CPPawnManager alloc] init];
     _epManager.gameView = view;
+    _epManager.delegate = self;
     
     // start a timer to run the mainLoop (which is used to process the CPPawnManager)
     _processTimer = [NSTimer scheduledTimerWithTimeInterval:(1.0/60.0) target:self selector:@selector(mainLoop) userInfo:nil repeats:YES];
@@ -89,7 +90,7 @@ static EpawnData *instance = nil;
 
 - (void)pawnEnded:(const CPPawn*)pawn
 {
-	[pions removeObjectAtIndex:pawn->pid];
+	//[pions removeObjectAtIndex:pawn->pid];
 }
 
 @end
