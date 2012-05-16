@@ -61,10 +61,15 @@
 -(void)onNext:(SPTouchEvent*) event{
     [InfosTour setDjinn:false];
     
-    if( [InfosTour getPower] == true ){
-        [[PageManager getInstance] changePage:@"PagePower"];
+    if( [[InfosTour getForceDjinn] isEqualToString:@""] ){
+        if( [InfosTour getPower] == true ){
+            [[PageManager getInstance] changePage:@"PagePower"];
+        }else{
+            [[PageManager getInstance] changePage:@"PageMove"];        
+        }
     }else{
-        [[PageManager getInstance] changePage:@"PageMove"];        
+        [InfosTour setForceDjinn:@""];
+        [[PageManager getInstance] changePage:@"PageTDB"];   
     }
 }
 
