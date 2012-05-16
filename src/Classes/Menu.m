@@ -61,7 +61,7 @@ static Menu *instance = nil;
 -(void) setPersoActive:(int)playerIndex {
     currentImage.alpha = 1;
     int imageIndex = [persos numChildren] - playerIndex - 1;
-    currentImage.y = 251 - imageIndex * 35;
+    currentImage.y = 251 - imageIndex * 30;
 }
 
 @end
