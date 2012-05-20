@@ -472,7 +472,7 @@
 <case><id>468</id><x>21</x><y>6</y><zone>18</zone></case>
 <case><id>469</id><x>21</x><y>7</y><zone>18</zone></case>
 <case><id>470</id><x>21</x><y>8</y><zone>-1</zone></case>
-<case><id>471</id><x>21</x><y>9</y><zone>4</zone></case>
+<case><id>471</id><x>21</x><y>9</y><zone>3</zone></case>
 <case><id>472</id><x>21</x><y>10</y><zone>3</zone></case>
 <case><id>473</id><x>21</x><y>11</y><zone>2</zone></case>
 <case><id>474</id><x>21</x><y>12</y><zone>2</zone></case>
@@ -495,7 +495,7 @@
 <case><id>491</id><x>22</x><y>7</y><zone>18</zone></case>
 <case><id>492</id><x>22</x><y>8</y><zone>-1</zone></case>
 <case><id>493</id><x>22</x><y>9</y><zone>-1</zone></case>
-<case><id>494</id><x>22</x><y>10</y><zone>4</zone></case>
+<case><id>494</id><x>22</x><y>10</y><zone>3</zone></case>
 <case><id>495</id><x>22</x><y>11</y><zone>3</zone></case>
 <case><id>496</id><x>22</x><y>12</y><zone>2</zone></case>
 <case><id>497</id><x>22</x><y>13</y><zone>2</zone></case>
@@ -665,7 +665,6 @@
         <posx>521</posx>
         <posy>1006</posy>
 		<voisins>
-			<voisin>4</voisin>
 			<voisin>2</voisin>
 			<voisin>5</voisin>
 		</voisins>
