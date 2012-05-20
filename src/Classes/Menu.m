@@ -49,7 +49,6 @@ static Menu *instance = nil;
     for(int i = [order count] - 1; i >= 0; i--) {
         
         NSString *joueurIDStr = [NSString stringWithFormat:@"%@", [order objectAtIndex:i]];
-        NSLog(@"joueur id : %@, joueurs : %@", joueurIDStr, [InfosPartie getJoueurs]);
         int numPersoOrder = [[[InfosPartie getJoueurs] objectForKey:joueurIDStr] intValue];
         
         [self addPerso:numPersoOrder];

@@ -39,7 +39,7 @@
 <case><id>35</id><x>1</x><y>13</y><zone>-1</zone></case>
 <case><id>36</id><x>1</x><y>14</y><zone>63</zone></case>
 <case><id>37</id><x>1</x><y>15</y><zone>63</zone></case>
-<case><id>38</id><x>1</x><y>16</y><zone>63</zone></case>
+<case><id>38</id><x>1</x><y>16</y><zone>62</zone></case>
 <case><id>39</id><x>1</x><y>17</y><zone>-1</zone></case>
 <case><id>40</id><x>1</x><y>18</y><zone>-1</zone></case>
 <case><id>41</id><x>1</x><y>19</y><zone>61</zone></case>
@@ -111,7 +111,7 @@
 <case><id>107</id><x>4</x><y>19</y><zone>60</zone></case>
 <case><id>108</id><x>4</x><y>20</y><zone>-1</zone></case>
 <case><id>109</id><x>4</x><y>21</y><zone>-1</zone></case>
-<case><id>110</id><x>5</x><y>0</y><zone>-1</zone></case>
+<case><id>110</id><x>5</x><y>0</y><zone>80</zone></case>
 <case><id>111</id><x>5</x><y>1</y><zone>80</zone></case>
 <case><id>112</id><x>5</x><y>2</y><zone>80</zone></case>
 <case><id>113</id><x>5</x><y>3</y><zone>74</zone></case>
@@ -139,7 +139,7 @@
 <case><id>135</id><x>6</x><y>3</y><zone>79</zone></case>
 <case><id>136</id><x>6</x><y>4</y><zone>74</zone></case>
 <case><id>137</id><x>6</x><y>5</y><zone>73</zone></case>
-<case><id>138</id><x>6</x><y>6</y><zone>-1</zone></case>
+<case><id>138</id><x>6</x><y>6</y><zone>73</zone></case>
 <case><id>139</id><x>6</x><y>7</y><zone>-1</zone></case>
 <case><id>140</id><x>6</x><y>8</y><zone>66</zone></case>
 <case><id>141</id><x>6</x><y>9</y><zone>66</zone></case>
@@ -239,8 +239,8 @@
 <case><id>235</id><x>10</x><y>15</y><zone>39</zone></case>
 <case><id>236</id><x>10</x><y>16</y><zone>39</zone></case>
 <case><id>237</id><x>10</x><y>17</y><zone>40</zone></case>
-<case><id>238</id><x>10</x><y>18</y><zone>40</zone></case>
-<case><id>239</id><x>10</x><y>19</y><zone>40</zone></case>
+<case><id>238</id><x>10</x><y>18</y><zone>41</zone></case>
+<case><id>239</id><x>10</x><y>19</y><zone>42</zone></case>
 <case><id>240</id><x>10</x><y>20</y><zone>42</zone></case>
 <case><id>241</id><x>10</x><y>21</y><zone>-1</zone></case>
 <case><id>242</id><x>11</x><y>0</y><zone>-1</zone></case>
@@ -269,7 +269,7 @@
 <case><id>265</id><x>12</x><y>1</y><zone>-1</zone></case>
 <case><id>266</id><x>12</x><y>2</y><zone>-1</zone></case>
 <case><id>267</id><x>12</x><y>3</y><zone>-1</zone></case>
-<case><id>268</id><x>12</x><y>4</y><zone>-1</zone></case>
+<case><id>268</id><x>12</x><y>4</y><zone>33</zone></case>
 <case><id>269</id><x>12</x><y>5</y><zone>33</zone></case>
 <case><id>270</id><x>12</x><y>6</y><zone>-1</zone></case>
 <case><id>271</id><x>12</x><y>7</y><zone>-1</zone></case>
@@ -320,7 +320,7 @@
 <case><id>316</id><x>14</x><y>8</y><zone>-1</zone></case>
 <case><id>317</id><x>14</x><y>9</y><zone>-1</zone></case>
 <case><id>318</id><x>14</x><y>10</y><zone>48</zone></case>
-<case><id>319</id><x>14</x><y>11</y><zone>-1</zone></case>
+<case><id>319</id><x>14</x><y>11</y><zone>49</zone></case>
 <case><id>320</id><x>14</x><y>12</y><zone>-1</zone></case>
 <case><id>321</id><x>14</x><y>13</y><zone>-1</zone></case>
 <case><id>322</id><x>14</x><y>14</y><zone>-1</zone></case>
@@ -530,7 +530,7 @@
 <case><id>526</id><x>23</x><y>20</y><zone>-1</zone></case>
 <case><id>527</id><x>23</x><y>21</y><zone>-1</zone></case>
 <case><id>528</id><x>24</x><y>0</y><zone>-1</zone></case>
-<case><id>529</id><x>24</x><y>1</y><zone>24</zone></case>
+<case><id>529</id><x>24</x><y>1</y><zone>23</zone></case>
 <case><id>530</id><x>24</x><y>2</y><zone>23</zone></case>
 <case><id>531</id><x>24</x><y>3</y><zone>22</zone></case>
 <case><id>532</id><x>24</x><y>4</y><zone>22</zone></case>
@@ -551,8 +551,8 @@
 <case><id>547</id><x>24</x><y>19</y><zone>12</zone></case>
 <case><id>548</id><x>24</x><y>20</y><zone>-1</zone></case>
 <case><id>549</id><x>24</x><y>21</y><zone>-1</zone></case>
-<case><id>550</id><x>25</x><y>0</y><zone>24</zone></case>
-<case><id>551</id><x>25</x><y>1</y><zone>24</zone></case>
+<case><id>550</id><x>25</x><y>0</y><zone>23</zone></case>
+<case><id>551</id><x>25</x><y>1</y><zone>23</zone></case>
 <case><id>552</id><x>25</x><y>2</y><zone>23</zone></case>
 <case><id>553</id><x>25</x><y>3</y><zone>22</zone></case>
 <case><id>554</id><x>25</x><y>4</y><zone>22</zone></case>
@@ -569,9 +569,9 @@
 <case><id>565</id><x>25</x><y>15</y><zone>7</zone></case>
 <case><id>566</id><x>25</x><y>16</y><zone>10</zone></case>
 <case><id>567</id><x>25</x><y>17</y><zone>10</zone></case>
-<case><id>568</id><x>25</x><y>18</y><zone>11</zone></case>
-<case><id>569</id><x>25</x><y>19</y><zone>11</zone></case>
-<case><id>570</id><x>25</x><y>20</y><zone>11</zone></case>
+<case><id>568</id><x>25</x><y>18</y><zone>12</zone></case>
+<case><id>569</id><x>25</x><y>19</y><zone>12</zone></case>
+<case><id>570</id><x>25</x><y>20</y><zone>12</zone></case>
 <case><id>571</id><x>25</x><y>21</y><zone>-1</zone></case>
 <case><id>572</id><x>26</x><y>0</y><zone>-1</zone></case>
 <case><id>573</id><x>26</x><y>1</y><zone>-1</zone></case>
@@ -754,7 +754,7 @@
 		<salle>1</salle>
         <porte>0</porte>
         <posx>960</posx>
-        <posy>1198</posy>
+        <posy>1245</posy>
 		<voisins>
 			<voisin>10</voisin>
 			<voisin>12</voisin>
@@ -903,7 +903,7 @@
 		<id>23</id>
 		<salle>3</salle>
         <porte>0</porte>
-        <posx>82</posx>
+        <posx>27</posx>
         <posy>1102</posy>
 		<voisins>
 			<voisin>24</voisin>
@@ -1029,7 +1029,7 @@
 		<id>33</id>
 		<salle>4</salle>
         <porte>1</porte>
-        <posx>246</posx>
+        <posx>219</posx>
         <posy>528</posy>
 		<voisins>
 			<voisin>31</voisin>
@@ -1225,7 +1225,7 @@
 		<salle>6</salle>
         <porte>0</porte>
         <posx>521</posx>
-        <posy>719</posy>
+        <posy>671</posy>
 		<voisins>
 			<voisin>48</voisin>
 			<voisin>50</voisin>
@@ -1385,7 +1385,7 @@
 		<salle>7</salle>
         <porte>0</porte>
         <posx>851</posx>
-        <posy>96</posy>
+        <posy>48</posy>
 		<voisins>
 			<voisin>59</voisin>
 			<voisin>60</voisin>
@@ -1640,7 +1640,6 @@
                 <zone>1</zone>
                 <zone>2</zone>
                 <zone>3</zone>
-                <zone>4</zone>
                 <zone>5</zone>
                 <zone>6</zone>
             </zones>
