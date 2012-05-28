@@ -20,6 +20,7 @@
     SPTextField *description;
     
     SPMovieClip *debut;
+    SPMovieClip *loop;
     
     SPTextureAtlas *atlasBoucle;
     NSArray *frameBoucle;
@@ -29,6 +30,7 @@
 -(void) displayDescription:(NSString*) sTitle withDesc:(NSString*)sDescription;
 - (void) onTimer:(NSTimer*) timer;
 - (void) nextAnim:(SPEvent*) event;
+-(void) cancel;
 
 
 @end

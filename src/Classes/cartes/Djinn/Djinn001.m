@@ -44,6 +44,14 @@
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(onTimer:) userInfo:nil repeats:false];
 }
 
+-(void) cancel{
+    [super cancel];
+    
+    [self removeAllChildren];
+    [loop stop];
+    [self.stage.juggler removeAllObjects];
+}
+
 -(void)onTimer:(NSTimer*) timer{
     [timer invalidate];
     timer = nil;
@@ -64,14 +72,14 @@
 }
 
 -(void)nextAnim:(SPEvent*) event{
-    SPMovieClip *movie = [[SPMovieClip alloc] initWithFrames:frameBoucle fps:30];
-    movie.x = 58;
-    movie.y = 15;
-    [self addChild:movie];
+    loop = [[SPMovieClip alloc] initWithFrames:frameBoucle fps:30];
+    loop.x = 58;
+    loop.y = 15;
+    [self addChild:loop];
     
-    [movie play];
+    [loop play];
     
-    [self.stage.juggler addObject:movie];
+    [self.stage.juggler addObject:loop];
     
     [self removeChild:debut];
     [debut stop];

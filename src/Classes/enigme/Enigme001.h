@@ -11,6 +11,7 @@
 
 @interface Enigme001 : DefaultEnigme{
     
+    SPImage *mecanisme;
     SPImage *levier;
     SPPoint *start;
     PopUpEnigme *popUp;

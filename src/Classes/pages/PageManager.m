@@ -24,6 +24,7 @@ static PageManager *instance = nil;
 -(void) changePage:(NSString*)pageName {
     
     if(currentPage != nil) {
+        [currentPage cancel];
         [self removeChild:currentPage];
         currentPage = nil;
     }

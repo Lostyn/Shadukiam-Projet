@@ -60,19 +60,20 @@
     [buttons addChild:btnIntuition];
     [btnIntuition addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    btnLancer = [[TDBBtn alloc] initWithText:@"LANCER"];
-    btnLancer.x = 340;
-    btnLancer.y = 255;
-    [buttons addChild:btnLancer];
-    btnLancer.name = @"PageDice";
-    [btnLancer addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
-    
     finTour = [SPImage imageWithContentsOfFile:@"btn_tdb_fintour.png"];
     [buttons addChild:finTour];
     finTour.x = 170;
     finTour.y = 275;
     [finTour addEventListener:@selector(onFinTour:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     if([InfosPartie getCurrentPlayer] != [Dialog getInstance].myID) finTour.visible = false;
+    
+    if( [InfosTour getPower] ){
+        btnPower = [SPImage imageWithContentsOfFile:@"power_btn.png"];
+        [buttons addChild:btnPower];
+        btnPower.x = 425;
+        btnPower.y = 0;
+    }
+    
     
     // anim
     titre.alpha = 0;

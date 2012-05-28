@@ -40,6 +40,13 @@
     [ok addEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
 
+-(void) cancel{
+    [carte cancel];
+    [self removeAllChildren];
+    
+    [ok removeEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+}
+
 
 
 -(void)anim{

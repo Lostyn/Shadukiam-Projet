@@ -27,21 +27,21 @@ static NSString *KEY = @"enigme001Active";
 
 -(void)execute{
     SPImage *background = [SPImage imageWithContentsOfFile:@"cadre.png"];
-    background.x = 280;
+    background.x = 262;
     background.y = 100;
     [self addChild:background];
     
     levier = [SPImage imageWithContentsOfFile:@"levier.png"];
     levier.x = 43;
-    levier.y = 100;
+    levier.y = 120;
     [self addChild:levier];
     
-    SPTextField *description = [SPTextField textFieldWithWidth:100 height:150 text:@"Levier\nCe levier doit être activé avec un autre levier."];
+    SPTextField *description = [SPTextField textFieldWithWidth:150 height:150 text:@"Levier\nCe levier doit être activé en même temps qu'un autre."];
     description.x = background.x + 30;
     description.y = background.y + 10;
     description.fontName = [Constante getFontDescription];
     description.fontSize = [Constante getSizeDescription] + 4;
-    description.color = [Constante getColorDescription];
+    description.color = 0x000000;
     [self addChild:description];
     
     [levier addEventListener:@selector(onSwipe:) atObject:self forType:SP_EVENT_TYPE_TOUCH];

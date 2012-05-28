@@ -22,8 +22,8 @@
     TDBBtn *btnMessagerie;
     TDBBtn *btnIntuition;
     SPImage *finTour;
+    SPImage *btnPower;
     
-    TDBBtn *btnLancer;
     SPSprite *buttons;
     NSString *targetPage;
     

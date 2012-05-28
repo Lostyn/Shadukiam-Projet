@@ -46,6 +46,13 @@
     [self anim];
 }
 
+-(void) cancel{
+    [self removeAllChildren];    
+    
+    [self removeEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self removeEventListener:@selector(onFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
+}
+
 
 -(void)anim{
     SPTween* tRoue1 = [SPTween tweenWithTarget:roue1 time:0.5f transition:SP_TRANSITION_EASE_OUT];

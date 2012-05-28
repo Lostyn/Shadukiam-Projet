@@ -21,6 +21,10 @@
     return self;
 }
 
+-(void) cancel{
+    [self removeAllChildren];
+}
+
 -(void) execute {
     self.alpha = 0;
     SPTween* tween = [SPTween tweenWithTarget:self time:0.5f transition:SP_TRANSITION_EASE_OUT];

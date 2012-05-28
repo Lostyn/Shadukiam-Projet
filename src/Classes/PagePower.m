@@ -25,10 +25,15 @@
     
     [self displayCarte];
     [self anim];
-    
-    //[self addEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
 
+-(void) cancel{
+    [self.stage.juggler removeAllObjects];
+    [self removeAllChildren];
+    
+    [waitBtn removeEventListener:@selector(onWait:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [nowBtn removeEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+}
 
 - (void) displayCarte{
     carte = [SPSprite sprite];
@@ -41,16 +46,6 @@
     bgCarte.y = [Game stageHeight]/2 - bgCarte.height/2;
     [carte addChild:bgCarte];
     
-    nowBtn = [SPImage imageWithContentsOfFile:@"power_now.png"];
-    nowBtn.x = bgCarte.x + 100;
-    nowBtn.y = bgCarte.y + bgCarte.height - 55;
-    [carte addChild:nowBtn];
-    
-    waitBtn = [SPImage imageWithContentsOfFile:@"power_wait.png"];
-    waitBtn.x = nowBtn.x + nowBtn.width;
-    waitBtn.y = nowBtn.y;
-    [carte addChild:waitBtn];
-    
     SPImage *cadreDesc = [SPImage imageWithContentsOfFile:@"power_cadre.png"];
     cadreDesc.x = bgCarte.x + 170;
     cadreDesc.y = bgCarte.y + 90;
@@ -61,11 +56,22 @@
     power.y = bgCarte.y + 33;
     [carte addChild:power];
     
-    [nowBtn addEventListener:@selector(onNow:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    nowBtn = [SPImage imageWithContentsOfFile:@"power_now.png"];
+    nowBtn.x = bgCarte.x + 100;
+    nowBtn.y = bgCarte.y + bgCarte.height - 75;
+    [carte addChild:nowBtn];
+    
+    waitBtn = [SPImage imageWithContentsOfFile:@"power_wait.png"];
+    waitBtn.x = nowBtn.x + nowBtn.width;
+    waitBtn.y = nowBtn.y;
+    [carte addChild:waitBtn];
+    
+    [waitBtn addEventListener:@selector(onWait:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [nowBtn addEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
 
-- (void) onNow:(SPTouchEvent*) event{
-    [[PageManager getInstance] changePage:@"PageTDB"];
+- (void) onWait:(SPTouchEvent*) event{
+    [[PageManager getInstance] changePage:@"PageMove"];
 }
 
 

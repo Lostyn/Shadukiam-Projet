@@ -57,7 +57,9 @@
 -(void) showMenuInfo:(NSString *)type andData:(id)data fromID:(int)playerID {
     
     [[Menu getInstance] showInfo:playerID ofType:type andData:data];
-    
+}
+
+-(void) cancel{
 }
 
 @end
