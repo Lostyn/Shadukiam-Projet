@@ -14,5 +14,6 @@
 }
 
 -(void) show;
+-(void) dispatchMenuinfo:(NSString*) type andData:(id) data;
 
 @end

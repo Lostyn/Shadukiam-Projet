@@ -8,11 +8,13 @@
 
 #import "SPSprite.h"
 #import "InfosPartie.h"
+#import "MenuInfo.h"
 
 @interface Menu : SPSprite {
     SPSprite *persos;
     SPImage *background;
     SPImage *currentImage;
+    MenuInfo *infoBox;
 }
 
 +(Menu *)getInstance;
@@ -20,5 +22,6 @@
 -(void) initMenu;
 -(void) reorderPersos:(NSMutableArray*) order;
 -(void) setPersoActive:(int) playerIndex;
+-(void) showInfo:(int) playerIndex ofType:(NSString*) type andData:(id) data;
 
 @end

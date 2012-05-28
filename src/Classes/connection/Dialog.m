@@ -230,6 +230,10 @@ static Dialog *instance = nil;
         else if( [commande isEqualToString:@"showDjinn"]){
             [delegate showDjinn:[packet objectForKey:@"data"]];
         }
+        else if( [commande isEqualToString:@"menuInfo"]){
+            NSDictionary *infos = [packet objectForKey:@"data"];
+            [delegate showMenuInfo:[infos objectForKey:@"type"] andData:[infos objectForKey:@"data"] fromID:[fromID intValue]];
+        }
         
     }
     

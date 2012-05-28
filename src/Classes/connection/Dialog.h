@@ -26,6 +26,7 @@
 - (void) nextPlayer;
 - (void) videZone:(int) zoneID;
 - (void) showDjinn:(NSString*) djinnID;
+- (void) showMenuInfo:(NSString*) type andData:(id) data fromID:(int) playerID;
 
 @end
 

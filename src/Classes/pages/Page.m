@@ -46,4 +46,18 @@
     
 }
 
+// pour que une info apparaisse dans le menu des autres joueurs
+-(void) dispatchMenuinfo:(NSString *)type andData:(id)data {
+    
+    [[Dialog getInstance] sendMessage:@"menuInfo" sendTo:-1 data:[NSDictionary dictionaryWithObjectsAndKeys:type, @"type", data, @"data", nil]];
+    
+}
+
+// affichage d'une info dans le menu
+-(void) showMenuInfo:(NSString *)type andData:(id)data fromID:(int)playerID {
+    
+    [[Menu getInstance] showInfo:playerID ofType:type andData:data];
+    
+}
+
 @end

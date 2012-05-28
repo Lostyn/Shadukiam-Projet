@@ -19,11 +19,13 @@
     SPSprite *containerRoue;
     SPImage *result;
     SPImage *fondResult;
+    NSString *resultName;
 }
 
 -(id) initDisplay;
 -(void) update:(CGFloat) fValue;
 -(void) getResult;
+-(NSString*) getResultName;
 
 
 @end

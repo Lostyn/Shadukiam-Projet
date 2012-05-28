@@ -13,6 +13,8 @@
 -(void) show {
     [super show];
     
+    [super dispatchMenuinfo:@"des" andData:@""];
+    
     velocity = 0.0;
     velocity2 = 0.0;
     [InfosTour setMouvement:2];
@@ -150,6 +152,10 @@
     [roue2 getResult];
     
     [self addEventListener:@selector(onNext:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+    // envoi resultats aux autres joueurs
+    NSDictionary* dataSend = [NSDictionary dictionaryWithObjectsAndKeys:[roue1 getResultName], @"result1", [roue2 getResultName], @"result2", nil];
+    [super dispatchMenuinfo:@"desResult" andData:dataSend];
 }
 
 -(void)onNext:(SPTouchEvent*) event {

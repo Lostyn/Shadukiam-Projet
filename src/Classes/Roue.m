@@ -52,20 +52,24 @@
         switch ( (int)rot ) {
             case 0:
                 resultLink = @"roueResultDjinn.png";
+                resultName = @"djinn";
                 [InfosTour setDjinn:true];
                 break;
             case 1:
             case 3:
                 resultLink = @"";
+                resultName = @"";
                 break;
             case 2:
             case 4:
                 resultLink = @"roueResultMvt.png";
                 [InfosTour setMouvement:[InfosTour getMouvement] + 2 ];
+                resultName = @"move";
                 break;
             case 5:
                 resultLink = @"roueResultPower.png";
                 [InfosTour setPower:true];
+                resultName = @"power";
                 break;
             default:
                 break;
@@ -115,6 +119,10 @@
         
         [self.stage.juggler addObject:tweener];
     }
+}
+
+-(NSString*) getResultName {
+    return resultName;
 }
 
 @end

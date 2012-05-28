@@ -63,4 +63,27 @@ static Menu *instance = nil;
     currentImage.y = 251 - imageIndex * 30;
 }
 
+-(void) showInfo:(int)playerIndex ofType:(NSString *)type andData:(id)data {
+    
+    if(infoBox != nil) {
+        [self removeChild:infoBox];
+        infoBox = nil;
+    }
+    
+    infoBox = [[MenuInfo alloc] initWithType:type andData:data];
+    [self addChild:infoBox];
+    
+    int imageIndex = [persos numChildren] - playerIndex - 1;
+    infoBox.y = 251 - imageIndex * 30;
+    infoBox.alpha = 0;
+    infoBox.x = 10;
+    
+    SPTween *tweenBox = [SPTween tweenWithTarget:infoBox time:0.5];
+    [tweenBox animateProperty:@"alpha" targetValue:1];
+    [tweenBox animateProperty:@"x" targetValue:20];
+    
+    [self.stage.juggler addObject:tweenBox];
+    
+}
+
 @end
