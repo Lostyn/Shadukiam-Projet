@@ -20,6 +20,10 @@
     int numObjet;
     NSDictionary *infosXML;
     
+    SPTextureAtlas *atlasFumee;
+    NSArray *frameFumee;
+    SPMovieClip *animFumee;
+    
 }
 
 @end

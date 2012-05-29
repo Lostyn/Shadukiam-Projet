@@ -89,11 +89,10 @@ static SPImage *logoBlack;
     [PageManager getInstance].x = xOrigin;
     [PageManager getInstance].y = yOrigin;
 
-    //[[PageManager getInstance] changePage:@"PagePlay"];
+    [[PageManager getInstance] changePage:@"PagePlay"];
     // test TDB
-    [InfosJoueur setMyPerso:3];
-    [[PageManager getInstance] changePage:@"PageEnigme"];
-
+    //[InfosJoueur setMyPerso:3];
+    //[[PageManager getInstance] changePage:@"PageObtentionObjet"];
     
     // menu
     [self addChild:[Menu getInstance]];

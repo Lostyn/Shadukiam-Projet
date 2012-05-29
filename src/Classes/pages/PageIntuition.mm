@@ -22,8 +22,7 @@
     // init RA
     QCARutils *qUtils = [QCARutils getInstance];
     
-    CGRect screenBounds = [[UIScreen mainScreen] bounds];
-    CGRect myRect = CGRectOffset(screenBounds, 40, -43);
+    CGRect myRect = CGRectMake(-50, 42, 280, 440);
     
     window = [[UIWindow alloc] initWithFrame: myRect];
     
@@ -32,7 +31,7 @@
     
     // Add the EAGLView and the overlay view to the window
     arParentViewController = [[ARParentViewController alloc] init];
-    arParentViewController.arViewRect = screenBounds;
+    arParentViewController.arViewRect = myRect;
     [window insertSubview:arParentViewController.view atIndex:0];
     [window makeKeyAndVisible];
     [window setHidden:NO];

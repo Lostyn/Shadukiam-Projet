@@ -145,6 +145,11 @@
         SPTween *tweenSlider = [SPTween tweenWithTarget:sliderPersos time:0.5f transition:SP_TRANSITION_EASE_OUT];
         [tweenSlider animateProperty:@"alpha" targetValue:0];
         [self.stage.juggler addObject:tweenSlider];
+        
+        SPTween *tweenTitre = [SPTween tweenWithTarget:titre time:0.5];
+        [tweenTitre animateProperty:@"alpha" targetValue:0];
+        [tweenTitre animateProperty:@"y" targetValue:-20];
+        [self.stage.juggler addObject:tweenTitre];
     }
     
 }

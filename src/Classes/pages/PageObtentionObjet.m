@@ -60,9 +60,42 @@
     SPTween *tweenFiche = [SPTween tweenWithTarget:ficheObjet time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenFiche animateProperty:@"y" targetValue:ficheObjet.y - 30];
     [tweenFiche animateProperty:@"alpha" targetValue:1];
-    tweenFiche.delay = 1;
+    tweenFiche.delay = 3.5;
     
     [self.stage.juggler addObject:tweenFiche];
+    
+    // fumee
+    atlasFumee = [SPTextureAtlas atlasWithContentsOfFile:@"texture.xml"];
+    frameFumee = [atlasFumee texturesStartingWith:@"transition"];
+    
+    animFumee = [[SPMovieClip alloc] initWithFrames:frameFumee fps:30];
+    [self addChild:animFumee];
+    [animFumee addEventListener:@selector(fumeeComplete:) atObject:self forType:SP_EVENT_TYPE_MOVIE_COMPLETED];
+    animFumee.loop = NO;
+    animFumee.scaleX = animFumee.scaleY = 2.3;
+    
+    [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(launchFumee:) userInfo:nil repeats:false];
+
+}
+
+-(void)launchFumee:(NSTimer*) timer{
+    [timer invalidate];
+    timer = nil;
+    
+    [animFumee play];
+    [self.stage.juggler addObject:animFumee];
+}
+
+-(void) fumeeComplete:(SPEvent*) event {
+    
+    atlasFumee = nil;
+    frameFumee = nil;
+    [self removeChild:animFumee];
+    [animFumee removeEventListener:@selector(fumeeComplete:) atObject:self forType:SP_EVENT_TYPE_MOVIE_COMPLETED];
+    [self.stage.juggler removeObject:animFumee];
+    animFumee = nil;
+    
+    
 }
 
 -(void) onTouchOK:(SPEvent*) event {

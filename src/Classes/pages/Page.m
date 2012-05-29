@@ -56,7 +56,7 @@
 // affichage d'une info dans le menu
 -(void) showMenuInfo:(NSString *)type andData:(id)data fromID:(int)playerID {
     
-    [[Menu getInstance] showInfo:playerID ofType:type andData:data];
+    [[Menu getInstance] showInfo:[InfosPartie getCurrentPlayerIndex] ofType:type andData:data];
 }
 
 -(void) cancel{
