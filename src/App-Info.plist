@@ -9,12 +9,14 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>Icon.png</string>
+	<string>icon_shad.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
+		<string>icon_shad@2x.png</string>
+		<string>icon_shad.png</string>
+		<string>icon_shad@2x.png.png</string>
 		<string>Icon.png</string>
 		<string>Icon@2x.png</string>
-		<string>Icon~ipad.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -22,16 +24,18 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>icon_shad@2x.png</string>
+				<string>icon_shad.png</string>
+				<string>icon_shad@2x.png.png</string>
 				<string>Icon.png</string>
 				<string>Icon@2x.png</string>
-				<string>Icon~ipad.png</string>
 			</array>
 			<key>UIPrerenderedIcon</key>
 			<false/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.gamua.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.postit.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -42,6 +46,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIStatusBarHidden</key>
