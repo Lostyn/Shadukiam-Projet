@@ -2,3 +2,6 @@
 .DS_Store
 *.svn-base
 *.plist
+src/App-Info.plist
+
+src/App-Info.plist
