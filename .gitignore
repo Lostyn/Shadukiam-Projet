@@ -1,3 +1,4 @@
-ShadukiamGame.xcodeproj
+*.xcodeproj
 .DS_Store
 *.svn-base
+*.plist

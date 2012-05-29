@@ -66,7 +66,7 @@ static NSString *KEY = @"enigme001Active";
 }
 
 -(void) cancel{
-    
+   [mecanisme removeEventListener:@selector(onDown:) atObject:self forType:SP_EVENT_TYPE_TOUCH]; 
 }
 
 -(void) onDown:(SPTouchEvent*) event{
@@ -97,6 +97,7 @@ static NSString *KEY = @"enigme001Active";
     }
 }
 
+/*
 -(void)onSwipe:(SPTouchEvent*) event{
    NSArray *touchBegan = [[event touchesWithTarget:levier andPhase:SPTouchPhaseBegan] allObjects];
     NSArray *touchEnded = [[event touchesWithTarget:levier andPhase:SPTouchPhaseEnded] allObjects];
@@ -119,7 +120,7 @@ static NSString *KEY = @"enigme001Active";
             [self active];
         }
     }
-}
+}*/
 
 -(void) testResult:(NSString*) sKey{
     
@@ -151,13 +152,13 @@ static NSString *KEY = @"enigme001Active";
     [self.stage.juggler addObject:tweenPop];
 }
 
-
+/*
 -(CGFloat) DistanceBetweenTwoPoints:(SPPoint*) point1 withPoint2:(SPPoint*) point2
 {
     
     CGFloat dx = point2.x - point1.x;
     CGFloat dy = point2.y - point1.y;
     return sqrt(dx*dx + dy*dy );
-}
+}*/
 
 @end
