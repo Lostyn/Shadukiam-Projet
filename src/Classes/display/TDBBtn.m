@@ -10,7 +10,7 @@
 
 @implementation TDBBtn
 
--(id) initWithText:(NSString*)textStr {
+-(id) initWithText:(NSString*)textStr andImage:(NSString*) image {
     
     self = [super init];
     

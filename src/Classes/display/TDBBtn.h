@@ -13,8 +13,9 @@
     SPImage *background;
     SPImage *txtBackground;
     SPTextField *texte;
+    SPImage *icone;
 }
 
--(id) initWithText:(NSString*)textStr;
+-(id) initWithText:(NSString*)textStr andImage:(NSString*) image;
 
 @end

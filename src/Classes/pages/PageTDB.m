@@ -29,33 +29,28 @@
     buttons = [SPSprite sprite];
     [self addChild:buttons];
     
-    btnInventaire = [[TDBBtn alloc] initWithText:@"INVENTAIRE"];
+    btnInventaire = [[TDBBtn alloc] initWithText:@"INVENTAIRE" andImage:@"inventaire"];
     btnInventaire.x = 80;
-    btnInventaire.y = 45;
+    btnInventaire.y = 75;
     [buttons addChild:btnInventaire];
     btnInventaire.name = @"PageInventaire";
     [btnInventaire addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    btnPouvoir = [[TDBBtn alloc] initWithText:@"POUVOIR"];
-    btnPouvoir.x = 80;
-    btnPouvoir.y = 120;
-    [buttons addChild:btnPouvoir];
-    
-    btnEnigme = [[TDBBtn alloc] initWithText:@"ENIGMES"];
+    btnEnigme = [[TDBBtn alloc] initWithText:@"ENIGMES" andImage:@"enigme"];
     btnEnigme.x = 80;
-    btnEnigme.y = 195;
+    btnEnigme.y = 165;
     btnEnigme.name = @"PageEnigme";
     [buttons addChild:btnEnigme];
     [btnEnigme addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    btnMessagerie = [[TDBBtn alloc] initWithText:@"MESSAGERIE"];
+    btnMessagerie = [[TDBBtn alloc] initWithText:@"MESSAGERIE" andImage:@"messagerie"];
     btnMessagerie.x = 340;
     btnMessagerie.y = 75;
     btnMessagerie.name = @"PageObtentionObjet";
     [buttons addChild:btnMessagerie];
     [btnMessagerie addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
-    btnIntuition = [[TDBBtn alloc] initWithText:@"INTUITION"];
+    btnIntuition = [[TDBBtn alloc] initWithText:@"INTUITION" andImage:@"plateau"];
     btnIntuition.x = 340;
     btnIntuition.y = 165;
     btnIntuition.name = @"PageIntuition";

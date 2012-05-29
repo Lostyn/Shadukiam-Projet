@@ -42,12 +42,12 @@
     front = [SPSprite sprite];
     [self addChild:front];
     
-    portrait = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"objet_image_%d.png", objetID]];
+    portrait = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"fiche_objet_objBig_%d.png", objetID]];
     [front addChild:portrait];
     portrait.x = (background.width - portrait.width) / 2;
-    portrait.y = 20;
+    portrait.y = 10;
     
-    nom = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"objet_nom_%d.png", objetID]];
+    nom = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"fiche_objet_nom_%d.png", objetID]];
     [front addChild:nom];
     nom.x = (background.width - nom.width) / 2;
     nom.y = 200;
@@ -58,7 +58,7 @@
     back.x = background.width / 2;
     back.scaleX = 0;
     
-    nomBack = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"objet_nom_%d.png", objetID]];
+    nomBack = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"fiche_objet_nom_%d.png", objetID]];
     [back addChild:nomBack];
     nomBack.x = (background.width - nomBack.width) / 2;
     nomBack.y = 30;

@@ -14,9 +14,18 @@
     
     [super show];
     
-    //[InfosJoueur addObjet:1];
-    //[InfosJoueur addObjet:1];
-    //[InfosJoueur addObjet:2];
+    [InfosJoueur addObjet:1];
+    [InfosJoueur addObjet:2];
+    [InfosJoueur addObjet:3];
+    [InfosJoueur addObjet:4];
+    [InfosJoueur addObjet:5];
+    [InfosJoueur addObjet:6];
+    [InfosJoueur addObjet:7];
+    [InfosJoueur addObjet:8];
+    [InfosJoueur addObjet:9];
+    [InfosJoueur addObjet:10];
+    [InfosJoueur addObjet:11];
+    [InfosJoueur addObjet:12];
     
     titre = [[Titre alloc] initWithText:@"INVENTAIRE"];
     [self addChild:titre];

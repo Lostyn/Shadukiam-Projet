@@ -15,6 +15,7 @@
     SPImage *background;
     SPImage *currentImage;
     MenuInfo *infoBox;
+    Boolean lastIsDiceResult;
 }
 
 +(Menu *)getInstance;
@@ -23,5 +24,6 @@
 -(void) reorderPersos:(NSMutableArray*) order;
 -(void) setPersoActive:(int) playerIndex;
 -(void) showInfo:(int) playerIndex ofType:(NSString*) type andData:(id) data;
+-(void) hideInfo;
 
 @end

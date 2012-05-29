@@ -23,7 +23,7 @@
     SPTween* tweenTitre = [SPTween tweenWithTarget:titre time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenTitre animateProperty:@"alpha" targetValue:1];
     [tweenTitre animateProperty:@"y" targetValue:0];
-    [tweenTitre setDelay:0.5];
+    [tweenTitre setDelay:3.4];
     [self.stage.juggler addObject:tweenTitre];
     
     // init infos XML
@@ -60,15 +60,15 @@
     SPTween *tweenFiche = [SPTween tweenWithTarget:ficheObjet time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenFiche animateProperty:@"y" targetValue:ficheObjet.y - 30];
     [tweenFiche animateProperty:@"alpha" targetValue:1];
-    tweenFiche.delay = 3.5;
+    tweenFiche.delay = 3.4;
     
     [self.stage.juggler addObject:tweenFiche];
     
     // fumee
     atlasFumee = [SPTextureAtlas atlasWithContentsOfFile:@"texture.xml"];
-    frameFumee = [atlasFumee texturesStartingWith:@"transition"];
+    frameFumee = [atlasFumee texturesStartingWith:@"trasition"];
     
-    animFumee = [[SPMovieClip alloc] initWithFrames:frameFumee fps:30];
+    animFumee = [[SPMovieClip alloc] initWithFrames:frameFumee fps:20];
     [self addChild:animFumee];
     [animFumee addEventListener:@selector(fumeeComplete:) atObject:self forType:SP_EVENT_TYPE_MOVIE_COMPLETED];
     animFumee.loop = NO;

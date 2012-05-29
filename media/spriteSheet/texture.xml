@@ -1,67 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:bc9c2354a758a1a1679aa9bba2f7ebf8$ -->
+<!-- $TexturePacker:SmartUpdate:ff7a457acb8a119e11ab8d0ee80824da$ -->
 <TextureAtlas imagePath="texture.png">
-    <SubTexture name="transitionOBJ_00027" x="1162" y="1070" width="288" height="36" frameX="0" frameY="-156" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00029" x="1452" y="1058" width="288" height="40" frameX="0" frameY="-152" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00031" x="1742" y="1054" width="288" height="44" frameX="0" frameY="-148" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00033" x="1162" y="1020" width="288" height="48" frameX="0" frameY="-144" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00035" x="872" y="1014" width="288" height="56" frameX="0" frameY="-136" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00037" x="872" y="950" width="288" height="62" frameX="0" frameY="-130" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00039" x="1162" y="938" width="288" height="80" frameX="0" frameY="-112" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00041" x="292" y="1942" width="288" height="88" frameX="0" frameY="-104" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00043" x="2" y="1942" width="288" height="98" frameX="0" frameY="-94" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00045" x="582" y="1930" width="288" height="108" frameX="0" frameY="-84" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00047" x="1452" y="936" width="288" height="120" frameX="0" frameY="-72" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00049" x="1742" y="922" width="288" height="130" frameX="0" frameY="-62" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00051" x="1742" y="778" width="288" height="142" frameX="0" frameY="-50" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00053" x="1452" y="778" width="288" height="156" frameX="0" frameY="-36" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00055" x="872" y="778" width="288" height="170" frameX="0" frameY="-22" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00057" x="582" y="1746" width="288" height="182" frameX="0" frameY="-10" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00059" x="582" y="1360" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00061" x="582" y="1166" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00063" x="582" y="972" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00065" x="582" y="778" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00067" x="1742" y="584" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00069" x="1452" y="584" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00071" x="1162" y="584" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00073" x="872" y="584" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00075" x="582" y="584" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00077" x="292" y="1748" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00079" x="292" y="1554" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00081" x="292" y="1360" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00083" x="292" y="1166" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00085" x="292" y="972" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00087" x="292" y="778" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00089" x="292" y="584" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00091" x="1742" y="390" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00093" x="1452" y="390" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00095" x="1162" y="390" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00097" x="872" y="390" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00099" x="582" y="390" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00101" x="292" y="390" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00103" x="1742" y="196" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00105" x="1452" y="196" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00107" x="1162" y="196" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00109" x="872" y="196" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00111" x="582" y="196" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00113" x="292" y="196" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00115" x="2" y="1748" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00117" x="2" y="1554" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00119" x="2" y="1360" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00121" x="2" y="1166" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00123" x="2" y="972" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00125" x="2" y="778" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00127" x="2" y="584" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00129" x="2" y="390" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00131" x="2" y="196" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00133" x="1742" y="2" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00135" x="1452" y="2" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00137" x="1162" y="2" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00139" x="872" y="2" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00141" x="582" y="2" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00143" x="292" y="2" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00145" x="582" y="1554" width="288" height="190" frameX="0" frameY="0" frameWidth="288" frameHeight="192"/>
-    <SubTexture name="transitionOBJ_00147" x="2" y="2" width="288" height="192"/>
-    <SubTexture name="transitionOBJ_00149" x="1162" y="778" width="288" height="158" frameX="0" frameY="0" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00000" x="292" y="1942" width="288" height="80" frameX="0" frameY="-112" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00001" x="2" y="1942" width="288" height="92" frameX="0" frameY="-100" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00002" x="1162" y="778" width="288" height="106" frameX="0" frameY="-86" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00003" x="872" y="778" width="288" height="114" frameX="0" frameY="-78" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00004" x="582" y="778" width="288" height="124" frameX="0" frameY="-68" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00005" x="1452" y="776" width="288" height="138" frameX="0" frameY="-54" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00006" x="1742" y="762" width="288" height="156" frameX="0" frameY="-36" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00007" x="1742" y="584" width="288" height="176" frameX="0" frameY="-16" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00008" x="1452" y="584" width="288" height="190" frameX="0" frameY="-2" frameWidth="288" frameHeight="192"/>
+    <SubTexture name="trasition_00009" x="1162" y="584" width="288" height="192"/>
+    <SubTexture name="trasition_00010" x="872" y="584" width="288" height="192"/>
+    <SubTexture name="trasition_00011" x="582" y="584" width="288" height="192"/>
+    <SubTexture name="trasition_00012" x="292" y="1748" width="288" height="192"/>
+    <SubTexture name="trasition_00013" x="292" y="1554" width="288" height="192"/>
+    <SubTexture name="trasition_00014" x="292" y="1360" width="288" height="192"/>
+    <SubTexture name="trasition_00015" x="292" y="1166" width="288" height="192"/>
+    <SubTexture name="trasition_00016" x="292" y="972" width="288" height="192"/>
+    <SubTexture name="trasition_00017" x="292" y="778" width="288" height="192"/>
+    <SubTexture name="trasition_00018" x="292" y="584" width="288" height="192"/>
+    <SubTexture name="trasition_00019" x="1742" y="390" width="288" height="192"/>
+    <SubTexture name="trasition_00020" x="1452" y="390" width="288" height="192"/>
+    <SubTexture name="trasition_00021" x="1162" y="390" width="288" height="192"/>
+    <SubTexture name="trasition_00022" x="872" y="390" width="288" height="192"/>
+    <SubTexture name="trasition_00023" x="582" y="390" width="288" height="192"/>
+    <SubTexture name="trasition_00024" x="292" y="390" width="288" height="192"/>
+    <SubTexture name="trasition_00025" x="1742" y="196" width="288" height="192"/>
+    <SubTexture name="trasition_00026" x="1452" y="196" width="288" height="192"/>
+    <SubTexture name="trasition_00027" x="1162" y="196" width="288" height="192"/>
+    <SubTexture name="trasition_00028" x="872" y="196" width="288" height="192"/>
+    <SubTexture name="trasition_00029" x="582" y="196" width="288" height="192"/>
+    <SubTexture name="trasition_00030" x="292" y="196" width="288" height="192"/>
+    <SubTexture name="trasition_00031" x="2" y="1748" width="288" height="192"/>
+    <SubTexture name="trasition_00032" x="2" y="1554" width="288" height="192"/>
+    <SubTexture name="trasition_00033" x="2" y="1360" width="288" height="192"/>
+    <SubTexture name="trasition_00034" x="2" y="1166" width="288" height="192"/>
+    <SubTexture name="trasition_00035" x="2" y="972" width="288" height="192"/>
+    <SubTexture name="trasition_00036" x="2" y="778" width="288" height="192"/>
+    <SubTexture name="trasition_00037" x="2" y="584" width="288" height="192"/>
+    <SubTexture name="trasition_00038" x="2" y="390" width="288" height="192"/>
+    <SubTexture name="trasition_00039" x="2" y="196" width="288" height="192"/>
+    <SubTexture name="trasition_00040" x="1742" y="2" width="288" height="192"/>
+    <SubTexture name="trasition_00041" x="1452" y="2" width="288" height="192"/>
+    <SubTexture name="trasition_00042" x="1162" y="2" width="288" height="192"/>
+    <SubTexture name="trasition_00043" x="872" y="2" width="288" height="192"/>
+    <SubTexture name="trasition_00044" x="582" y="2" width="288" height="192"/>
+    <SubTexture name="trasition_00045" x="292" y="2" width="288" height="192"/>
+    <SubTexture name="trasition_00046" x="2" y="2" width="288" height="192"/>
 </TextureAtlas>

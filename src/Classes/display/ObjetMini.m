@@ -21,10 +21,10 @@
     background = [SPImage imageWithContentsOfFile:@"btn_objet.png"];
     [self addChild:background];
     
-    icone = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"objet_mini_image_%d.png", ID]];
+    icone = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"btn_objet_%d.png", ID]];
     [self addChild:icone];
     icone.x = (background.width - icone.width) / 2;
-    icone.y = (background.height - icone.height) / 2;
+    icone.y = 0;
     
     nomBkg = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"btn_objetnom_%d.png", [InfosJoueur getMyPerso]]];
     [self addChild:nomBkg];

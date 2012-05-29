@@ -65,10 +65,7 @@ static Menu *instance = nil;
 
 -(void) showInfo:(int)playerIndex ofType:(NSString *)type andData:(id)data {
     
-    if(infoBox != nil) {
-        [self removeChild:infoBox];
-        infoBox = nil;
-    }
+    [self hideInfo];
     
     infoBox = [[MenuInfo alloc] initWithType:type andData:data];
     [self addChild:infoBox];
@@ -83,6 +80,31 @@ static Menu *instance = nil;
     [tweenBox animateProperty:@"x" targetValue:20];
     
     [self.stage.juggler addObject:tweenBox];
+    
+    lastIsDiceResult = false;
+    
+    if([type isEqualToString:@"desResult"]) {
+        
+        lastIsDiceResult = true;
+        
+        [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(hideResult:) userInfo:nil repeats:false];
+    }
+    
+}
+
+-(void)hideResult:(NSTimer*) timer{
+    [timer invalidate];
+    timer = nil;
+    
+    if(lastIsDiceResult) [self hideInfo];
+}
+
+-(void) hideInfo {
+    
+    if(infoBox != nil) {
+        [self removeChild:infoBox];
+        infoBox = nil;
+    }
     
 }
 
