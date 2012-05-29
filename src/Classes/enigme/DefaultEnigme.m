@@ -19,4 +19,7 @@
 -(void) enigmeSuccess:(NSString*) sKey{
 }
 
+-(void) cancel{
+}
+
 @end

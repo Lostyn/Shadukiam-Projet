@@ -25,5 +25,6 @@
 -(NSString*)getTitre;
 -(void) testResult:(NSString*) sKey;
 -(void) enigmeSuccess:(NSString*) sKey;
+-(void) cancel;
 
 @end

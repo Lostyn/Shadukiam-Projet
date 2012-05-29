@@ -26,14 +26,28 @@ static NSString *KEY = @"enigme001Active";
 }
 
 -(void)execute{
+    testActive = false;
+    
     SPImage *background = [SPImage imageWithContentsOfFile:@"cadre.png"];
     background.x = 262;
     background.y = 100;
     [self addChild:background];
     
+    spLevier = [[SPSprite alloc] init];
+    spLevier.x = 165;
+    spLevier.y = 220;
+    spLevier.rotation = -50 * PI / 180;
+    [self addChild:spLevier];
+
+    mecanisme = [SPImage imageWithContentsOfFile:@"levier_meca.png"];
+    mecanisme.x = -mecanisme.width/2;
+    mecanisme.y = -mecanisme.height;
+    [spLevier addChild:mecanisme];
+    
     levier = [SPImage imageWithContentsOfFile:@"levier.png"];
     levier.x = 43;
     levier.y = 120;
+    levier.touchable = false;
     [self addChild:levier];
     
     SPTextField *description = [SPTextField textFieldWithWidth:150 height:150 text:@"Levier\nCe levier doit être activé en même temps qu'un autre."];
@@ -44,11 +58,43 @@ static NSString *KEY = @"enigme001Active";
     description.color = 0x000000;
     [self addChild:description];
     
-    [levier addEventListener:@selector(onSwipe:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [mecanisme addEventListener:@selector(onDown:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     //popUp
     popUp = [[PopUpEnigme alloc] init];
     popUp.alpha = 0;
+}
+
+-(void) cancel{
+    
+}
+
+-(void) onDown:(SPTouchEvent*) event{
+    NSArray *touches = [[event touchesWithTarget:self andPhase:SPTouchPhaseMoved] allObjects];
+    
+    if([touches count] > 0) {
+        SPTouch *touch = [touches objectAtIndex:0];
+        
+        SPPoint *touchPos = [touch locationInSpace:self];
+        float rot = ( touchPos.x - spLevier.x );
+        
+        if( rot > 90 ){
+            rot = 90;
+            if( !testActive ){
+                testActive = true;
+                
+                [[Dialog getInstance] sendMessage:@"enigmeResult" sendTo:-1 data:KEY];
+                [self active];
+            }
+        }else{
+            testActive = false;
+        }
+        if( rot < -50 )
+            rot = -50;
+        
+        spLevier.rotation = rot * PI / 180;
+        
+    }
 }
 
 -(void)onSwipe:(SPTouchEvent*) event{
@@ -96,7 +142,8 @@ static NSString *KEY = @"enigme001Active";
 
 -(void) enigmeSuccess:(NSString *)sKey{
     catchKey = NO;
-    [levier removeEventListener:@selector(onSwipe:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+    [mecanisme addEventListener:@selector(onDown:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     [self addChild:popUp];
     SPTween *tweenPop = [SPTween tweenWithTarget:popUp time:0.5f transition:SP_TRANSITION_EASE_OUT];
     [tweenPop animateProperty:@"alpha" targetValue:1];

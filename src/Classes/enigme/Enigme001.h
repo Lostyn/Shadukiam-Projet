@@ -15,6 +15,8 @@
     SPImage *levier;
     SPPoint *start;
     PopUpEnigme *popUp;
+    SPSprite *spLevier;
+    Boolean testActive;
 }
 
 -(CGFloat) DistanceBetweenTwoPoints:(SPPoint*) point1 withPoint2:(SPPoint*) point2;

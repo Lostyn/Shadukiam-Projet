@@ -53,6 +53,12 @@
     [self.stage.juggler addObject:tweenEnigme];
 }
 
+-(void) cancel{
+    [self removeAllChildren];
+    [self.stage.juggler removeAllObjects];
+    [enigme cancel];
+}
+
 -(void) onTouchBack:(SPTouchEvent*) event{
     targetBack = @"PageTDB";
     [self animQuit];
