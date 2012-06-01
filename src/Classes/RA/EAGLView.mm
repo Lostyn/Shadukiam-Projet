@@ -10,7 +10,7 @@
 #import "Texture.h"
 #import "rocks.h"
 #import "rock_stone_pile.h"
-#import "key.h"
+#import "key3.h"
 
 #import <QCAR/Renderer.h>
 
@@ -75,20 +75,20 @@ namespace {
     
     Object3D *balle = [[Object3D alloc] init];
     
-    balle.numVertices = keyNumVerts;
-    balle.vertices = keyVerts;
-    balle.texCoords = keyTexCoords;
-    balle.normals = keyNormals;
+    balle.numVertices = key3NumVerts;
+    balle.vertices = key3Verts;
+    balle.texCoords = key3TexCoords;
+    //balle.normals = key3Normals;
     
     balle.texture = [textures objectAtIndex:0];
     
     [objects3D addObject:balle];
     
     objectsPos = [NSMutableArray array];
-    for (int i = 0; i < 3; i++) {
-        SPPoint *point = [SPPoint pointWithX:50 y:0];
-        [objectsPos addObject:point];
-    }
+    
+    [objectsPos addObject:[SPPoint pointWithX:20 y:12]];
+    [objectsPos addObject:[SPPoint pointWithX:-50 y:42]];
+    [objectsPos addObject:[SPPoint pointWithX:30 y:100]];
 }
 
 
@@ -143,7 +143,7 @@ namespace {
         
         Object3D *obj3D = [objects3D objectAtIndex:3];
         
-        for(int i = 0; i < 1; i++) {
+        for(int i = 0; i < 3; i++) {
             
             SPPoint *pos = [objectsPos objectAtIndex:i];
         
@@ -176,8 +176,9 @@ namespace {
             
             QCAR::Matrix44F modelViewProjection;
             
-            ShaderUtils::translatePoseMatrix(pos.x, pos.y, kObjectScale, &modelViewMatrix.data[0]);
+            ShaderUtils::translatePoseMatrix(pos.x, pos.y, kObjectScale / 2 + 2, &modelViewMatrix.data[0]);
             ShaderUtils::scalePoseMatrix(kObjectScale, kObjectScale, kObjectScale, &modelViewMatrix.data[0]);
+            ShaderUtils::rotatePoseMatrix(90, 1, 0, 0, &modelViewMatrix.data[0]);
             ShaderUtils::multiplyMatrix(&qUtils.projectionMatrix.data[0], &modelViewMatrix.data[0], &modelViewProjection.data[0]);
             
             glUseProgram(shaderProgramID);

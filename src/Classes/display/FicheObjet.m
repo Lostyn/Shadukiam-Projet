@@ -32,7 +32,10 @@
     retourneBtn.y = 110;
     
     okBtn = [SPImage imageWithContentsOfFile:@"valide.png"];
-    [general addChild:okBtn];
+    if(objetID == 7) {
+        [general addChild:okBtn];
+        [okBtn addEventListener:@selector(onTouchOk:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    }
     okBtn.x = 340;
     okBtn.y = 110;
     
@@ -124,7 +127,6 @@
     
     // listeners
     [retourneBtn addEventListener:@selector(onTouchRetourne:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
-    [okBtn addEventListener:@selector(onTouchOk:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
 }
 
@@ -177,12 +179,27 @@
 }
 
 -(void) onTouchOk:(SPTouchEvent*) event {
-    [self dispatchEvent:[SPEvent eventWithType:@"touchOK"]];
+    NSArray *touches = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] allObjects];
+    
+    // si on a bien juste tapé sur l'objet
+    if(touches.count == 1) {  
+        SPTouch *touch = [touches objectAtIndex:0];
+        if (touch.tapCount == 1)
+        {
+            [InfosPartie setPhase:2];
+            [InfosJoueur removeObjet:7];
+            [[Dialog getInstance] sendMessage:@"phase" sendTo:-1 data:[NSNumber numberWithInt:2]];
+            [[PageManager getInstance] changePage:@"PageTDB"];
+        }
+    }
 }
 
 - (void)finalize
 {
     // event listeners should always be removed to avoid memory leaks!
+    
+    [okBtn removeEventListener:@selector(onTouchOk:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
     [general removeChild:background];
     background = nil;
     

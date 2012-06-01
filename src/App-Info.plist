@@ -12,6 +12,9 @@
 	<string>Icon@2x.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
+		<string>icon_shad@2x.png</string>
+		<string>icon_shad.png</string>
+		<string>icon_shad@2x.png.png</string>
 		<string>Icon.png</string>
 		<string>Icon@2x.png</string>
 	</array>
