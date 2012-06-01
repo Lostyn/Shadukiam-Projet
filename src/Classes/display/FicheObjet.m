@@ -99,9 +99,9 @@
     SPTextField *ptsSpeTxt = [SPTextField textFieldWithText: [infosXML objectForKey:@"pointsB"]];
     SPTextField *ptsNameTxt = [SPTextField textFieldWithText:@"POINTS"];
     
-    ptsTxt.x = 132;
+    ptsTxt.x = 135;
     ptsSpeTxt.x = 170;
-    ptsNameTxt.x = 155;
+    ptsNameTxt.x = 153;
     ptsTxt.y = ptsSpeTxt.y = 155;
     ptsNameTxt.y = 172;
     ptsTxt.fontSize = ptsSpeTxt.fontSize = 24;
