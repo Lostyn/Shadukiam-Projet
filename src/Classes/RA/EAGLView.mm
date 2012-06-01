@@ -8,12 +8,9 @@
 #import "EAGLView.h"
 #import "Teapot.h"
 #import "Texture.h"
-#import "balle.h"
-#import "cube2.h"
-#import "cube.h"
-#import "banana.h"
-#import "spheretest.h"
 #import "rocks.h"
+#import "rock_stone_pile.h"
+#import "key.h"
 
 #import <QCAR/Renderer.h>
 
@@ -26,13 +23,13 @@
 namespace {
     // Teapot texture filenames
     const char* textureFilenames[] = {
-        "banana2.jpg",
+        "key.png",
         "TextureTeapotBlue.png",
         "TextureTeapotRed.png"
     };
 
     // Model scale factor
-    const float kObjectScale = 5.0f;
+    const float kObjectScale = 15.0f;
 }
 
 
@@ -78,15 +75,18 @@ namespace {
     
     Object3D *balle = [[Object3D alloc] init];
     
-    balle.numVertices = rocksNumVerts;
-    balle.vertices = rocksVerts;
-    balle.texCoords = rocksTexCoords;
+    balle.numVertices = keyNumVerts;
+    balle.vertices = keyVerts;
+    balle.texCoords = keyTexCoords;
+    balle.normals = keyNormals;
+    
+    balle.texture = [textures objectAtIndex:0];
     
     [objects3D addObject:balle];
     
     objectsPos = [NSMutableArray array];
     for (int i = 0; i < 3; i++) {
-        SPPoint *point = [SPPoint pointWithX:arc4random() % 10 y:arc4random() % 10];
+        SPPoint *point = [SPPoint pointWithX:50 y:0];
         [objectsPos addObject:point];
     }
 }
@@ -143,7 +143,7 @@ namespace {
         
         Object3D *obj3D = [objects3D objectAtIndex:3];
         
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 1; i++) {
             
             SPPoint *pos = [objectsPos objectAtIndex:i];
         
@@ -191,7 +191,7 @@ namespace {
             glEnableVertexAttribArray(textureCoordHandle);
             
             glActiveTexture(GL_TEXTURE0);
-            //glBindTexture(GL_TEXTURE_2D, [obj3D.texture textureID]);
+            glBindTexture(GL_TEXTURE_2D, [obj3D.texture textureID]);
             glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE, (const GLfloat*)&modelViewProjection.data[0]);
             //glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, (const GLvoid*)obj3D.indices);
             glDrawArrays(GL_TRIANGLES, 0, obj3D.numVertices);

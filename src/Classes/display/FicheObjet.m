@@ -101,8 +101,8 @@
     
     ptsTxt.x = 135;
     ptsSpeTxt.x = 170;
-    ptsNameTxt.x = 153;
-    ptsTxt.y = ptsSpeTxt.y = 155;
+    ptsNameTxt.x = 120;
+    ptsTxt.y = ptsSpeTxt.y = 152;
     ptsNameTxt.y = 172;
     ptsTxt.fontSize = ptsSpeTxt.fontSize = 24;
     ptsNameTxt.fontSize = 12;
