@@ -18,6 +18,11 @@
     [self addChild:background];
     background.x = 6;
     
+    icone = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"btn_%@.png", image]];
+    [self addChild:icone];
+    icone.x = 21;
+    icone.y = 16;
+    
     txtBackground = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"btn_tdb_titre_bkg_%d.png", [InfosJoueur getMyPerso]]];
     
     [self addChild:txtBackground];
@@ -39,6 +44,8 @@
 -(void) finalize {
     [self removeChild:background];
     background = nil;
+    [self removeChild:icone];
+    icone = nil;
     [self removeChild:txtBackground];
     txtBackground = nil;
     [self removeChild:texte];

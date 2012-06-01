@@ -175,7 +175,7 @@
     [objetActive initWithID:numObjet andXML:[infosXML retrieveForPath:[NSString stringWithFormat:@"objets.objet.%d", numObjet]]];
     
     objetActive.x = ([Game stageWidth] - objetActive.width) / 2 + 17;
-    objetActive.y = ([Game stageHeight] - objetActive.height) / 2 + 45;
+    objetActive.y = ([Game stageHeight] - objetActive.height) / 2 + 55;
     objetActive.alpha = 0;
     [self addChild:objetActive];
     

@@ -31,6 +31,10 @@ static int CASE_WIDTH = 20;
     NSError *error = nil;
     XMLData = [XMLReader dictionaryForXMLData:data error:&error];
     
+    // salles accessibles
+    sallesAccessibles = [NSMutableArray arrayWithObjects:@"0", @"1", @"2", nil];
+    [self addSalleAccessible:3];
+    
 }
 
 // retourne une case a partir son ID
@@ -77,19 +81,28 @@ static int CASE_WIDTH = 20;
 
 -(void) getZonesAccessibleRec:(NSDictionary*) currZone nbMoves: (int) moves currLevel: (int)level withArray:(NSMutableArray*) accessibles {
     if(level < moves) {
+        
+        
         NSDictionary *voisins = [currZone retrieveForPath:@"voisins.voisin"];
-    
+            
+            
         NSEnumerator *voisinsEnum = [voisins objectEnumerator];
         NSString *voisinStr;
-    
-        while(voisinStr = [voisinsEnum nextObject]) {
-            if(![accessibles containsObject:voisinStr]) {
-                [accessibles addObject:voisinStr];
-            }
             
+        while(voisinStr = [voisinsEnum nextObject]) {
             NSDictionary* zoneVoisine = [self getZoneByID:[voisinStr intValue]];
-            [self getZonesAccessibleRec:zoneVoisine nbMoves:moves currLevel:level + 1 withArray:accessibles];
-        }
+                
+            // si la salle de la zone est accessible
+            NSString *salleID = [zoneVoisine objectForKey:@"salle"];
+            if([sallesAccessibles containsObject:salleID]) {
+                    
+                if(![accessibles containsObject:voisinStr]) {
+                    [accessibles addObject:voisinStr];
+                }
+            
+                [self getZonesAccessibleRec:zoneVoisine nbMoves:moves currLevel:level + 1 withArray:    accessibles];
+                }
+            }
     }
     
 }
@@ -107,6 +120,12 @@ static int CASE_WIDTH = 20;
     }
     
     return [zonesArray objectAtIndex:0];
+    
+}
+
+-(void) addSalleAccessible:(int)salleID {
+    
+    [sallesAccessibles addObject:[NSString stringWithFormat:@"%d", salleID]];
     
 }
 

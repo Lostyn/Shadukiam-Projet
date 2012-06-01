@@ -33,20 +33,22 @@
     
     while(zoneIDStr = [zonesEnum nextObject]) {
         int zoneID = [zoneIDStr intValue];
-        zoneData = [[Plateau getInstance] getZoneByID:zoneID];
+        if(zoneID != 24) {
+            zoneData = [[Plateau getInstance] getZoneByID:zoneID];
         
-        SPImage *zoneImage = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"zone_%@.png", [zoneData objectForKey:@"id"]]];
-        int posx = [[zoneData objectForKey:@"posx"] intValue] / 2;
-        int posy = [[zoneData objectForKey:@"posy"] intValue] / 2;
-        zoneImage.x = posx;
-        zoneImage.y = posy;
-        [conteneur addChild:zoneImage];
+            SPImage *zoneImage = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"zone_%@.png", [zoneData objectForKey:@"id"]]];
+            int posx = [[zoneData objectForKey:@"posx"] intValue] / 2;
+            int posy = [[zoneData objectForKey:@"posy"] intValue] / 2;
+            zoneImage.x = posx;
+            zoneImage.y = posy;
+            [conteneur addChild:zoneImage];
+            
+            [zonesImages setObject:zoneImage forKey:[NSString stringWithFormat:@"%d", zoneID]];
         
-        [zonesImages setObject:zoneImage forKey:[NSString stringWithFormat:@"%d", zoneID]];
-        
-        // maj min coords affichage
-        if(posx < xMin) xMin = posx;
-        if(posy < yMin) yMin = posy;
+            // maj min coords affichage
+            if(posx < xMin) xMin = posx;
+            if(posy < yMin) yMin = posy;
+        }
     }
     
     //NSLog(@"xmin : %d, ymin : %d", xMin, yMin);

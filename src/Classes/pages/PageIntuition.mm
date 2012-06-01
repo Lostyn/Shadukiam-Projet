@@ -21,13 +21,16 @@
     
     // init RA
     QCARutils *qUtils = [QCARutils getInstance];
+    [qUtils resumeAR];
     
     CGRect myRect = CGRectMake(-50, 42, 280, 440);
     
     window = [[UIWindow alloc] initWithFrame: myRect];
     
     // Provide a list of targets we're expecting - the first in the list is the default
-    [qUtils addTargetName:@"Stones & Chips" atPath:@"StonesAndChips.xml"];
+    if([[qUtils targetsList] count] == 0) {
+        [qUtils addTargetName:@"Plateau provisoire" atPath:@"plateau_provisoire.xml"];
+    }
     
     // Add the EAGLView and the overlay view to the window
     arParentViewController = [[ARParentViewController alloc] init];

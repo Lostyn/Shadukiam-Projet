@@ -9,6 +9,7 @@
 #import "SPSprite.h"
 #import "Game.h"
 #import "InfosJoueur.h"
+#import "XMLReader.h"
 
 @interface FicheObjet : SPSprite {
     

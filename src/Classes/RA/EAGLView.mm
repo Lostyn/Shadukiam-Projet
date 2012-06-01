@@ -8,6 +8,12 @@
 #import "EAGLView.h"
 #import "Teapot.h"
 #import "Texture.h"
+#import "balle.h"
+#import "cube2.h"
+#import "cube.h"
+#import "banana.h"
+#import "spheretest.h"
+#import "rocks.h"
 
 #import <QCAR/Renderer.h>
 
@@ -20,13 +26,13 @@
 namespace {
     // Teapot texture filenames
     const char* textureFilenames[] = {
-        "TextureTeapotBrass.png",
+        "banana2.jpg",
         "TextureTeapotBlue.png",
         "TextureTeapotRed.png"
     };
 
     // Model scale factor
-    const float kObjectScale = 1.0f;
+    const float kObjectScale = 5.0f;
 }
 
 
@@ -70,9 +76,17 @@ namespace {
         [objects3D addObject:obj3D];
     }
     
+    Object3D *balle = [[Object3D alloc] init];
+    
+    balle.numVertices = rocksNumVerts;
+    balle.vertices = rocksVerts;
+    balle.texCoords = rocksTexCoords;
+    
+    [objects3D addObject:balle];
+    
     objectsPos = [NSMutableArray array];
     for (int i = 0; i < 3; i++) {
-        SPPoint *point = [SPPoint pointWithX:arc4random() % 50 y:arc4random() % 50];
+        SPPoint *point = [SPPoint pointWithX:arc4random() % 10 y:arc4random() % 10];
         [objectsPos addObject:point];
     }
 }
@@ -126,9 +140,8 @@ namespace {
     for (int i = 0; i < state.getNumActiveTrackables(); ++i) {
         // Get the trackable
         const QCAR::Trackable* trackable = state.getActiveTrackable(i);
-        QCAR::Matrix44F modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackable->getPose());
         
-        Object3D *obj3D = [objects3D objectAtIndex:0];
+        Object3D *obj3D = [objects3D objectAtIndex:3];
         
         for(int i = 0; i < 3; i++) {
             
@@ -136,6 +149,7 @@ namespace {
         
         // Render using the appropriate version of OpenGL
         if (QCAR::GL_11 & qUtils.QCARFlags) {
+            /*
             // Load the projection matrix
             glMatrixMode(GL_PROJECTION);
             glLoadMatrixf(qUtils.projectionMatrix.data);
@@ -152,10 +166,14 @@ namespace {
             glVertexPointer(3, GL_FLOAT, 0, (const GLvoid*)obj3D.vertices);
             glNormalPointer(GL_FLOAT, 0, (const GLvoid*)obj3D.normals);
             glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, (const GLvoid*)obj3D.indices);
+             */
         }
 #ifndef USE_OPENGL1
         else {
             // OpenGL 2
+            
+            QCAR::Matrix44F modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackable->getPose());
+            
             QCAR::Matrix44F modelViewProjection;
             
             ShaderUtils::translatePoseMatrix(pos.x, pos.y, kObjectScale, &modelViewMatrix.data[0]);
@@ -173,13 +191,12 @@ namespace {
             glEnableVertexAttribArray(textureCoordHandle);
             
             glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_2D, [obj3D.texture textureID]);
+            //glBindTexture(GL_TEXTURE_2D, [obj3D.texture textureID]);
             glUniformMatrix4fv(mvpMatrixHandle, 1, GL_FALSE, (const GLfloat*)&modelViewProjection.data[0]);
-            glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, (const GLvoid*)obj3D.indices);
+            //glDrawElements(GL_TRIANGLES, obj3D.numIndices, GL_UNSIGNED_SHORT, (const GLvoid*)obj3D.indices);
+            glDrawArrays(GL_TRIANGLES, 0, obj3D.numVertices);
             
             ShaderUtils::checkGlError("EAGLView renderFrameQCAR");
-            
-            ShaderUtils::translatePoseMatrix(-pos.x, -pos.y, kObjectScale, &modelViewMatrix.data[0]);
         }
 #endif
         }

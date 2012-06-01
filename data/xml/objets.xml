@@ -6,72 +6,121 @@
 	<name>Amphore</name>
 	<points>2</points>
 	<pointsB>4</pointsB>
+    <classes>
+        <classe>1</classe>
+        <classe>0</classe>
+    </classes>
 </objet>
 
 <objet>
 	<name>Anneau sacré</name>
 	<points>3</points>
 	<pointsB>5</pointsB>
+    <classes>
+        <classe>7</classe>
+        <classe>0</classe>
+    </classes>
 </objet>
     
     <objet>
         <name>Bélier mortuaire</name>
         <points>2</points>
-        <pointsB>6</pointsB>
+        <pointsB>4</pointsB>
+        <classes>
+            <classe>1</classe>
+            <classe>0</classe>
+        </classes>
     </objet>
     
     <objet>
         <name>Bracelet</name>
         <points>3</points>
         <pointsB>4</pointsB>
+        <classes>
+            <classe>3</classe>
+            <classe>0</classe>
+        </classes>
     </objet>
     
     <objet>
         <name>Clé du temple</name>
         <points>2</points>
         <pointsB>3</pointsB>
+        <classes>
+            <classe>5</classe>
+            <classe>0</classe>
+        </classes>
     </objet>
     
     <objet>
         <name>Anneau du dieu</name>
         <points>2</points>
         <pointsB>6</pointsB>
+        <classes>
+            <classe>3</classe>
+            <classe>7</classe>
+        </classes>
     </objet>
     
     <objet>
         <name>Dynamite</name>
         <points>1</points>
         <pointsB>1</pointsB>
+        <classes>
+            <classe>0</classe>
+            <classe>0</classe>
+        </classes>
     </objet>
     
     <objet>
         <name>Graal</name>
         <points>4</points>
         <pointsB>5</pointsB>
+        <classes>
+            <classe>1</classe>
+            <classe>7</classe>
+            <classe>6</classe>
+        </classes>
     </objet>
     
     <objet>
         <name>Hache</name>
         <points>1</points>
         <pointsB>3</pointsB>
+        <classes>
+            <classe>2</classe>
+            <classe>4</classe>
+        </classes>
     </objet>
     
     <objet>
         <name>Masque rituel</name>
         <points>1</points>
         <pointsB>2</pointsB>
+        <classes>
+            <classe>7</classe>
+            <classe>0</classe>
+        </classes>
     </objet>
     
     <objet>
         <name>Mortier</name>
         <points>2</points>
         <pointsB>4</pointsB>
+        <classes>
+            <classe>2</classe>
+            <classe>0</classe>
+        </classes>
     </objet>
     
     <objet>
         <name>Tête de boeuf</name>
         <points>3</points>
         <pointsB>5</pointsB>
+        <classes>
+            <classe>4</classe>
+            <classe>2</classe>
+        </classes>
     </objet>
 
 </objets>

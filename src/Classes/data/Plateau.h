@@ -12,6 +12,7 @@
 @interface Plateau : NSObject {
     
     NSDictionary *XMLData;
+    NSMutableArray *sallesAccessibles;
     
 }
 
@@ -26,5 +27,7 @@
 - (NSMutableArray*) getZonesAccessible:(int)zoneID nbMoves: (int)moves;
 -(void) getZonesAccessibleRec:(NSDictionary*) currZone nbMoves: (int) moves currLevel: (int)level withArray:(NSMutableArray*) accessibles;
 - (NSArray*) getZonesForSalle:(int) salleID;
+
+-(void) addSalleAccessible:(int) salleID;
 
 @end

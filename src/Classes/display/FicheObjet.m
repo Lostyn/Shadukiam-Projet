@@ -28,12 +28,12 @@
     
     retourneBtn = [SPImage imageWithContentsOfFile:@"retourne.png"];
     [general addChild:retourneBtn];
-    retourneBtn.x = 60;
+    retourneBtn.x = 50;
     retourneBtn.y = 110;
     
     okBtn = [SPImage imageWithContentsOfFile:@"valide.png"];
     [general addChild:okBtn];
-    okBtn.x = 330;
+    okBtn.x = 340;
     okBtn.y = 110;
     
     [self addChild:general];
@@ -61,7 +61,7 @@
     nomBack = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"fiche_objet_nom_%d.png", objetID]];
     [back addChild:nomBack];
     nomBack.x = (background.width - nomBack.width) / 2;
-    nomBack.y = 30;
+    nomBack.y = 22;
     
     description = [SPTextField textFieldWithWidth:220 height:150 
                                              text:[NSString stringWithFormat:@"POINTS : %@\nPOINTS SPECIAUX : %@", [infosXML objectForKey:@"points"], [infosXML objectForKey:@"pointsB"]]];
@@ -71,6 +71,55 @@
     description.fontSize = 14;
     description.color = 0xFFFFFF;
     [back addChild:description];
+    
+    // icones classes
+    NSDictionary *classes = [infosXML retrieveForPath:@"classes.classe"];
+    
+    NSEnumerator *classesEnum = [classes objectEnumerator];
+    NSString *classeStr;
+    int i = 0;
+    
+    Boolean forMe = false;
+    
+    while(classeStr = [classesEnum nextObject]) {
+        if(![classeStr isEqualToString:@"0"]) {
+            SPImage *classeImage = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"menu_perso_%@.png", classeStr]];
+            classeImage.x = 305 - i * 20;
+            classeImage.y = 38;
+            classeImage.scaleX = classeImage.scaleY = 0.8;
+            [back addChild:classeImage];
+            i++;
+            
+            if([classeStr intValue] == [InfosJoueur getMyPerso]) forMe = true;
+        }
+    }
+    
+    // points
+    SPTextField *ptsTxt = [SPTextField textFieldWithText: [infosXML objectForKey:@"points"]];
+    SPTextField *ptsSpeTxt = [SPTextField textFieldWithText: [infosXML objectForKey:@"pointsB"]];
+    SPTextField *ptsNameTxt = [SPTextField textFieldWithText:@"POINTS"];
+    
+    ptsTxt.x = 132;
+    ptsSpeTxt.x = 170;
+    ptsNameTxt.x = 155;
+    ptsTxt.y = ptsSpeTxt.y = 155;
+    ptsNameTxt.y = 172;
+    ptsTxt.fontSize = ptsSpeTxt.fontSize = 24;
+    ptsNameTxt.fontSize = 12;
+    ptsTxt.fontName = ptsSpeTxt.fontName = ptsNameTxt.fontName = @"Times new Roman";
+    
+    if(forMe) {
+        ptsTxt.color = 0x999999;
+        ptsSpeTxt.color = 0xFFFFFF;
+    } else {
+        ptsTxt.color = 0xFFFFFF;
+        ptsSpeTxt.color = 0x999999;
+    }
+    ptsNameTxt.color = 0xFFFFFF;
+    
+    [back addChild:ptsTxt];
+    [back addChild:ptsNameTxt];
+    [back addChild:ptsSpeTxt];
     
     // listeners
     [retourneBtn addEventListener:@selector(onTouchRetourne:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
