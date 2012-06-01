@@ -18,6 +18,8 @@
     SPImage *logoBlack;
     SPImage *logoWhite;
     
+    SPMovieClip *waiter;
+    
 }
 
 -(void)anim:(NSTimer*) timer;

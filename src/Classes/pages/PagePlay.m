@@ -42,6 +42,17 @@
     //textInfos.y = 140;
     [self addChild:textInfos];
     
+    
+    //waiter
+    SPTextureAtlas *atlas = [SPTextureAtlas atlasWithContentsOfFile:@"loader.xml"];
+    NSArray *frames = [atlas texturesStartingWith:@"loader/"];
+    waiter = [[SPMovieClip alloc] initWithFrames:frames fps:30];   
+    waiter.x = [Game stageWidth]/2 - waiter.width/2;
+    waiter.y = [Game stageHeight]/2 - waiter.height/2;
+        
+    [self.stage.juggler addObject:waiter];
+    
+    
     // init dialog
     connected = NO;
     [[Dialog getInstance] connect];
@@ -130,8 +141,15 @@
         textInfos.text = @"ATTENTE DE JOUEURS";
     } else {
         textInfos.text = @"ATTENTE DU LANCEMENT";
+        [self addChild:waiter];
+        [waiter play];
     }
     
+}
+
+-(void)cancel{
+    [self removeAllChildren];
+    [waiter stop];
 }
 
 // jeu lancé, selection perso

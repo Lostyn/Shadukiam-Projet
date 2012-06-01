@@ -64,9 +64,10 @@
     nomBack.y = 22;
     
     description = [SPTextField textFieldWithWidth:220 height:150 
-                                             text:[NSString stringWithFormat:@"POINTS : %@\nPOINTS SPECIAUX : %@", [infosXML objectForKey:@"points"], [infosXML objectForKey:@"pointsB"]]];
+                                             text:[NSString stringWithFormat:@"%@",[infosXML objectForKey:@"description"]
+                                                   ]];
     description.x = (background.width - description.width) / 2;
-    description.y = 70;
+    description.y = 60;
     description.fontName = @"Times new Roman";
     description.fontSize = 14;
     description.color = 0xFFFFFF;

@@ -10,6 +10,7 @@
         <classe>1</classe>
         <classe>0</classe>
     </classes>
+    <description>“Il se tourna du côté de son grand vizir, et, en lui montrant l’amphore : Vois, dit-il et conviens qu’on ne peut rien voir au monde de plus riche ni de plus parfait.” --- Histoire d’Aladdin, ou la lampe merveilleuse ---</description>
 </objet>
 
 <objet>
@@ -20,6 +21,7 @@
         <classe>7</classe>
         <classe>0</classe>
     </classes>
+    <description>“En effet, ce fu cet anneau qui fut la cause du salut d’Aladdin, qui n’en savait nullement la vertu, et il  est étonnant que cette perle, jointe à celle de la lampe, n’ait pas jeté ce magicien dans le dernier désespoir.” --- Histoire d’Aladdin, ou la lampe merveilleuse --- </description>
 </objet>
     
     <objet>
@@ -30,6 +32,7 @@
             <classe>1</classe>
             <classe>0</classe>
         </classes>
+        <description>“Avant d’ouvrir le coffre où étaient les feuilles, mon frère avait tué un mouton ce jour-là, on l’avait accommodé et exposé hors de sa boutique, selon sa coutume”. --- Histoire du quatrième Frère du Barbier ---</description>
     </objet>
     
     <objet>
@@ -40,6 +43,7 @@
             <classe>3</classe>
             <classe>0</classe>
         </classes>
+        <description>“J’y retournai encore et j’allai ramasser à tâtons dans les bières tous les diamants, les rubis, les perles, les bracelets d’or et enfin toutes les riches étoffes que je trouvais sous ma main.” --- Quatrième voyage de Sindbad le Marin ---</description>
     </objet>
     
     <objet>
@@ -50,6 +54,7 @@
             <classe>5</classe>
             <classe>0</classe>
         </classes>
+        <description>“La devant lui, accroché à la ceinture de son geôlier les clés de sa délivrance. Le fortune qui lui avait tourné de dos pour ce retrouver dans une telle situation semblait de nouveau lui sourire. Près à prendre le large vers de nouvelle richesse.” --- Seymour, le prince des quatre mer ---</description>
     </objet>
     
     <objet>
@@ -60,6 +65,7 @@
             <classe>3</classe>
             <classe>7</classe>
         </classes>
+        <description>“Seigneur, répondit le voleur, je vais vous découvrir un secret important, si vous voulez me faire grâce et me donner, pour gage que vous tiendrez parole, l’anneau que vous avez au doigt.” --- Histoire du troisième Frère du Barbier ---</description>
     </objet>
     
     <objet>
@@ -70,6 +76,7 @@
             <classe>0</classe>
             <classe>0</classe>
         </classes>
+        <description>"NE PAS UTILISER"</description>
     </objet>
     
     <objet>
@@ -81,6 +88,7 @@
             <classe>7</classe>
             <classe>6</classe>
         </classes>
+        <description>Cette coupe ne pourrait pas seulement contenir un de vos pieds : comment se peut-il que de telle richesse s’y trouve ?” --- Histoire du Pêcheur ---</description>
     </objet>
     
     <objet>
@@ -91,6 +99,7 @@
             <classe>2</classe>
             <classe>4</classe>
         </classes>
+        <description>“De tous les roi salomon fut un des plus grands, et ces richesses des plus convoiter.” --- Salomon, fils du roi David ---</description>
     </objet>
     
     <objet>
@@ -101,6 +110,7 @@
             <classe>7</classe>
             <classe>0</classe>
         </classes>
+        <description></description>
     </objet>
     
     <objet>
@@ -111,6 +121,7 @@
             <classe>2</classe>
             <classe>0</classe>
         </classes>
+        <description></description>
     </objet>
     
     <objet>
@@ -121,6 +132,7 @@
             <classe>4</classe>
             <classe>2</classe>
         </classes>
+        <description></description>
     </objet>
 
 </objets>
