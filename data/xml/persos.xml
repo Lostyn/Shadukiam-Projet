@@ -3,45 +3,45 @@
     <perso>null</perso>
 
     <perso>
-        <name>Médecin</name>
-        <histoire>on ne sait pas</histoire>
-        <capacite>il soigne des gens</capacite>
+        <name>Archéologue</name>
+        <histoire>A l’origine du groupe, la cité des djinn est pour lui une obsession. Il ne pense qu’a la gloire que pourrais lui procurer les richesses de cette cité ainsi que la reconnaissance de cas pairs.</histoire>
+        <capacite>Peut fouiller une case autour de lui.</capacite>
     </perso>
     
     <perso>
         <name>Artificier</name>
-        <histoire>il s'est retrouvé la par hasard</histoire>
-        <capacite>fait tout peter</capacite>
+        <histoire>Engager par le groupe pour dégager l’entrée de la citée. Son soucis premier est de sortir vivant, cependant il n’est pas contre l’opportunité d’y trouver un bénéfice.</histoire>
+        <capacite>Dégage les cases autour de lui ( piège et pierre )</capacite>
     </perso>
     
     <perso>
-        <name>Artificier</name>
-        <histoire>il s'est retrouvé la par hasard</histoire>
-        <capacite>fait tout peter</capacite>
+        <name>Chasseuse</name>
+        <histoire>Elle fait partie du groupe afin de trouver, pillier et ramener toutes les richesses qu’elle trouvera. Pour ce faire elle est prête à utiliser tous les moyens dont elle dispose.</histoire>
+        <capacite>Gagne un point de victoire supplémentaire.</capacite>
     </perso>
     
     <perso>
-        <name>Artificier</name>
-        <histoire>il s'est retrouvé la par hasard</histoire>
-        <capacite>fait tout peter</capacite>
+        <name>Mercenaire</name>
+        <histoire>Sa motivation dans cette aventure est clairement l’argent est rien d’autre semble l’intéresser. Impitoyable rien ne semble l’arrêter dans ça quête, même le fait de blessé ses compagnons du moment.</histoire>
+        <capacite>Fait perdre un objet à un personnage.</capacite>
     </perso>
     
     <perso>
-        <name>Artificier</name>
-        <histoire>il s'est retrouvé la par hasard</histoire>
-        <capacite>fait tout peter</capacite>
+        <name>Guide</name>
+        <histoire>Engager par le groupe lors de leur arrivé, elle est originaire du pays. Elle en connais les légendes, pièges, mais surtout les richesses qui s’y trouve sans quoi elle n’aurais jamais accepté cette aventure.</histoire>
+        <capacite>Peut forcer un joueur à ce déplacer.</capacite>
     </perso>
     
     <perso>
-        <name>Artificier</name>
-        <histoire>il s'est retrouvé la par hasard</histoire>
-        <capacite>fait tout peter</capacite>
+        <name>Guérisseur</name>
+        <histoire>Rayé de l’ordre des médecins depuis peu, cette aventure représente pour lui la seul façon d’assurer ces vieux jours. Il est plus intéressé par piller les richesses de cette cité que de racheter son honneur de médecin.</histoire>
+        <capacite>Ses objets valent plus de point</capacite>
     </perso>
     
     <perso>
-        <name>Artificier</name>
-        <histoire>il s'est retrouvé la par hasard</histoire>
-        <capacite>fait tout peter</capacite>
+        <name>Anthropologue</name>
+        <histoire>Sa passions est son travail, elle semble possédé a chaque découvre. Elle a choisie de venir dans cette citée pour y découvrir les secrets qui s’y trouve sur la naissance des djinns ainsi que leur “disparition”.</histoire>
+        <capacite>Peut annuler une face djinn.</capacite>
     </perso>
 
 </persos>

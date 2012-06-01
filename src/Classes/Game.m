@@ -91,14 +91,9 @@ static SPImage *logoBlack;
 
     [[PageManager getInstance] changePage:@"PagePlay"];
     // test TDB
-<<<<<<< HEAD
-    [InfosJoueur setMyPerso:3];
-    [[PageManager getInstance] changePage:@"PageTDB"];
-=======
     //[InfosJoueur setMyPerso:3];
-    //[[PageManager getInstance] changePage:@"PageEnigme"];
+    //[[PageManager getInstance] changePage:@"PageTDB"];
 
->>>>>>> olol
     
     // menu
     [self addChild:[Menu getInstance]];
@@ -111,6 +106,13 @@ static SPImage *logoBlack;
     [timer invalidate];
     timer = nil;
     
+    [self getSounds];
+}
+
+-(void) getSounds{
+    [SPAudioEngine start];
+    
+    [[ShadSounds getInstance] addSounds:@"woohoo.caf" withKey:@"woohoo"];
 }
 
 + (void) hideLogo{

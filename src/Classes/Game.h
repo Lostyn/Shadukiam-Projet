@@ -11,6 +11,7 @@
 #import "EpawnData.h"
 #import "InfosDisposition.h"
 #import "InfosTour.h"
+#import "ShadSounds.h"
 
 @interface Game : SPSprite
 {
@@ -25,6 +26,7 @@
 + (int)stageWidth;
 + (int)stageHeight;
 + (void) hideLogo;
+- (void) getSounds;
 
 @property (nonatomic, assign) float gameWidth;
 @property (nonatomic, assign) float gameHeight;

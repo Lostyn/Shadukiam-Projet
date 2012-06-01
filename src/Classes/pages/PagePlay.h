@@ -8,6 +8,7 @@
 
 #import "Page.h"
 #import "PageManager.h"
+#import "ShadSounds.h"
 
 @interface PagePlay : Page {
     

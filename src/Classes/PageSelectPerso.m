@@ -14,6 +14,7 @@
 - (void) show {
     
     [super show];
+    [[ShadSounds getInstance] playSound:@"woohoo" ];
     
     persoSelected = NO;
     gameStarted = NO;

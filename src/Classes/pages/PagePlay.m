@@ -11,7 +11,6 @@
 @implementation PagePlay
 
 - (void) show {
-    
     [super show];
     [Game hideLogo];
     
