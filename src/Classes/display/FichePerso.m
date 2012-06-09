@@ -71,6 +71,14 @@
     description.color = 0xFFFFFF;
     [back addChild:description];
     
+    // close btn
+    
+    closeBtn = [SPImage imageWithContentsOfFile:@"btn_close.png"];
+    [self addChild:closeBtn];
+    closeBtn.x = 300;
+    closeBtn.y = 50;
+    [closeBtn addEventListener:@selector(onTouchClose:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
     // listeners
     [retourneBtn addEventListener:@selector(onTouchRetourne:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     [okBtn addEventListener:@selector(onTouchOk:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
@@ -122,6 +130,14 @@
         [self.stage.juggler addObject:tweenGeneral2];
         [self.stage.juggler addObject:tweenFront];
         [self.stage.juggler addObject:tweenBack];
+    }
+}
+
+- (void)onTouchClose:(SPTouchEvent*) event {
+    NSArray *touches = [[event touchesWithTarget:self andPhase:SPTouchPhaseBegan] allObjects];
+    
+    if(touches.count == 1) {
+        [self dispatchEvent:[SPEvent eventWithType:@"close"]];
     }
 }
 

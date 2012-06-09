@@ -11,6 +11,8 @@
 #import "rocks.h"
 #import "rock_stone_pile.h"
 #import "key3.h"
+#import "torch.h"
+#import "rock.h"
 
 #import <QCAR/Renderer.h>
 
@@ -24,8 +26,8 @@ namespace {
     // Teapot texture filenames
     const char* textureFilenames[] = {
         "key.png",
-        "TextureTeapotBlue.png",
-        "TextureTeapotRed.png"
+        "rock.png",
+        "torch.png"
     };
 
     // Model scale factor
@@ -56,6 +58,7 @@ namespace {
     // but using the same underlying 3D model of a teapot, differentiated
     // by using a different texture for each
     
+    /*
     for (int i=0; i < [textures count]; i++)
     {
         Object3D *obj3D = [[Object3D alloc] init];
@@ -72,23 +75,63 @@ namespace {
 
         [objects3D addObject:obj3D];
     }
+     */
     
-    Object3D *balle = [[Object3D alloc] init];
+    Object3D *key = [[Object3D alloc] init];
     
-    balle.numVertices = key3NumVerts;
-    balle.vertices = key3Verts;
-    balle.texCoords = key3TexCoords;
-    //balle.normals = key3Normals;
+    key.numVertices = key3NumVerts;
+    key.vertices = key3Verts;
+    key.texCoords = key3TexCoords;
+    //key.normals = key3Normals;
     
-    balle.texture = [textures objectAtIndex:0];
+    key.texture = [textures objectAtIndex:0];
     
-    [objects3D addObject:balle];
+    [objects3D addObject:key];
+    
+    Object3D *torch = [[Object3D alloc] init];
+    
+    torch.numVertices = torchNumVerts;
+    torch.vertices = torchVerts;
+    torch.texCoords = torchTexCoords;
+    torch.normals = torchNormals;
+    
+    torch.texture = [textures objectAtIndex:2];
+    
+    [objects3D addObject:torch];
+    
+    Object3D *rock = [[Object3D alloc] init];
+    
+    rock.numVertices = rockNumVerts;
+    rock.vertices = rockVerts;
+    rock.texCoords = rockTexCoords;
+    rock.normals = rockNormals;
+    
+    rock.texture = [textures objectAtIndex:1];
+    
+    [objects3D addObject:rock];
+    
     
     objectsPos = [NSMutableArray array];
     
     [objectsPos addObject:[SPPoint pointWithX:20 y:12]];
     [objectsPos addObject:[SPPoint pointWithX:-50 y:42]];
     [objectsPos addObject:[SPPoint pointWithX:30 y:100]];
+    
+    objectsNum = [NSMutableArray array];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:0]];
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsNum addObject:[NSNumber numberWithInt:2]];
+    
+    objectsRot = [NSMutableArray array];
+    objectsZ = [NSMutableArray array];
+    objectsSpeed = [NSMutableArray array];
+    
+    for(int i = 0; i < 3; i++) {
+        [objectsRot addObject:[NSNumber numberWithInt:arc4random() % 360]];
+        [objectsZ addObject:[NSNumber numberWithInt:2]];
+        [objectsSpeed addObject:[NSNumber numberWithFloat:0.2]];
+    }
 }
 
 
@@ -141,11 +184,16 @@ namespace {
         // Get the trackable
         const QCAR::Trackable* trackable = state.getActiveTrackable(i);
         
-        Object3D *obj3D = [objects3D objectAtIndex:3];
         
         for(int i = 0; i < 3; i++) {
             
+            int objectNum = [[objectsNum objectAtIndex:i] intValue];
+            Object3D *obj3D = [objects3D objectAtIndex:objectNum];
+            
             SPPoint *pos = [objectsPos objectAtIndex:i];
+            int rotation = [[objectsRot objectAtIndex:i] intValue];
+            float zPos = [[objectsZ objectAtIndex:i] floatValue];
+            float speed = [[objectsSpeed objectAtIndex:i] floatValue];
         
         // Render using the appropriate version of OpenGL
         if (QCAR::GL_11 & qUtils.QCARFlags) {
@@ -172,13 +220,15 @@ namespace {
         else {
             // OpenGL 2
             
+            
             QCAR::Matrix44F modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackable->getPose());
             
             QCAR::Matrix44F modelViewProjection;
             
-            ShaderUtils::translatePoseMatrix(pos.x, pos.y, kObjectScale / 2 + 2, &modelViewMatrix.data[0]);
+            ShaderUtils::translatePoseMatrix(pos.x, pos.y, kObjectScale / 2 + zPos, &modelViewMatrix.data[0]);
             ShaderUtils::scalePoseMatrix(kObjectScale, kObjectScale, kObjectScale, &modelViewMatrix.data[0]);
             ShaderUtils::rotatePoseMatrix(90, 1, 0, 0, &modelViewMatrix.data[0]);
+            ShaderUtils::rotatePoseMatrix(rotation, 0, 1, 0, &modelViewMatrix.data[0]);
             ShaderUtils::multiplyMatrix(&qUtils.projectionMatrix.data[0], &modelViewMatrix.data[0], &modelViewProjection.data[0]);
             
             glUseProgram(shaderProgramID);
@@ -198,6 +248,22 @@ namespace {
             glDrawArrays(GL_TRIANGLES, 0, obj3D.numVertices);
             
             ShaderUtils::checkGlError("EAGLView renderFrameQCAR");
+            
+            // si cle, rotation reguliere
+            if(objectNum == 0) {
+                rotation += 2;
+                if(rotation > 360) rotation = 1;
+                [objectsRot replaceObjectAtIndex:i withObject:[NSNumber numberWithInt:rotation]];
+            } else if (objectNum == 1) {
+                // si feu, bondit
+                if(zPos < 4) speed += 0.05;
+                else speed -= 0.05;
+                zPos += speed;
+                NSLog(@"%f, %f", zPos, speed);
+                [objectsZ replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:zPos]];
+                [objectsSpeed replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:speed]];
+                
+            }
         }
 #endif
         }

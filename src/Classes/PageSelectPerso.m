@@ -118,6 +118,7 @@
     [self.stage.juggler addObject:tweenBack];
     
     // close
+    [persoActive addEventListener:@selector(closePerso:) atObject:self forType:@"close"];
     [backgroundMask addEventListener:@selector(closePerso:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
 }
@@ -126,6 +127,7 @@
 - (void) closePerso:(SPTouchEvent*)event {
     [backgroundMask removeEventListener:@selector(closePerso:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     [persoActive removeEventListener:@selector(onSelectPerso:) atObject:self forType:@"touchOK"];
+    [persoActive removeEventListener:@selector(closePerso:) atObject:self forType:@"close"];
     
     // tween fiche et background
     SPTween *tweenFiche = [SPTween tweenWithTarget:persoActive time:0.5f transition:SP_TRANSITION_EASE_OUT];

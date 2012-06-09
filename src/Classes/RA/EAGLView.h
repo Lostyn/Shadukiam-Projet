@@ -12,6 +12,10 @@
 @interface EAGLView : AR_EAGLView
 {
     NSMutableArray* objectsPos;
+    NSMutableArray* objectsNum;
+    NSMutableArray* objectsRot;
+    NSMutableArray* objectsZ;
+    NSMutableArray* objectsSpeed;
 }
 
 @end

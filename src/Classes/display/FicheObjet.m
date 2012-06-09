@@ -186,7 +186,7 @@
         SPTouch *touch = [touches objectAtIndex:0];
         if (touch.tapCount == 1)
         {
-            [InfosPartie setPhase:2];
+            //[InfosPartie setPhase:2];
             [InfosJoueur removeObjet:7];
             [[Dialog getInstance] sendMessage:@"phase" sendTo:-1 data:[NSNumber numberWithInt:2]];
             [[PageManager getInstance] changePage:@"PageTDB"];
