@@ -8,6 +8,7 @@
 
 #import "DefaultEnigme.h"
 #import "PopUpEnigme.h"
+#import "Plateau.h"
 
 @interface Enigme001 : DefaultEnigme{
     

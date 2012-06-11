@@ -12,7 +12,7 @@
 
 static NSMutableDictionary *joueurs = nil;
 static NSMutableDictionary *finishJ = nil;
-static int phase = 2;
+static int phase = 1;
 static int currentPlayer = 0;
 static int currentPlayerIndex = 0;
 static NSMutableArray* playersOrder;

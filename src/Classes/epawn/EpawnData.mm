@@ -38,7 +38,7 @@ static EpawnData *instance = nil;
 }
 
 -(void)mainLoop {
-	[_epManager process];
+    [_epManager process];
 }
 
 -(NSMutableArray*) getPions {

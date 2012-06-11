@@ -14,7 +14,8 @@ static Plateau *instance = nil;
 
 static int NB_CASES_LINE = 22;
 static int NB_CASES_COL = 28;
-static int CASE_WIDTH = 20;
+static float CASE_WIDTH = 10.7;
+static float CASE_HEIGHT = 22.2;
     
 + (Plateau*)getInstance
 {
@@ -33,7 +34,7 @@ static int CASE_WIDTH = 20;
     
     // salles accessibles
     sallesAccessibles = [NSMutableArray arrayWithObjects:@"0", @"1", @"2", nil];
-    [self addSalleAccessible:3];
+    //[self addSalleAccessible:3];
     
 }
 
@@ -54,11 +55,24 @@ static int CASE_WIDTH = 20;
 
 // retourne une case a partir des coordonnées du pion
 - (NSDictionary*) getCaseByCoord: (int) coordX andY: (int) coordY {
-    int posX = floor(coordY / CASE_WIDTH);
+    if( coordX < 45 )
+        return nil;
+    if( coordX > 280 )
+        return nil;
+    if( coordY < 80 )
+        return nil;
+    
+    coordX = coordX - 45;
+    coordY = coordY - 80;
+    coordY = 400 - coordY;
+    
+    int posX = floor(coordY / CASE_HEIGHT);
     if(posX % 2 == 1) coordX += CASE_WIDTH / 2;
     int posY = floor(coordX / CASE_WIDTH);
     
-    return [self getCaseByPos:posX andY:posY];
+    NSLog(@"posX : %d, posY : %d", posX, posY );
+    
+    return [self getCaseByPos:posX+10 andY:posY];
     
 }
 

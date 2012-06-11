@@ -152,6 +152,7 @@ static NSString *KEY = @"enigme001Active";
     [self.stage.juggler addObject:tweenPop];
     
     [InfosJoueur gainScore:5];
+    [[Plateau getInstance] addSalleAccessible:3];
 }
 
 /*
