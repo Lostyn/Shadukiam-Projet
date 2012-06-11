@@ -54,7 +54,7 @@
     [self addChild:ficheObjet];
     
     // ok
-    [ficheObjet addEventListener:@selector(onTouchOK:) atObject:self forType:@"touchOK"];
+    [ficheObjet addEventListener:@selector(onTouchOK:) atObject:self forType:@"close"];
     
     // tween fiche 
     SPTween *tweenFiche = [SPTween tweenWithTarget:ficheObjet time:0.5f transition:SP_TRANSITION_EASE_OUT];

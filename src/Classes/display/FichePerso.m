@@ -75,8 +75,8 @@
     
     closeBtn = [SPImage imageWithContentsOfFile:@"btn_close.png"];
     [self addChild:closeBtn];
-    closeBtn.x = 300;
-    closeBtn.y = 50;
+    closeBtn.x = 395;
+    closeBtn.y = 10;
     [closeBtn addEventListener:@selector(onTouchClose:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     // listeners
@@ -181,6 +181,10 @@
     
     [self removeChild:back];
     back = nil;
+    
+    [closeBtn removeEventListener:@selector(onTouchClose:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self removeChild:closeBtn];
+    closeBtn = nil;
     
     [super finalize];
 }

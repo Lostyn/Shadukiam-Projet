@@ -125,6 +125,14 @@
     [back addChild:ptsNameTxt];
     [back addChild:ptsSpeTxt];
     
+    // close btn
+    
+    closeBtn = [SPImage imageWithContentsOfFile:@"btn_close.png"];
+    [self addChild:closeBtn];
+    closeBtn.x = 395;
+    closeBtn.y = 10;
+    [closeBtn addEventListener:@selector(onTouchClose:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
     // listeners
     [retourneBtn addEventListener:@selector(onTouchRetourne:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
@@ -186,11 +194,19 @@
         SPTouch *touch = [touches objectAtIndex:0];
         if (touch.tapCount == 1)
         {
-            //[InfosPartie setPhase:2];
+            [InfosPartie setPhase:2];
             [InfosJoueur removeObjet:7];
             [[Dialog getInstance] sendMessage:@"phase" sendTo:-1 data:[NSNumber numberWithInt:2]];
             [[PageManager getInstance] changePage:@"PageTDB"];
         }
+    }
+}
+
+- (void)onTouchClose:(SPTouchEvent*) event {
+    NSArray *touches = [[event touchesWithTarget:self andPhase:SPTouchPhaseBegan] allObjects];
+    
+    if(touches.count == 1) {
+        [self dispatchEvent:[SPEvent eventWithType:@"close"]];
     }
 }
 
@@ -224,6 +240,10 @@
     
     [self removeChild:back];
     back = nil;
+    
+    [closeBtn removeEventListener:@selector(onTouchClose:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [self removeChild:closeBtn];
+    closeBtn = nil;
     
     [super finalize];
 }

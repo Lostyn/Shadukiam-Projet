@@ -70,8 +70,6 @@ static float CASE_HEIGHT = 22.2;
     if(posX % 2 == 1) coordX += CASE_WIDTH / 2;
     int posY = floor(coordX / CASE_WIDTH);
     
-    NSLog(@"posX : %d, posY : %d", posX, posY );
-    
     return [self getCaseByPos:posX+10 andY:posY];
     
 }

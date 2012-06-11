@@ -13,6 +13,7 @@
 #import "key3.h"
 #import "torch.h"
 #import "rock.h"
+#import "torch2.h"
 
 #import <QCAR/Renderer.h>
 
@@ -90,10 +91,10 @@ namespace {
     
     Object3D *torch = [[Object3D alloc] init];
     
-    torch.numVertices = torchNumVerts;
-    torch.vertices = torchVerts;
-    torch.texCoords = torchTexCoords;
-    torch.normals = torchNormals;
+    torch.numVertices = torch2NumVerts;
+    torch.vertices = torch2Verts;
+    torch.texCoords = torch2TexCoords;
+    //torch.normals = torch2Normals;
     
     torch.texture = [textures objectAtIndex:2];
     
@@ -259,7 +260,7 @@ namespace {
                 if(zPos < 4) speed += 0.05;
                 else speed -= 0.05;
                 zPos += speed;
-                NSLog(@"%f, %f", zPos, speed);
+                //NSLog(@"%f, %f", zPos, speed);
                 [objectsZ replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:zPos]];
                 [objectsSpeed replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:speed]];
                 
@@ -288,6 +289,15 @@ namespace {
     
     QCAR::Renderer::getInstance().end();
     [self presentFramebuffer];
+}
+
+-(void) finalize {
+    objects3D = nil;
+    objectsNum =  nil;
+    objectsPos = nil;
+    objectsRot = nil;
+    objectsSpeed = nil;
+    objectsZ = nil;
 }
 
 @end

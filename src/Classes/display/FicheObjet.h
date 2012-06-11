@@ -24,6 +24,7 @@
     SPImage *okBtn;
     NSDictionary *infosXML;
     SPTextField *description;
+    SPImage *closeBtn;
     
     bool isFront;
     int objetID;

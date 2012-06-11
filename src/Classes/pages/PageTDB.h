@@ -12,6 +12,8 @@
 #import "PageManager.h"
 #import "TDBBtn.h"
 #import "InfosPartie.h"
+#import "FichePerso.h"
+#import "XMLReader.h"
 
 
 @interface PageTDB : Page {
@@ -25,6 +27,9 @@
     TDBBtn *btnIntuition;
     SPImage *finTour;
     SPImage *btnPower;
+    FichePerso *persoActive;
+    SPQuad *backgroundMask;
+    NSDictionary *infosXML;
     
     SPSprite *buttons;
     NSString *targetPage;

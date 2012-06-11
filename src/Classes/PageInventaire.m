@@ -178,6 +178,7 @@
     objetActive.y = ([Game stageHeight] - objetActive.height) / 2 + 55;
     objetActive.alpha = 0;
     [self addChild:objetActive];
+    [objetActive addEventListener:@selector(closeObjet:) atObject:self forType:@"close"];
     
     // select perso
     //[objetActive addEventListener:@selector(onSelectPerso:) atObject:self forType:@"touchOK"];

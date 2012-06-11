@@ -10,12 +10,16 @@
 #import "ARParentViewController.h"
 #import "QCARutils.h"
 #import "PageManager.h"
+#import "Titre.h"
 
 @class ARParentViewController;
 
 @interface PageIntuition : Page {
     UIWindow* window;
     ARParentViewController* arParentViewController;
+    Titre *titre;
+    SPImage *switchObjet;
+    SPImage *switchPorte;
     
     SPImage *backBtn;
 }

@@ -25,6 +25,7 @@
     persoImg.scaleY = 0.8;
     persoImg.x = ([Game stageWidth] - persoImg.width) / 2 + 20;
     persoImg.y = 50;
+    [persoImg addEventListener:@selector(showPerso:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     buttons = [SPSprite sprite];
     [self addChild:buttons];
@@ -104,6 +105,107 @@
     [self.stage.juggler addObject:tweenTitre];
     [self.stage.juggler addObject:tweenPerso];
     [self.stage.juggler addObject:tweenButtons];
+    // init masque background
+    
+    backgroundMask = [[SPQuad alloc] initWithWidth:[Game stageWidth] height:[Game stageHeight] color:0x000000];
+    
+    backgroundMask.alpha = 0;
+    
+    
+    
+    // xml
+    
+    NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"persos" ofType:@"xml"]];
+    
+    NSError *error = nil;
+    
+    infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
+    
+}
+
+
+
+-(void) showPerso:(SPTouchEvent*) event {
+    
+    
+    
+    NSArray *touches = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] allObjects];
+    
+    
+    
+    // si on a bien juste tapé sur l'objet
+    
+    if(touches.count == 1) {  
+        
+        SPTouch *touch = [touches objectAtIndex:0];
+        
+        if (touch.tapCount == 1)
+            
+        {
+            
+            [self addChild:backgroundMask];
+            backgroundMask.alpha = 0;
+            
+            // init fiche
+            persoActive = [[FichePerso alloc] init ];
+            [persoActive initWithPerso:[InfosJoueur getMyPerso] andXML:[infosXML retrieveForPath:[NSString stringWithFormat:@"persos.perso.%d", [InfosJoueur getMyPerso]]]];
+            
+            
+            persoActive.x = ([Game stageWidth] - persoActive.width) / 2 + 17;
+            persoActive.y = ([Game stageHeight] - persoActive.height) / 2 + 45;
+            persoActive.alpha = 0;
+            [self addChild:persoActive];
+            
+            // tween fiche et background
+            SPTween *tweenFiche = [SPTween tweenWithTarget:persoActive time:0.5f transition:SP_TRANSITION_EASE_OUT];
+            [tweenFiche animateProperty:@"y" targetValue:persoActive.y - 30];
+            
+            [tweenFiche animateProperty:@"alpha" targetValue:1];
+            tweenFiche.delay = 0.25f;
+            
+            SPTween *tweenBack = [SPTween tweenWithTarget:backgroundMask time:0.5f transition:SP_TRANSITION_EASE_OUT];
+            [tweenBack animateProperty:@"alpha" targetValue:0.5];
+            
+            [self.stage.juggler addObject:tweenFiche];
+            [self.stage.juggler addObject:tweenBack];
+            
+            // close
+            [persoActive addEventListener:@selector(closePerso:) atObject:self forType:@"close"];
+            [backgroundMask addEventListener:@selector(closePerso:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+        }
+    }
+}
+
+
+
+// ferme fiche perso
+- (void) closePerso:(SPTouchEvent*)event {
+    [backgroundMask removeEventListener:@selector(closePerso:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    [persoActive removeEventListener:@selector(closePerso:) atObject:self forType:@"close"];
+    
+    // tween fiche et background
+    SPTween *tweenFiche = [SPTween tweenWithTarget:persoActive time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tweenFiche animateProperty:@"y" targetValue:persoActive.y + 30];
+    [tweenFiche animateProperty:@"alpha" targetValue:0];
+    
+    SPTween *tweenBack = [SPTween tweenWithTarget:backgroundMask time:0.5f transition:SP_TRANSITION_EASE_OUT];
+    [tweenBack animateProperty:@"alpha" targetValue:0];
+    
+    [self.stage.juggler addObject:tweenFiche];
+    [self.stage.juggler addObject:tweenBack];
+    
+    [tweenBack addEventListener:@selector(onClosePersoCompleted:) atObject:self forType:SP_EVENT_TYPE_TWEEN_COMPLETED];
+}
+
+
+
+- (void) onClosePersoCompleted:(SPEvent*)event {
+    [event.currentTarget removeEventListener:@selector(onClosePersoCompleted:) atObject:self forType:SP_EVENT_TYPE_TWEEN_COMPLETED];
+    
+    [self removeChild:persoActive];
+    persoActive = nil;
+    [self removeChild:backgroundMask];
+    backgroundMask.alpha = 0;
 }
 
 // touch btn, emmene a la bonne page
@@ -137,7 +239,7 @@
         if( [InfosJoueur getCurrentCase] == 0 ){
             [InfosPartie addFinish:[InfosJoueur getMyPerso] withScore:[InfosJoueur getScore]];
             
-            NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"playerId", [InfosJoueur getMyPerso],@"score",[InfosJoueur getScore]];
+            NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"playerId", [InfosJoueur getMyPerso],@"score",[InfosJoueur getScore], nil];
             [[Dialog getInstance] sendMessage:@"addFinish" sendTo:-1 data:data];
         }
         

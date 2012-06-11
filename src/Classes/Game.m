@@ -101,6 +101,9 @@ static SPImage *logoBlack;
     [Menu getInstance].y = yOrigin;
     [[Menu getInstance] initMenu]; 
     
+    SPImage *barreDroite = [SPImage imageWithContentsOfFile:@"barre_droite.png"];
+    barreDroite.x = 480 - barreDroite.width;
+    
     
     //kill the timer
     [timer invalidate];
