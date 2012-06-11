@@ -18,4 +18,8 @@
 + (void) setCurrentCase:(int)numCase;
 + (int) getCurrentCase;
 
++ (void) gainScore:(int) value;
++ (void) looseScore:(int) value;
++ (int) getScore;
+
 @end

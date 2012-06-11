@@ -39,6 +39,14 @@
     [self.stage.juggler removeAllObjects];
 }
 
+-(void)onTimer:(NSTimer*) timer{
+    [timer invalidate];
+    timer = nil;
+    
+    [debut play];
+    [self.stage.juggler addObject:debut];
+}
+
 -(void)nextAnim:(SPEvent*) event{
     loop = [[SPMovieClip alloc] initWithFrames:frameBoucle fps:30];
     loop.x = 58;

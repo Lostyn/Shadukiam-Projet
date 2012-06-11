@@ -126,14 +126,32 @@
 
 // fin de mon tour
 -(void) onFinTour:(SPTouchEvent*) event {
-    
     [finTour removeEventListener:@selector(onFinTour:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     finTour.visible = false;
-    
-    [[Dialog getInstance] sendMessage:@"nextplayer" sendTo:-1 data:@"data"];
-    [self nextPlayer];
-    
+    [self testEndGame];
+}
+
+-(void)testEndGame{
+    if( [InfosPartie getPhase] == 2 ){
+        if( [InfosJoueur getCurrentCase] == 0 ){
+            [InfosPartie addFinish:[InfosJoueur getMyPerso] withScore:[InfosJoueur getScore]];
+            
+            NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"playerId", [InfosJoueur getMyPerso],@"score",[InfosJoueur getScore]];
+            [[Dialog getInstance] sendMessage:@"addFinish" sendTo:-1 data:data];
+        }
+        
+        if( [InfosPartie getNbFinish] == [InfosPartie getNbPlayers] ){
+            [[Dialog getInstance] sendMessage:@"end" sendTo:-1 data:@"data"];
+            [[PageManager getInstance] changePage:@"PageEnd"];
+        }else{
+            [[Dialog getInstance] sendMessage:@"nextplayer" sendTo:-1 data:@"data"];
+            [self nextPlayer];
+        }
+    }else{
+        [[Dialog getInstance] sendMessage:@"nextplayer" sendTo:-1 data:@"data"];
+        [self nextPlayer];
+    }
 }
 
 // anim pour quitter la page

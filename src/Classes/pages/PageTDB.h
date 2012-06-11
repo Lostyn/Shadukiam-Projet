@@ -11,6 +11,8 @@
 #import "InfosJoueur.h"
 #import "PageManager.h"
 #import "TDBBtn.h"
+#import "InfosPartie.h"
+
 
 @interface PageTDB : Page {
     
@@ -30,5 +32,6 @@
 }
 
 -(void) animQuit;
+-(void)testEndGame;
 
 @end

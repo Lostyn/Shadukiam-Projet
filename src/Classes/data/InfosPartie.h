@@ -14,9 +14,14 @@
 +(NSDictionary*) getJoueurs;
 +(int)getNbPlayers;
 + (int) getPhase;
++ (void) setPhase:(int)value;
 +(int) getCurrentPlayer;
 +(void) setPlayersOrder:(NSMutableArray*) order;
 +(void) goNextPlayer;
 +(int) getCurrentPlayerIndex;
+
++(void) addFinish:(int)playerID withScore:(int)playerScore;
++(NSDictionary*) getFinishJ;
++(int) getNbFinish;
 
 @end

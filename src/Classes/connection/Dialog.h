@@ -10,6 +10,7 @@
 #import "ServerBrowser.h"
 #import "Connection.h"
 #import "ServerBrowserDelegate.h"
+#import "InfosPartie.h"
 
 @class Dialog;
 
@@ -27,6 +28,7 @@
 - (void) videZone:(int) zoneID;
 - (void) showDjinn:(NSString*) djinnID;
 - (void) showMenuInfo:(NSString*) type andData:(id) data fromID:(int) playerID;
+- (void) gotoPageEnd;
 
 @end
 

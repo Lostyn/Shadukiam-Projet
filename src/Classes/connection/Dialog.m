@@ -234,7 +234,15 @@ static Dialog *instance = nil;
             NSDictionary *infos = [packet objectForKey:@"data"];
             [delegate showMenuInfo:[infos objectForKey:@"type"] andData:[infos objectForKey:@"data"] fromID:[fromID intValue]];
         }
-        
+        else if( [commande isEqualToString:@"phase"]){
+            [InfosPartie setPhase:[[packet objectForKey:@"data"] intValue]];
+        }
+        else if( [commande isEqualToString:@"addFinish"]){
+            [InfosPartie addFinish:[[packet objectForKey:@"playerId"] intValue] withScore:[[packet objectForKey:@"score"] intValue]];
+        }
+        else if( [commande isEqualToString:@"end"] ){
+            [delegate gotoPageEnd];
+        }
     }
     
     // si on est le serveur on retransmet

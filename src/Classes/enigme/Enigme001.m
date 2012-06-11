@@ -150,6 +150,8 @@ static NSString *KEY = @"enigme001Active";
     [tweenPop animateProperty:@"alpha" targetValue:1];
     
     [self.stage.juggler addObject:tweenPop];
+    
+    [InfosJoueur gainScore:5];
 }
 
 /*

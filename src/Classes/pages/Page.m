@@ -59,6 +59,10 @@
     [[Menu getInstance] showInfo:[InfosPartie getCurrentPlayerIndex] ofType:type andData:data];
 }
 
+-(void) gotoPageEnd{
+    [[PageManager getInstance] changePage:@"PageEnd"];
+}
+
 -(void) cancel{
 }
 

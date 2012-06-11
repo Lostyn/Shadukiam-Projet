@@ -13,6 +13,7 @@
 static int myPerso = 0;
 static NSMutableArray* objets = nil;
 static int currentCase = 0;
+static int score = 0;
 
 +(void) initialize {
     objets = [NSMutableArray array];
@@ -24,6 +25,18 @@ static int currentCase = 0;
 
 + (int) getMyPerso {
     return myPerso;
+}
+
++ (void) gainScore:(int)value{
+    score += value;
+}
+
++ (void) looseScore:(int)value{
+    score -= value;
+}
+
++ (int) getScore{
+    return score;
 }
 
 + (void) setCurrentCase:(int)numCase {
