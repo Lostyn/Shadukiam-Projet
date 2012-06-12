@@ -13,8 +13,6 @@
 -(void) show{
     [super show];
     
-    [self getInvScore];
-    
     v = 0;
     
     titre = [[Titre alloc] initWithText:@"CLASSEMENT"];
@@ -35,26 +33,6 @@
     [self setJaugesValues];
 }
 
--(void) getInvScore{
-    NSMutableArray *objets = [InfosJoueur getObjets];
-    
-    // init infos XML
-    NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"objets" ofType:@"xml"]];
-    NSError *error = nil;
-    NSDictionary *infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
-    
-    // affichage des objets
-    NSEnumerator *enumerator = [objets objectEnumerator];
-    NSNumber *objetID;
-    int i = 0;
-    
-    while(objetID = [enumerator nextObject]) {
-        NSDictionary *xmlObjet = [infosXML retrieveForPath:[NSString stringWithFormat:@"objets.objet.%@", objetID]];
-        [InfosJoueur gainScore:[[xmlObjet objectForKey:@"points"] intValue]];
-        
-        i++;
-    }
-}
 
 -(void) addJauge:(int) forId{
     Jauge *j = [[Jauge alloc] initWithImage:[NSString stringWithFormat:@"fond_%d.png", forId]];
@@ -65,7 +43,7 @@
     int i = 0;
     for( NSString* key in dJauge ){
         Jauge *j = [dJauge objectForKey:key];
-        j.x = 55 + i*50;
+        j.x = 55 + i*130;
         j.y = 300;
         [self addChild:j];
         i++;
@@ -77,7 +55,7 @@
 }
 
 -(void)setJaugeValue:(NSString*)key withValue:(int) value{
-    [[dJauge objectForKey:key] update:value];
+    [[dJauge objectForKey:key] update:value/100];
 }
 
 @end

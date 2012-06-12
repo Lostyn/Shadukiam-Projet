@@ -20,7 +20,6 @@
     float v;
 }
 
--(void) getInvScore;
 -(void) addJauge:(int) forId;
 -(void) updateJauge;
 -(void) setJaugesValues;

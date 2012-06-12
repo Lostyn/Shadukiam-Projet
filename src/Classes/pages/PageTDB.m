@@ -230,6 +230,9 @@
         }
         
         if( [InfosPartie getNbFinish] == [InfosPartie getNbPlayers] ){
+            
+            [self getInvScore];
+            
             [[Dialog getInstance] sendMessage:@"end" sendTo:-1 data:@"data"];
             [[PageManager getInstance] changePage:@"PageEnd"];
         }else{
@@ -239,6 +242,27 @@
     }else{
         [[Dialog getInstance] sendMessage:@"nextplayer" sendTo:-1 data:@"data"];
         [self nextPlayer];
+    }
+}
+
+-(void) getInvScore{
+    NSMutableArray *objets = [InfosJoueur getObjets];
+    
+    // init infos XML
+    NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"objets" ofType:@"xml"]];
+    NSError *error = nil;
+    NSDictionary *infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
+    
+    // affichage des objets
+    NSEnumerator *enumerator = [objets objectEnumerator];
+    NSNumber *objetID;
+    int i = 0;
+    
+    while(objetID = [enumerator nextObject]) {
+        NSDictionary *xmlObjet = [infosXML retrieveForPath:[NSString stringWithFormat:@"objets.objet.%@", objetID]];
+        [InfosJoueur gainScore:[[xmlObjet objectForKey:@"points"] intValue]];
+        
+        i++;
     }
 }
 
