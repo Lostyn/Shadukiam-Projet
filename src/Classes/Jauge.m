@@ -21,6 +21,7 @@
     SPImage *fond = [SPImage imageWithContentsOfFile:@"fond.png"];
     
     gauge = [SXGauge gaugeWithTexture: [SPTexture textureWithContentsOfFile:image]];
+    gauge.ratio = 0;
     
     [sp addChild:fond];
     [sp addChild:gauge];
