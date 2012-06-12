@@ -244,7 +244,7 @@ static Dialog *instance = nil;
             [delegate gotoPageEnd];
         }
         else if( [commande isEqualToString:@"getScore"] ){
-            NSDictionary* dataSend = [NSDictionary dictionaryWithObjectsAndKeys:@"id", myID,@"score", [InfosJoueur getScore], nil];
+            NSDictionary* dataSend = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:myID],@"id", [NSNumber numberWithInt:[InfosJoueur getScore]], @"score", nil];
             [self sendMessage:@"updateJauge" sendTo:-1 data:dataSend];
         }
         else if( [commande isEqualToString:@"updateJauge"] ){

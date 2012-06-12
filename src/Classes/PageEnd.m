@@ -43,7 +43,7 @@
     int i = 0;
     for( NSString* key in dJauge ){
         Jauge *j = [dJauge objectForKey:key];
-        j.x = 55 + i*130;
+        j.x = 45 + i*110;
         j.y = 300;
         [self addChild:j];
         i++;
@@ -55,6 +55,7 @@
 }
 
 -(void)setJaugeValue:(NSString*)key withValue:(int) value{
+    NSLog(@"updateJauge :: key %@, value %d", key, value );
     [[dJauge objectForKey:key] update:value/100];
 }
 
