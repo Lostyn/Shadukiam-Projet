@@ -58,7 +58,6 @@
     
     // tween fiche 
     SPTween *tweenFiche = [SPTween tweenWithTarget:ficheObjet time:0.5f transition:SP_TRANSITION_EASE_OUT];
-    [tweenFiche animateProperty:@"y" targetValue:ficheObjet.y - 30];
     [tweenFiche animateProperty:@"alpha" targetValue:1];
     tweenFiche.delay = 3.4;
     

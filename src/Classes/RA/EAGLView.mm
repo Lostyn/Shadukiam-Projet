@@ -113,25 +113,79 @@ namespace {
     
     
     objectsPos = [NSMutableArray array];
-    
-    [objectsPos addObject:[SPPoint pointWithX:20 y:12]];
-    [objectsPos addObject:[SPPoint pointWithX:-50 y:42]];
-    [objectsPos addObject:[SPPoint pointWithX:30 y:100]];
-    
     objectsNum = [NSMutableArray array];
     
     [objectsNum addObject:[NSNumber numberWithInt:0]];
+    [objectsPos addObject:[SPPoint pointWithX:-25 y:-70]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:0]];
+    [objectsPos addObject:[SPPoint pointWithX:-5 y:0]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:0]];
+    [objectsPos addObject:[SPPoint pointWithX:-40 y:5]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:0]];
+    [objectsPos addObject:[SPPoint pointWithX:-27 y:57]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:0]];
+    [objectsPos addObject:[SPPoint pointWithX:32 y:31]];
+    
     [objectsNum addObject:[NSNumber numberWithInt:1]];
-    [objectsNum addObject:[NSNumber numberWithInt:2]];
+    [objectsPos addObject:[SPPoint pointWithX:55 y:-80]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:40 y:-42]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:38 y:45]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:60 y:60]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:-10 y:-25]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:-45 y:45]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:-55 y:55]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:-52 y:25]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:-49 y:-30]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:-65 y:-4]];
+    
+    [objectsNum addObject:[NSNumber numberWithInt:1]];
+    [objectsPos addObject:[SPPoint pointWithX:-68 y:-50]];
+    
+    //[objectsNum addObject:[NSNumber numberWithInt:2]];
+    //[objectsPos addObject:[SPPoint pointWithX:30 y:100]];
     
     objectsRot = [NSMutableArray array];
     objectsZ = [NSMutableArray array];
     objectsSpeed = [NSMutableArray array];
+    objectsSpeedVar = [NSMutableArray array];
     
-    for(int i = 0; i < 3; i++) {
+    for(int i = 0; i < [objectsNum count]; i++) {
+        
+        int initZ = 2;
+        if([[objectsNum objectAtIndex:i] intValue] == 1) {
+            if(arc4random() % 10 > 5) initZ = -2;
+        }
+        
         [objectsRot addObject:[NSNumber numberWithInt:arc4random() % 360]];
-        [objectsZ addObject:[NSNumber numberWithInt:2]];
-        [objectsSpeed addObject:[NSNumber numberWithFloat:0.2]];
+        [objectsZ addObject:[NSNumber numberWithInt:initZ]];
+        [objectsSpeed addObject:[NSNumber numberWithFloat:0]];
+        
+        float speedVar = (arc4random() % 3 + 3);
+        speedVar /= 100;
+        NSLog(@"var speed : %f", speedVar);
+        [objectsSpeedVar addObject:[NSNumber numberWithFloat:speedVar]];
     }
 }
 
@@ -186,7 +240,7 @@ namespace {
         const QCAR::Trackable* trackable = state.getActiveTrackable(i);
         
         
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < [objectsNum count]; i++) {
             
             int objectNum = [[objectsNum objectAtIndex:i] intValue];
             Object3D *obj3D = [objects3D objectAtIndex:objectNum];
@@ -195,6 +249,9 @@ namespace {
             int rotation = [[objectsRot objectAtIndex:i] intValue];
             float zPos = [[objectsZ objectAtIndex:i] floatValue];
             float speed = [[objectsSpeed objectAtIndex:i] floatValue];
+            float speedVar = [[objectsSpeedVar objectAtIndex:i] floatValue];
+            
+            if((objectNum == 1 && [InfosJoueur getShowObjets]) || (objectNum == 0 && ![InfosJoueur getShowObjets]) || objectNum == 2) { 
         
         // Render using the appropriate version of OpenGL
         if (QCAR::GL_11 & qUtils.QCARFlags) {
@@ -257,8 +314,8 @@ namespace {
                 [objectsRot replaceObjectAtIndex:i withObject:[NSNumber numberWithInt:rotation]];
             } else if (objectNum == 1) {
                 // si feu, bondit
-                if(zPos < 4) speed += 0.05;
-                else speed -= 0.05;
+                if(zPos < 0) speed += speedVar;
+                else speed -= speedVar;
                 zPos += speed;
                 //NSLog(@"%f, %f", zPos, speed);
                 [objectsZ replaceObjectAtIndex:i withObject:[NSNumber numberWithFloat:zPos]];
@@ -267,6 +324,7 @@ namespace {
             }
         }
 #endif
+            }
         }
     }
     

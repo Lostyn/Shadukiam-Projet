@@ -14,6 +14,7 @@ static int myPerso = 0;
 static NSMutableArray* objets = nil;
 static int currentCase = 0;
 static int score = 0;
+static Boolean showObjets = false;
 
 +(void) initialize {
     objets = [NSMutableArray array];
@@ -57,6 +58,14 @@ static int score = 0;
 
 +(NSMutableArray*) getObjets {
     return objets;
+}
+
++(void) setShowObjets:(Boolean)value {
+    showObjets = value;
+}
+
++(Boolean) getShowObjets {
+    return showObjets;
 }
 
 @end

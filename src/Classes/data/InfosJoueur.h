@@ -22,4 +22,7 @@
 + (void) looseScore:(int) value;
 + (int) getScore;
 
++ (void) setShowObjets:(Boolean) value;
++ (Boolean) getShowObjets;
+
 @end

@@ -65,8 +65,8 @@ static SPImage *logoBlack;
     [self addChild:background];
     
     logoBlack = [SPImage imageWithContentsOfFile:@"logo_default.png"];
-    logoBlack.x = 117;
-    logoBlack.y = 20;
+    logoBlack.x = 36;
+    logoBlack.y = 100;
     [self addChild:logoBlack];
 
     
@@ -77,6 +77,7 @@ static SPImage *logoBlack;
 
 - (void) initGame:(NSTimer*) timer {
     
+    [UIApplication sharedApplication].idleTimerDisabled = YES;
     
     // init epawn
     [[EpawnData getInstance] start:self.stage.nativeView];
@@ -89,10 +90,10 @@ static SPImage *logoBlack;
     [PageManager getInstance].x = xOrigin;
     [PageManager getInstance].y = yOrigin;
 
-    [[PageManager getInstance] changePage:@"PagePlay"];
+    //[[PageManager getInstance] changePage:@"PagePlay"];
     // test TDB
-    //[InfosJoueur setMyPerso:3];
-    //[[PageManager getInstance] changePage:@"PageTDB"];
+    [InfosJoueur setMyPerso:3];
+    [[PageManager getInstance] changePage:@"PageTDB"];
 
     
     // menu

@@ -20,8 +20,12 @@
     Titre *titre;
     SPImage *switchObjet;
     SPImage *switchPorte;
+    SPImage *barreFond;
+    SPImage *barreTop;
     
     SPImage *backBtn;
+    
+    NSTimer *timerBarre;
 }
 
 @end

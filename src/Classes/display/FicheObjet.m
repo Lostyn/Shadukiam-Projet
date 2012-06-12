@@ -102,28 +102,36 @@
     SPTextField *ptsTxt = [SPTextField textFieldWithText: [infosXML objectForKey:@"points"]];
     SPTextField *ptsSpeTxt = [SPTextField textFieldWithText: [infosXML objectForKey:@"pointsB"]];
     SPTextField *ptsNameTxt = [SPTextField textFieldWithText:@"POINTS"];
+    SPTextField *ptsSepTxt = [SPTextField textFieldWithText:@"-"];
     
     ptsTxt.x = 135;
     ptsSpeTxt.x = 170;
-    ptsNameTxt.x = 120;
+    ptsNameTxt.x = 152;
+    ptsSepTxt.x = 152;
     ptsTxt.y = ptsSpeTxt.y = 152;
     ptsNameTxt.y = 172;
+    ptsSepTxt.y = 152;
     ptsTxt.fontSize = ptsSpeTxt.fontSize = 24;
     ptsNameTxt.fontSize = 12;
-    ptsTxt.fontName = ptsSpeTxt.fontName = ptsNameTxt.fontName = @"Times new Roman";
+    ptsSepTxt.fontSize = 24;
+    ptsTxt.fontName = ptsSpeTxt.fontName = ptsNameTxt.fontName = ptsSepTxt.fontName = @"Times new Roman";
     
     if(forMe) {
         ptsTxt.color = 0x999999;
+        ptsTxt.alpha = 0.8;
         ptsSpeTxt.color = 0xFFFFFF;
     } else {
         ptsTxt.color = 0xFFFFFF;
         ptsSpeTxt.color = 0x999999;
+        ptsSpeTxt.alpha = 0.8;
     }
     ptsNameTxt.color = 0xFFFFFF;
+    ptsSepTxt.color = 0xFFFFFF;
     
     [back addChild:ptsTxt];
     [back addChild:ptsNameTxt];
     [back addChild:ptsSpeTxt];
+    [back addChild:ptsSepTxt];
     
     // close btn
     

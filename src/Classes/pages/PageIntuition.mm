@@ -37,16 +37,35 @@
     // switch
     switchObjet = [SPImage imageWithContentsOfFile:@"intuition_switch_objets.png"];
     [self addChild:switchObjet];
-    switchObjet.x = 100;
-    switchObjet.y = 40;
+    switchObjet.x = 120;
+    switchObjet.y = 37;
     switchObjet.visible = false;
     [switchObjet addEventListener:@selector(showPortes:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     switchPorte = [SPImage imageWithContentsOfFile:@"intuition_switch_portes.png"];
     [self addChild:switchPorte];
-    switchPorte.x = 100;
-    switchPorte.y = 40;
+    switchPorte.x = 120;
+    switchPorte.y = 37;
     [switchPorte addEventListener:@selector(showObjets:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+    [InfosJoueur setShowObjets:NO];
+    
+    // barre
+    barreFond = [SPImage imageWithContentsOfFile:@"intuition_bar_gris.png"];
+    [self addChild:barreFond];
+    barreFond.x = 255;
+    barreFond.y = 40;
+    
+    barreTop = [SPImage imageWithContentsOfFile:@"intuition_bar_bkg.png"];
+    [self addChild:barreTop];
+    barreTop.x = 255;
+    barreTop.y = 40;
+    barreTop.width = 0;
+    
+    barreTop.visible = false;
+    barreFond.visible = false;
+    
+    timerBarre = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(animBarre:) userInfo:nil repeats:YES];
     
     // init RA
     QCARutils *qUtils = [QCARutils getInstance];
@@ -70,6 +89,12 @@
     
 }
 
+-(void) animBarre:(NSTimer*) timer {
+    if([InfosJoueur getShowObjets]) {
+        barreTop.width = barreTop.width + 1;
+    }
+}
+
 -(void) showPortes:(SPTouchEvent*)event {
     
     NSArray *touches = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] allObjects];
@@ -81,6 +106,10 @@
         {
             switchObjet.visible = false;
             switchPorte.visible = true;
+            [InfosJoueur setShowObjets:NO];
+            
+            barreTop.visible = false;
+            barreFond.visible = false;
         }
     }
     
@@ -97,6 +126,10 @@
         {
             switchObjet.visible = true;
             switchPorte.visible = false;
+            [InfosJoueur setShowObjets:YES];
+            
+            barreTop.visible = true;
+            barreFond.visible = true;
         }
     }
     
@@ -111,6 +144,9 @@
     [window setHidden:YES];
     [window removeFromSuperview];
     window = nil;
+    
+    [timerBarre invalidate];
+    timerBarre = nil;
     
     [[PageManager getInstance] changePage:@"PageTDB"];
     
