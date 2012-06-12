@@ -11,6 +11,7 @@
 #import "Connection.h"
 #import "ServerBrowserDelegate.h"
 #import "InfosPartie.h"
+#import "InfosJoueur.h"
 
 @class Dialog;
 
@@ -29,6 +30,7 @@
 - (void) showDjinn:(NSString*) djinnID;
 - (void) showMenuInfo:(NSString*) type andData:(id) data fromID:(int) playerID;
 - (void) gotoPageEnd;
+- (void) setJaugeValue:(NSString*)key withValue:(int) value;
 
 @end
 
