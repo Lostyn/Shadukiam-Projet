@@ -60,7 +60,31 @@
 }
 
 -(void) gotoPageEnd{
+    [self getInvScore];
     [[PageManager getInstance] changePage:@"PageEnd"];
+}
+
+-(void) getInvScore{
+    NSLog(@"GetInventaireScore");
+    NSMutableArray *objets = [InfosJoueur getObjets];
+    
+    // init infos XML
+    NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"objets" ofType:@"xml"]];
+    NSError *error = nil;
+    NSDictionary *infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
+    
+    // affichage des objets
+    NSEnumerator *enumerator = [objets objectEnumerator];
+    NSNumber *objetID;
+    int i = 0;
+    
+    while(objetID = [enumerator nextObject]) {
+        NSDictionary *xmlObjet = [infosXML retrieveForPath:[NSString stringWithFormat:@"objets.objet.%@", objetID]];
+        NSLog(@"Add score %d", [[xmlObjet objectForKey:@"points"] intValue] );
+        [InfosJoueur gainScore:[[xmlObjet objectForKey:@"points"] intValue]];
+        
+        i++;
+    }
 }
 
 -(void) cancel{

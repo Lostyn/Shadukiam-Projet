@@ -13,7 +13,6 @@
 #import "TDBBtn.h"
 #import "InfosPartie.h"
 #import "FichePerso.h"
-#import "XMLReader.h"
 
 
 @interface PageTDB : Page {
@@ -36,7 +35,6 @@
     
 }
 
--(void) getInvScore;
 -(void) animQuit;
 -(void)testEndGame;
 
