@@ -18,7 +18,6 @@
     titre = [[Titre alloc] initWithText:@"CLASSEMENT"];
     [self addChild:titre];
     titre.x = 120;
-    titre.y = 3;
     
     dJauge = [[NSMutableDictionary alloc] init];
     
