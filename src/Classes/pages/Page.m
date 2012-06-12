@@ -65,7 +65,6 @@
 }
 
 -(void) getInvScore{
-    NSLog(@"GetInventaireScore");
     NSMutableArray *objets = [InfosJoueur getObjets];
     
     // init infos XML
@@ -80,7 +79,6 @@
     
     while(objetID = [enumerator nextObject]) {
         NSDictionary *xmlObjet = [infosXML retrieveForPath:[NSString stringWithFormat:@"objets.objet.%@", objetID]];
-        NSLog(@"Add score %d", [[xmlObjet objectForKey:@"points"] intValue] );
         [InfosJoueur gainScore:[[xmlObjet objectForKey:@"points"] intValue]];
         
         i++;

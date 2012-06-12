@@ -31,6 +31,7 @@
 }
 
 -(void) update:(float) value{
+    NSLog(@"updateJauge %f", value );
     gauge.ratio = value;
 }
 @end

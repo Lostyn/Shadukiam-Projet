@@ -54,8 +54,9 @@
 }
 
 -(void)setJaugeValue:(NSString*)key withValue:(int) value{
-    NSLog(@"updateJauge :: key %@, value %d", key, value );
-    [[dJauge objectForKey:key] update:value/100];
+    float v = value;
+    NSLog(@" preUpdate %f", v/100 );
+    [[dJauge objectForKey:key] update:(v/100)];
 }
 
 @end

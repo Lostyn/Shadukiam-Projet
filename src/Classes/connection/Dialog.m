@@ -244,13 +244,11 @@ static Dialog *instance = nil;
             [delegate gotoPageEnd];
         }
         else if( [commande isEqualToString:@"getScore"] ){
-            NSLog(@"MyScore %d id %d", [InfosJoueur getScore], myID );
             NSDictionary* dataSend = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:myID],@"id", [NSNumber numberWithInt:[InfosJoueur getScore]], @"score", nil];
             [self sendMessage:@"updateJauge" sendTo:-1 data:dataSend];
         }
         else if( [commande isEqualToString:@"updateJauge"] ){
             NSDictionary *infos = [packet objectForKey:@"data"];
-            NSLog( @"reception id:  %@, skdel : %@", [infos objectForKey:@"id"], [infos objectForKey:@"score"]);
             [delegate setJaugeValue: [NSString stringWithFormat:@"%d", [[infos objectForKey:@"id"] intValue] ] withValue:[[infos objectForKey:@"score"] intValue]];
         }
     }
