@@ -238,10 +238,17 @@ static Dialog *instance = nil;
             [InfosPartie setPhase:[[packet objectForKey:@"data"] intValue]];
         }
         else if( [commande isEqualToString:@"addFinish"]){
-            [InfosPartie addFinish:[[packet objectForKey:@"playerId"] intValue] withScore:[[packet objectForKey:@"score"] intValue]];
+            [InfosPartie addFinish:[[packet objectForKey:@"data"] intValue]];
         }
         else if( [commande isEqualToString:@"end"] ){
             [delegate gotoPageEnd];
+        }
+        else if( [commande isEqualToString:@"getScore"] ){
+            NSDictionary* dataSend = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:myID],@"id", [NSNumber numberWithInt:[InfosJoueur getScore]], @"score", nil];
+            [self sendMessage:@"updateJauge" sendTo:-1 data:dataSend];
+        }
+        else if( [commande isEqualToString:@"updateJauge"] ){
+            [delegate setJaugeValue:[packet objectForKey:@"id"] withValue:[[packet objectForKey:@"score"] intValue]];
         }
     }
     

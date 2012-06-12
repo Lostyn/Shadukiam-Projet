@@ -20,7 +20,7 @@
 +(void) goNextPlayer;
 +(int) getCurrentPlayerIndex;
 
-+(void) addFinish:(int)playerID withScore:(int)playerScore;
++(void) addFinish:(int)playerID;
 +(NSDictionary*) getFinishJ;
 +(int) getNbFinish;
 

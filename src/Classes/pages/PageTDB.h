@@ -36,6 +36,7 @@
     
 }
 
+-(void) getInvScore;
 -(void) animQuit;
 -(void)testEndGame;
 

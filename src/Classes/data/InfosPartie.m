@@ -34,10 +34,9 @@ static NSMutableArray* playersOrder;
     return joueurs;
 }
 
-+(void)addFinish:(int)playerID withScore:(int)playerScore{
++(void)addFinish:(int)playerID{
     NSString *playerIdStr = [NSString stringWithFormat:@"%d", playerID];
-    NSString *scorePlayer = [NSString stringWithFormat:@"%d", playerScore];
-    [finishJ setObject:playerIdStr forKey:scorePlayer];
+    [finishJ setObject:playerIdStr forKey:playerIdStr];
 }
 
 +(int)getNbFinish{

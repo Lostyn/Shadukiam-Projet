@@ -114,35 +114,22 @@
     
     
     // xml
-    
     NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"persos" ofType:@"xml"]];
-    
     NSError *error = nil;
-    
     infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
-    
 }
 
 
 
 -(void) showPerso:(SPTouchEvent*) event {
     
-    
-    
     NSArray *touches = [[event touchesWithTarget:self andPhase:SPTouchPhaseEnded] allObjects];
     
-    
-    
     // si on a bien juste tapé sur l'objet
-    
     if(touches.count == 1) {  
-        
         SPTouch *touch = [touches objectAtIndex:0];
-        
         if (touch.tapCount == 1)
-            
         {
-            
             [self addChild:backgroundMask];
             backgroundMask.alpha = 0;
             
@@ -237,13 +224,15 @@
 -(void)testEndGame{
     if( [InfosPartie getPhase] == 2 ){
         if( [InfosJoueur getCurrentCase] == 0 ){
-            [InfosPartie addFinish:[InfosJoueur getMyPerso] withScore:[InfosJoueur getScore]];
+            [InfosPartie addFinish:[InfosJoueur getMyPerso]];
             
-            NSMutableDictionary *data = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"playerId", [InfosJoueur getMyPerso],@"score",[InfosJoueur getScore], nil];
-            [[Dialog getInstance] sendMessage:@"addFinish" sendTo:-1 data:data];
+            [[Dialog getInstance] sendMessage:@"addFinish" sendTo:-1 data:[NSString stringWithFormat:@"%d", [InfosJoueur getMyPerso]] ];
         }
         
         if( [InfosPartie getNbFinish] == [InfosPartie getNbPlayers] ){
+            
+            [self getInvScore];
+            
             [[Dialog getInstance] sendMessage:@"end" sendTo:-1 data:@"data"];
             [[PageManager getInstance] changePage:@"PageEnd"];
         }else{
@@ -253,6 +242,27 @@
     }else{
         [[Dialog getInstance] sendMessage:@"nextplayer" sendTo:-1 data:@"data"];
         [self nextPlayer];
+    }
+}
+
+-(void) getInvScore{
+    NSMutableArray *objets = [InfosJoueur getObjets];
+    
+    // init infos XML
+    NSData *xmlData = [NSData dataWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForResource:@"objets" ofType:@"xml"]];
+    NSError *error = nil;
+    NSDictionary *infosXML = [XMLReader dictionaryForXMLData:xmlData error:&error];
+    
+    // affichage des objets
+    NSEnumerator *enumerator = [objets objectEnumerator];
+    NSNumber *objetID;
+    int i = 0;
+    
+    while(objetID = [enumerator nextObject]) {
+        NSDictionary *xmlObjet = [infosXML retrieveForPath:[NSString stringWithFormat:@"objets.objet.%@", objetID]];
+        [InfosJoueur gainScore:[[xmlObjet objectForKey:@"points"] intValue]];
+        
+        i++;
     }
 }
 

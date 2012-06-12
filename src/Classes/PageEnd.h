@@ -8,9 +8,20 @@
 
 #import "Page.h"
 #import "Titre.h"
+#import "Jauge.h"
+#import "InfosJoueur.h"
+#import "InfosPartie.h"
+#import "Dialog.h"
+#import "XMLReader.h"
 
 @interface PageEnd : Page {
     Titre *titre;
+    NSMutableDictionary *dJauge;
+    float v;
 }
+
+-(void) addJauge:(int) forId;
+-(void) updateJauge;
+-(void) setJaugesValues;
 
 @end
