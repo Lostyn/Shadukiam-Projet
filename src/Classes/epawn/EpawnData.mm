@@ -91,6 +91,7 @@ static EpawnData *instance = nil;
 - (void)pawnEnded:(const CPPawn*)pawn
 {
 	//[pions removeObjectAtIndex:pawn->pid];
+    [pions insertObject:[[PionInfos alloc] init] atIndex:pawn->pid];
 }
 
 @end

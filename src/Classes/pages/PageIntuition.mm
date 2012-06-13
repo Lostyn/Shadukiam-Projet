@@ -56,16 +56,17 @@
     barreFond.x = 255;
     barreFond.y = 40;
     
-    barreTop = [SPImage imageWithContentsOfFile:@"intuition_bar_bkg.png"];
+    barreTop = [SXGauge gaugeWithTexture: [SPTexture textureWithContentsOfFile:@"intuition_bar_bkg.png"]];
+    
     [self addChild:barreTop];
     barreTop.x = 255;
     barreTop.y = 40;
-    barreTop.width = 0;
+    barreTop.ratio = 0;
     
     barreTop.visible = false;
     barreFond.visible = false;
     
-    timerBarre = [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(animBarre:) userInfo:nil repeats:YES];
+    timerBarre = [NSTimer scheduledTimerWithTimeInterval:0.03f target:self selector:@selector(animBarre:) userInfo:nil repeats:YES];
     
     // init RA
     QCARutils *qUtils = [QCARutils getInstance];
@@ -90,8 +91,8 @@
 }
 
 -(void) animBarre:(NSTimer*) timer {
-    if([InfosJoueur getShowObjets]) {
-        barreTop.width = barreTop.width + 1;
+    if([InfosJoueur getShowObjets] && barreTop.ratio < 1) {
+        barreTop.ratio = barreTop.ratio + 0.001f;
     }
 }
 

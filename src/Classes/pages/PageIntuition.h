@@ -11,6 +11,7 @@
 #import "QCARutils.h"
 #import "PageManager.h"
 #import "Titre.h"
+#import "SXGauge.h"
 
 @class ARParentViewController;
 
@@ -21,7 +22,7 @@
     SPImage *switchObjet;
     SPImage *switchPorte;
     SPImage *barreFond;
-    SPImage *barreTop;
+    SXGauge *barreTop;
     
     SPImage *backBtn;
     

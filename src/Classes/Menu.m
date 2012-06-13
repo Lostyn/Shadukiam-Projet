@@ -34,6 +34,16 @@ static Menu *instance = nil;
     [self addChild:persos];
     persos.x = 8;
     persos.y = 260;
+    
+    SPImage *batterie = [SPImage imageWithContentsOfFile:@"batterie.png"];
+    [self addChild:batterie];
+    batterie.x = 7;
+    batterie.y = 10;
+    
+    SPImage *btnMenu = [SPImage imageWithContentsOfFile:@"btn_menu.png"];
+    [self addChild:btnMenu];
+    btnMenu.x = 4;
+    btnMenu.y = 290;
 }
 
 -(void) addPerso:(int)numPerso {

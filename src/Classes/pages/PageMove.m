@@ -59,6 +59,7 @@
     debug.y = 300;
     debug.fontSize = 16;
     debug.color = 0x000000;
+    debug.visible = false;
     
     [self addEventListener:@selector(touchForDebug:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
@@ -127,7 +128,7 @@
         PionInfos *pion = [[PionInfos alloc] init];
         pion.pid = [InfosJoueur getMyPerso];
         pion.posx = touchPos.x;
-        pion.posy = touchPos.y * 2;
+        pion.posy = touchPos.y;
         
         NSMutableArray *pions = [NSMutableArray array];
         for(int i = 0; i < 10; i++) {
@@ -141,7 +142,13 @@
 
 -(void) updatePosPion {
     // position du pion du joueur
-    PionInfos *pionJoueur = [[EpawnData getInstance] getPionByID:[InfosJoueur getMyPerso]];
+    PionInfos *pionJoueur;
+    
+    if([InfosJoueur getMyPerso] != 4) {
+        pionJoueur = [[EpawnData getInstance] getPionByID:[InfosJoueur getMyPerso]];
+    } else {
+        pionJoueur = [[EpawnData getInstance] getPionByID:0];
+    }
     
     if(pionJoueur == nil) {
         debug.text = @"Pion inexistant";

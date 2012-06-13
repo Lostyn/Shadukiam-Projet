@@ -49,7 +49,7 @@
     [ficheObjet initWithID:numObjet andXML:[infosXML retrieveForPath:[NSString stringWithFormat:@"objets.objet.%d", numObjet]]];
     
     ficheObjet.x = ([Game stageWidth] - ficheObjet.width) / 2 + 17;
-    ficheObjet.y = ([Game stageHeight] - ficheObjet.height) / 2 + 45;
+    ficheObjet.y = ([Game stageHeight] - ficheObjet.height) / 2 + 35;
     ficheObjet.alpha = 0;
     [self addChild:ficheObjet];
     
