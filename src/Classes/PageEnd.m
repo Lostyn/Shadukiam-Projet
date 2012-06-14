@@ -51,7 +51,6 @@
 
 
 -(void) addJauge:(int) forId andPlayer:(NSString*)pl{
-    NSLog(@"forpl %@", pl);
     Jauge *j = [[Jauge alloc] initWithImage:[NSString stringWithFormat:@"fond_%@.png", pl]];
     [dJauge setObject:j forKey:[NSString stringWithFormat:@"%d", forId]];
 }
@@ -68,9 +67,10 @@
 }
 
 -(void)setJaugesValues{
-    NSString *key = [NSString stringWithFormat:@"%d", [InfosJoueur getMyPerso]];
+    NSString *key = [NSString stringWithFormat:@"%d", [Dialog getInstance].myID ];
     int val = [InfosJoueur getScore];
     [[dJauge objectForKey:key] update:val];
+   
     [[Dialog getInstance] sendMessage:@"getScore" sendTo:-1 data:@"data"];
 }
 
