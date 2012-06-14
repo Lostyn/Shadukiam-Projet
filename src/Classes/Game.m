@@ -51,8 +51,8 @@ static SPImage *logoBlack;
     // that way, you will be able to access your textures and sounds throughout your 
     // application, without duplicating any resources.
     
-    [Media initAtlas];      // loads your texture atlas -> see Media.h/Media.m
-    [Media initSound];      // loads all your sounds    -> see Media.h/Media.m
+    //[Media initAtlas];      // loads your texture atlas -> see Media.h/Media.m
+    //[Media initSound];      // loads all your sounds    -> see Media.h/Media.m
     
     stageWidth = mGameHeight;
     stageHeight = mGameWidth;
@@ -92,8 +92,10 @@ static SPImage *logoBlack;
 
     [[PageManager getInstance] changePage:@"PagePlay"];
     // test TDB
+    //[InfosPartie addPlayer:2 forPlayer:2];
+    //[InfosPartie addPlayer:1 forPlayer:1];
     //[InfosJoueur setMyPerso:3];
-    //[[PageManager getInstance] changePage:@"PageEnd"];
+    //[[PageManager getInstance] changePage:@"PageDice"];
 
     
     // menu

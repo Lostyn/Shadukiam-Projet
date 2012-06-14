@@ -12,6 +12,8 @@
 @interface Jauge : SPSprite{
     SXGauge *gauge;
     SPSprite *sp;
+    float lim;
+    SPTextField *tfJauge;
 }
 
 -(id) initWithImage:(NSString*) image;

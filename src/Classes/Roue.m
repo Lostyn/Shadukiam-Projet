@@ -26,7 +26,7 @@
     roue.y = -roue.height/2;
     [containerRoue addChild:roue];
     
-    containerRoue.rotation = SP_D2R( arc4random()%360 );
+    //containerRoue.rotation = SP_D2R( arc4random()%360 );
     
     arrow = [SPImage imageWithContentsOfFile:@"roueAiguille.png"];
     [self addChild:arrow];

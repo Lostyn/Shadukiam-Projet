@@ -13,14 +13,15 @@
 #import "InfosPartie.h"
 #import "Dialog.h"
 #import "XMLReader.h"
+#import "PageManager.h"
 
 @interface PageEnd : Page {
     Titre *titre;
     NSMutableDictionary *dJauge;
-    float v;
+    SPImage *end;
 }
 
--(void) addJauge:(int) forId;
+-(void) addJauge:(int) forId andPlayer:(NSString*)pl;
 -(void) updateJauge;
 -(void) setJaugesValues;
 

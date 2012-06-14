@@ -248,7 +248,9 @@ static Dialog *instance = nil;
             [self sendMessage:@"updateJauge" sendTo:-1 data:dataSend];
         }
         else if( [commande isEqualToString:@"updateJauge"] ){
+            
             NSDictionary *infos = [packet objectForKey:@"data"];
+            
             [delegate setJaugeValue: [NSString stringWithFormat:@"%d", [[infos objectForKey:@"id"] intValue] ] withValue:[[infos objectForKey:@"score"] intValue]];
         }
     }

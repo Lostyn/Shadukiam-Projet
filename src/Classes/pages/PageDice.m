@@ -37,8 +37,8 @@
     roue2.alpha = 0;
     [self addChild:roue2];
     
-    [roue1 update:arc4random()%360];
-    [roue2 update:arc4random()%360];
+    //[roue1 update:arc4random()%360];
+    //[roue2 update:arc4random()%360];
 
     [self addEventListener:@selector(onSwipe:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     [self addEventListener:@selector(onFrame:) atObject:self forType:SP_EVENT_TYPE_ENTER_FRAME];
@@ -121,11 +121,18 @@
                 
                 [self removeEventListener:@selector(onSwipe:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
                 
-                velocity = MIN( velocity, 400 );
+                if( velocity > 0 ){
+                    velocity = 400;
+                    velocity2 = 247;
+                }else{
+                    velocity = -400;
+                    velocity2 = -305;
+                }
+                /*velocity = MIN( velocity, 400 );
                 velocity2 = MIN( velocity2, 400 );
                 
                 velocity = MAX( velocity, -400 );
-                velocity2 = MAX( velocity2, -400 );
+                velocity2 = MAX( velocity2, -400 );*/
             }
         }
     }
