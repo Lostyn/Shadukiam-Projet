@@ -163,6 +163,88 @@ namespace {
     [objectsNum addObject:[NSNumber numberWithInt:1]];
     [objectsPos addObject:[SPPoint pointWithX:-68 y:-50]];
     
+    // rochers
+    if([InfosPartie getPhase] == 2) {
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-45 y:45]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-55 y:55]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-52 y:25]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-65 y:55]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-65 y:40]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-65 y:25]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-52 y:40]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-40 y:30]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-35 y:45]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-10 y:45]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:0 y:45]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-5 y:54]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-10 y:65]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:0 y:65]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-16 y:72]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-10 y:35]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-10 y:25]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-5 y:5]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-25 y:20]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:0 y:-5]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-10 y:15]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-16 y:-10]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-25 y:-20]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-50 y:-10]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-48 y:-28]];
+        
+        [objectsNum addObject:[NSNumber numberWithInt:2]];
+        [objectsPos addObject:[SPPoint pointWithX:-58 y:-21]];
+    }
+    
     //[objectsNum addObject:[NSNumber numberWithInt:2]];
     //[objectsPos addObject:[SPPoint pointWithX:30 y:100]];
     
@@ -176,6 +258,8 @@ namespace {
         int initZ = 2;
         if([[objectsNum objectAtIndex:i] intValue] == 1) {
             if(arc4random() % 10 > 5) initZ = -2;
+        } else if([[objectsNum objectAtIndex:i] intValue] == 2) {
+            initZ = 0;
         }
         
         [objectsRot addObject:[NSNumber numberWithInt:arc4random() % 360]];

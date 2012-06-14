@@ -34,7 +34,7 @@
     for(int i = 1; i < 8; i++) {
         SPImage *ficheMini = [SPImage imageWithContentsOfFile:[NSString stringWithFormat:@"ficheperso_mini_%d.png", i]];
         [sliderPersos addChild:ficheMini];
-        ficheMini.x = (i * 210) - 170;
+        ficheMini.x = (i * 180) - 120;
         ficheMini.name = [NSString stringWithFormat:@"%d", i];
         [ficheMini addEventListener:@selector(onTouchPerso:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
         

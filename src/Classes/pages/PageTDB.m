@@ -49,7 +49,7 @@
     btnMessagerie.y = 75;
     btnMessagerie.name = @"PageObtentionObjet";
     [buttons addChild:btnMessagerie];
-    [btnMessagerie addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    //[btnMessagerie addEventListener:@selector(onTouchBtn:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
     
     btnIntuition = [[TDBBtn alloc] initWithText:@"INTUITION" andImage:@"plateau"];
     btnIntuition.x = 340;
