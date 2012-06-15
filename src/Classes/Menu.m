@@ -120,6 +120,7 @@ static Menu *instance = nil;
 
 -(void) removePersos {
     [persos removeAllChildren];
+    currentImage.alpha = 0;
 }
 
 @end
