@@ -9,6 +9,7 @@
 #import "Page.h"
 #import "PageManager.h"
 #import "ShadSounds.h"
+#import <AudioToolbox/AudioServices.h>
 
 @interface PagePlay : Page {
     

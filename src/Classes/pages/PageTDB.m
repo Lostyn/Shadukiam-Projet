@@ -205,6 +205,7 @@
         SPTouch *touch = [touches objectAtIndex:0];
         if (touch.tapCount == 1)
         {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
             TDBBtn *btnTouch = (TDBBtn*)event.currentTarget;
             targetPage = btnTouch.name;
             [self animQuit];

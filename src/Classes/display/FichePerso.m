@@ -145,6 +145,9 @@
 
 -(void) onTouchOk:(SPTouchEvent*) event {
     [self dispatchEvent:[SPEvent eventWithType:@"touchOK"]];
+    
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    
     [okBtn removeEventListener:@selector(onTouchOk:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
 }
 

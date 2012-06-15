@@ -13,6 +13,7 @@
 #import "TDBBtn.h"
 #import "InfosPartie.h"
 #import "FichePerso.h"
+#import <AudioToolbox/AudioServices.h>
 
 
 @interface PageTDB : Page {

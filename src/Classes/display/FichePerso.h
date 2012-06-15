@@ -9,6 +9,7 @@
 #import "SPSprite.h"
 #import "Game.h"
 #import "Constante.h"
+#import <AudioToolbox/AudioServices.h>
 
 @interface FichePerso : SPSprite {
     

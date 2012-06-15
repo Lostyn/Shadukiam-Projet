@@ -117,7 +117,9 @@
         {
             [playBtn removeEventListener:@selector(onTouchPlay:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
             playBtn.visible = false;
-    
+
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            
             [[Dialog getInstance] sendGameInfoToClients];
         }
     }
