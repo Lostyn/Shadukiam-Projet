@@ -252,6 +252,8 @@ static Dialog *instance = nil;
             NSDictionary *infos = [packet objectForKey:@"data"];
             
             [delegate setJaugeValue: [NSString stringWithFormat:@"%d", [[infos objectForKey:@"id"] intValue] ] withValue:[[infos objectForKey:@"score"] intValue]];
+        } else if ([commande isEqualToString:@"stopServer"]) {
+            [self stopServer];
         }
     }
     
@@ -274,6 +276,14 @@ static Dialog *instance = nil;
 - (void) connectionAttemptFailed:(Connection*)connection {
     NSLog( @"Connection failed" );
 
+}
+
+-(void) stopServer {
+    if(isServer) {
+        [server stop];
+    } else {
+        [connectionClient close];
+    }
 }
 
 @end

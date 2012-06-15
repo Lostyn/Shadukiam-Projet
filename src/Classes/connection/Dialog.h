@@ -65,5 +65,6 @@
 - (void)sendMessage:(NSString*)commande sendTo:(int)sendTo data:(id)data;
 - (int) nbJoueurs;
 - (void)sendGameInfoToClients; 
+-(void) stopServer;
 
 @end

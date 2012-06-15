@@ -41,6 +41,8 @@
     [timer invalidate];
     timer = nil;
     [end addEventListener:@selector(onFin:) atObject:self forType:SP_EVENT_TYPE_TOUCH];
+    
+    [[Dialog getInstance] stopServer];
 }
 
 
