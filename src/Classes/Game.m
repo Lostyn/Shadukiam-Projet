@@ -118,7 +118,12 @@ static SPImage *logoBlack;
 -(void) getSounds{
     [SPAudioEngine start];
     
-    [[ShadSounds getInstance] addSounds:@"woohoo.caf" withKey:@"woohoo"];
+    [[ShadSounds getInstance] addSounds:@"caillou.caf" withKey:@"caillou"];
+    [[ShadSounds getInstance] addSounds:@"dynamite.caf" withKey:@"dynamite"];
+    [[ShadSounds getInstance] addSounds:@"flip.caf" withKey:@"flip"];
+    [[ShadSounds getInstance] addSounds:@"indice.caf" withKey:@"indice"];
+    [[ShadSounds getInstance] addSounds:@"meca1.caf" withKey:@"meca1"];
+    [[ShadSounds getInstance] addSounds:@"meca2.caf" withKey:@"meca2"];
 }
 
 + (void) hideLogo{

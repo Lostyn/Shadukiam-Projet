@@ -18,7 +18,6 @@
     int index = arc4random()%zoneCase.count;
     targetCase = [[zoneCase objectAtIndex:index] intValue];
     
-    NSLog(@"::%d", targetCase);
     visu = [[VisuPlateau alloc] initWithZones:zoneCase andWidth:170 andHeight:95];
     visu.x = 250;
     visu.y = 140;

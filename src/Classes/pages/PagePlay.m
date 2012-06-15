@@ -164,6 +164,7 @@
 }
 
 -(void)gotoGame:(NSTimer *)timer{
+    [[ShadSounds getInstance] playSound:@"meca1" ];
     [[PageManager getInstance] changePage:@"PageSelectPerso"];
 }
 

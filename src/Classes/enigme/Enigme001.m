@@ -153,6 +153,8 @@ static NSString *KEY = @"enigme001Active";
     
     [InfosJoueur gainScore:5];
     [[Plateau getInstance] addSalleAccessible:3];
+    
+    [[ShadSounds getInstance] playSound:@"meca2" ];
 }
 
 /*

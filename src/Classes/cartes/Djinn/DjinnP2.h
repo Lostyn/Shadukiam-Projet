@@ -7,7 +7,13 @@
 //
 
 #import "DefaultDjinn.h"
+#import "VisuPlateau.h"
+#import "Plateau.h"
 
-@interface DjinnP2 : DefaultDjinn
+@interface DjinnP2 : DefaultDjinn {
+    VisuPlateau *visu;
+    NSArray *zoneCase;
+    int targetCase;
+}
 
 @end

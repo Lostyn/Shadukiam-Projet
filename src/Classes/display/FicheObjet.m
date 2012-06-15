@@ -191,6 +191,8 @@
         [self.stage.juggler addObject:tweenGeneral2];
         [self.stage.juggler addObject:tweenFront];
         [self.stage.juggler addObject:tweenBack];
+        
+        [[ShadSounds getInstance] playSound:@"flip" ];
     }
 }
 
@@ -202,6 +204,7 @@
         SPTouch *touch = [touches objectAtIndex:0];
         if (touch.tapCount == 1)
         {
+            [[ShadSounds getInstance] playSound:@"dynamite" ];
             [InfosPartie setPhase:2];
             [InfosJoueur removeObjet:7];
             [[Dialog getInstance] sendMessage:@"phase" sendTo:-1 data:[NSNumber numberWithInt:2]];

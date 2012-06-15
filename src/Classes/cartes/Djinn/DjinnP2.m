@@ -27,8 +27,23 @@
     [debut addEventListener:@selector(nextAnim:) atObject:self forType:SP_EVENT_TYPE_MOVIE_COMPLETED];
     debut.loop = NO;
     
+    
+    //   
+        zoneCase = [[Plateau getInstance] getZonesForSalle:3];
+    
+        int index = arc4random()%zoneCase.count;
+        targetCase = [[zoneCase objectAtIndex:index] intValue];
+    
+        visu = [[VisuPlateau alloc] initWithZones:zoneCase andWidth:170 andHeight:95];
+        visu.x = 250;
+        visu.y = 140;
+        [visu setZoneActive:targetCase];
+        [self addChild:visu];
+    
     [super execute];
     [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(onTimer:) userInfo:nil repeats:false];
+    
+    [[ShadSounds getInstance] playSound:@"caillou" ];
 }
 
 -(void) cancel{

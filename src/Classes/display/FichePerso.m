@@ -130,6 +130,8 @@
         [self.stage.juggler addObject:tweenGeneral2];
         [self.stage.juggler addObject:tweenFront];
         [self.stage.juggler addObject:tweenBack];
+        
+        [[ShadSounds getInstance] playSound:@"flip" ];
     }
 }
 

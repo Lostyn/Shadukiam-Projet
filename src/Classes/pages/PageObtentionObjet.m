@@ -83,6 +83,8 @@
     
     [animFumee play];
     [self.stage.juggler addObject:animFumee];
+    
+    [[ShadSounds getInstance] playSound:@"indice" ];
 }
 
 -(void) fumeeComplete:(SPEvent*) event {
