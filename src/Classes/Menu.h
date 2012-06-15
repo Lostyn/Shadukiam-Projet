@@ -25,5 +25,6 @@
 -(void) setPersoActive:(int) playerIndex;
 -(void) showInfo:(int) playerIndex ofType:(NSString*) type andData:(id) data;
 -(void) hideInfo;
+-(void) removePersos;
 
 @end

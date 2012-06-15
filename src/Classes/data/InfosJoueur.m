@@ -20,6 +20,14 @@ static Boolean showObjets = false;
     objets = [NSMutableArray array];
 }
 
++(void) reinit {
+    myPerso = 0;
+    objets = [NSMutableArray array];
+    currentCase = 0;
+    score = 0;
+    showObjets = false;
+}
+
 + (void) setMyPerso:(int)numPerso {
     myPerso = numPerso;
 }

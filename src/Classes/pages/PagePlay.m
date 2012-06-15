@@ -14,6 +14,10 @@
     [super show];
     [Game hideLogo];
     
+    [[Menu getInstance] removePersos];
+    [InfosPartie reinit];
+    [InfosJoueur reinit];
+    
     SPImage *bg = [SPImage imageWithContentsOfFile:@"bg_start.png"];
     [self addChild:bg];
     

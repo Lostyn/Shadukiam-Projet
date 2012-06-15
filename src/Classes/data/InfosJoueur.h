@@ -24,5 +24,6 @@
 
 + (void) setShowObjets:(Boolean) value;
 + (Boolean) getShowObjets;
++(void) reinit;
 
 @end

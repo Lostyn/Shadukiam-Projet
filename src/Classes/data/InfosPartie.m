@@ -22,6 +22,16 @@ static NSMutableArray* playersOrder;
     finishJ = [NSMutableDictionary dictionary];
 }
 
++(void) reinit {
+    
+    joueurs = [NSMutableDictionary dictionary];
+    finishJ = [NSMutableDictionary dictionary];
+    
+    phase = 1;
+    currentPlayer = 0;
+    currentPlayerIndex = 0;
+}
+
 +(void)addPlayer:(int)numPerso forPlayer:(int)playerID {
     
     NSString *playerIDStr = [NSString stringWithFormat:@"%d", playerID];

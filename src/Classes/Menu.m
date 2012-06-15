@@ -118,4 +118,8 @@ static Menu *instance = nil;
     
 }
 
+-(void) removePersos {
+    [persos removeAllChildren];
+}
+
 @end

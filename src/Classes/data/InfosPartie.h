@@ -23,5 +23,6 @@
 +(void) addFinish:(int)playerID;
 +(NSDictionary*) getFinishJ;
 +(int) getNbFinish;
++(void) reinit;
 
 @end
